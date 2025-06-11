@@ -1,0 +1,1133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2299.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Deli's World - Your Ultimate Makeup Destination&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Tailwind CSS CDN --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Google Fonts - Inter --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f8fafc; /* Light Slate */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.gradient-bg {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(to right, #fecaca, #fbcfe8); /* Pink to Purple Gradient */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.premium-card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.3s ease-in-out;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.premium-card:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-5px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>@apply bg-pink-500 text-white px-6 py-3 rounded-full hover:bg-pink-600 transition-colors duration-300 shadow-lg;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-secondary {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>@apply bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition-colors duration-300;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.article-content img {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 0.75rem; /* rounded-lg */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1.5rem; /* mb-6 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Hide sections by default, show only the active one with JS */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.page-section {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.page-section.active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.premium-content-lock {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>filter: blur(2px); /* Simulate blur for locked content */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>pointer-events: none; /* Disable interaction with blurred content */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.premium-overlay {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>right: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>bottom: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.8);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 0.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(5px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 10;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;header class="gradient-bg py-8 shadow-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Blog Title --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 md:mb-0"&gt;Deli's World&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Navigation --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="flex space-x-6 text-gray-800 text-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;a href="#" class="hover:underline" onclick="showSection('home-section')"&gt;Home&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;a href="#" class="hover:underline" onclick="showSection('blog-posts-list-section')"&gt;Blog Posts&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;a href="#" class="hover:underline" onclick="showSection('about-deli-section')"&gt;About Deli&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;a href="#" class="hover:underline" onclick="showSection('contact-section')"&gt;Contact&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;main class="container mx-auto px-4 py-12"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Home Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="home-section" class="page-section active text-center mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-4xl font-semibold text-gray-800 mb-4"&gt;Welcome to Deli's World of Beauty!&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-lg text-gray-600 max-w-2xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Dive into a realm where beauty knows no bounds. Discover makeup tips, product reviews, and exclusive tutorials.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mt-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-3xl font-semibold text-gray-800 mb-8 text-center"&gt;Featured Post&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Featured Blog Post - Linking to the Foundation Article --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;article class="bg-white rounded-xl shadow-lg overflow-hidden group max-w-xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://i.imgur.com/3t7o6dv.jpeg" alt="Deli's Product Review - Face Powder Shades" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-semibold text-gray-800 mb-2"&gt;My Top 5 Must-Have Foundations of 2025 (Premium!)&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 text-sm mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Unlock my exclusive list of the best foundations for a flawless finish.</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('foundation-article-section')"&gt;Read Premium Article &amp;rarr;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/article&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">             </span>&lt;!-- Call to Action Section - for premium sign-up --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section class="text-center py-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-3xl font-semibold text-gray-800 mb-4"&gt;Ready to Transform Your Look?&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-lg text-gray-600 mb-8"&gt;Join Deli's World today and embark on your beauty journey!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="btn-primary" onclick="showSection('premium-plans-section')"&gt;Explore All Plans&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Blog Posts List Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="blog-posts-list-section" class="page-section mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-3xl font-semibold text-gray-800 mb-8 text-center"&gt;All Blog Posts&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Blog Post 1 (Free) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;article class="bg-white rounded-xl shadow-lg overflow-hidden group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://placehold.co/600x400/F0F0F0/888888?text=Makeup+Look+1" alt="Deli's Makeup Look 1" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-semibold text-gray-800 mb-2"&gt;Mastering the Perfect Smoky Eye&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 text-sm mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Learn the secrets to achieving a stunning smoky eye that lasts all day and night.</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('smoky-eye-article-section')"&gt;Read More &amp;rarr;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Blog Post 2 - My Top 5 Foundations (Premium) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;article class="bg-white rounded-xl shadow-lg overflow-hidden group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://i.imgur.com/3t7o6dv.jpeg" alt="Deli's Product Review - Face Powder Shades" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-semibold text-gray-800 mb-2"&gt;My Top 5 Must-Have Foundations of 2025 &lt;span class="text-xs bg-yellow-300 text-yellow-800 px-2 py-1 rounded-full ml-2"&gt;PREMIUM&lt;/span&gt;&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 text-sm mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Finding the right foundation can be a game-changer. Here are my personal favorites!</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('foundation-article-section')"&gt;Read More &amp;rarr;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Blog Post 3 (Free) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;article class="bg-white rounded-xl shadow-lg overflow-hidden group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://placehold.co/600x400/D0D0D0/666666?text=Beauty+Tips" alt="Deli's Beauty Tips" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-semibold text-gray-800 mb-2"&gt;Quick Beauty Hacks for Busy Mornings&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 text-sm mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>No time for a full face? These quick hacks will get you glowing in minutes.</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('quick-hacks-article-section')"&gt;Read More &amp;rarr;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- NEW Paid Article 1 - Advanced Contouring &amp; Highlighting (Placeholder) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;article class="bg-white rounded-xl shadow-lg overflow-hidden group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://placehold.co/600x400/FFD1DC/FF6B8B?text=Exclusive+Contouring" alt="Exclusive Contouring Tutorial" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-semibold text-gray-800 mb-2"&gt;Advanced Contouring &amp; Highlighting &lt;span class="text-xs bg-yellow-300 text-yellow-800 px-2 py-1 rounded-full ml-2"&gt;PREMIUM&lt;/span&gt;&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 text-sm mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Master the art of sculpting your face with exclusive techniques.</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('contouring-article-section')"&gt;Read More &amp;rarr;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- NEW Paid Article 2 - Pro Makeup Brush Guide &amp; Cleaning (Placeholder) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;article class="bg-white rounded-xl shadow-lg overflow-hidden group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://placehold.co/600x400/CCE6FF/66A3FF?text=Pro+Brush+Guide" alt="Pro Brush Guide" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-semibold text-gray-800 mb-2"&gt;Pro Makeup Brush Guide &amp; Cleaning &lt;span class="text-xs bg-yellow-300 text-yellow-800 px-2 py-1 rounded-full ml-2"&gt;PREMIUM&lt;/span&gt;&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 text-sm mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Every brush you need and how to keep them pristine for flawless application.</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('brush-guide-article-section')"&gt;Read More &amp;rarr;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- NEW Paid Article 3 - Rhode's Glazing Milk &amp; Glass Skin Look --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;article class="bg-white rounded-xl shadow-lg overflow-hidden group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://i.imgur.com/pCcuwk1.jpeg" alt="Rhode Glazing Milk and Glass Skin" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-semibold text-gray-800 mb-2"&gt;Deli Introduces Rhode's Glazing Milk for Glass Skin &lt;span class="text-xs bg-yellow-300 text-yellow-800 px-2 py-1 rounded-full ml-2"&gt;PREMIUM&lt;/span&gt;&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 text-sm mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Discover the secret to achieving that coveted 'glass skin' glow with Rhode's viral products!</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('rhode-article-section')"&gt;Read More &amp;rarr;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- NEW Paid Article 4 - Lipstick Brands --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;article class="bg-white rounded-xl shadow-lg overflow-hidden group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://i.imgur.com/qj12l82.jpeg" alt="Lipstick Brands Feature" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-semibold text-gray-800 mb-2"&gt;Deli's Top 5 Must-Have Lipstick Brands &lt;span class="text-xs bg-yellow-300 text-yellow-800 px-2 py-1 rounded-full ml-2"&gt;PREMIUM&lt;/span&gt;&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 text-sm mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Unveiling my favorite lipstick brands for every mood and occasion!</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('lipstick-article-section')"&gt;Read More &amp;rarr;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                 </span>&lt;!-- NEW Paid Article 5 - Blush &amp; Eyeshadow Brands (Combined) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;article class="bg-white rounded-xl shadow-lg overflow-hidden group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://i.imgur.com/p316oMy.jpeg" alt="Blush &amp; Eyeshadow Brands Feature" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-semibold text-gray-800 mb-2"&gt;Deli's Top 5 Must-Have Blush &amp; Eyeshadow Brands &lt;span class="text-xs bg-yellow-300 text-yellow-800 px-2 py-1 rounded-full ml-2"&gt;PREMIUM&lt;/span&gt;&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 text-sm mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Add a pop of color and define your eyes! Discover my top picks for blush and eyeshadow brands.</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('blush-eyeshadow-article-section')"&gt;Read More &amp;rarr;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- NEW Paid Article 6 - Daya's Blue Eyeshadow &amp; Stars Look --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;article class="bg-white rounded-xl shadow-lg overflow-hidden group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://i.imgur.com/I9Ovaw0.jpeg" alt="Daya Blue Eyeshadow Look" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-semibold text-gray-800 mb-2"&gt;Daya's Dazzling Blue: Eyeshadow &amp; Stars Tutorial &lt;span class="text-xs bg-yellow-300 text-yellow-800 px-2 py-1 rounded-full ml-2"&gt;PREMIUM&lt;/span&gt;&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 text-sm mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Unleash your inner artist with Daya's step-by-step guide to a celestial blue eye look.</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('daya-blue-eyeshadow-article-section')"&gt;Read More &amp;rarr;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- NEW Paid Article 7 - Sophia's Futuristic Tech-Infused Makeup look --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;article class="bg-white rounded-xl shadow-lg overflow-hidden group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://i.imgur.com/vFf6BXE.jpeg" alt="Sophia Futuristic Tech Makeup Look" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-semibold text-gray-800 mb-2"&gt;Sophia's Futuristic Tech-Infused Makeup &lt;span class="text-xs bg-yellow-300 text-yellow-800 px-2 py-1 rounded-full ml-2"&gt;PREMIUM&lt;/span&gt;&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 text-sm mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Step into the future with Sophia's guide to cutting-edge, tech-inspired beauty.</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('sophia-futuristic-tech-makeup-article-section')"&gt;Read More &amp;rarr;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- NEW Paid Article 8 - Deli's Guide to the Sweet Strawberry Makeup Look --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;article class="bg-white rounded-xl shadow-lg overflow-hidden group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://i.imgur.com/FGt7RgU.jpeg" alt="Strawberry Makeup Look Thumbnail" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-semibold text-gray-800 mb-2"&gt;Deli's Guide to the Sweet Strawberry Makeup Look &lt;span class="text-xs bg-yellow-300 text-yellow-800 px-2 py-1 rounded-full ml-2"&gt;PREMIUM&lt;/span&gt;&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 text-sm mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Get ready for the freshest trend! Achieve a youthful, sun-kissed glow with this adorable look.</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('strawberry-makeup-article-section')"&gt;Read More &amp;rarr;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- NEW Paid Article 9 - Dasha Dottie's Bubblegum Pop Look --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;article class="bg-white rounded-xl shadow-lg overflow-hidden group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://i.imgur.com/rDEjbNA.jpeg" alt="Dasha Dottie Bubblegum Pop Makeup" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-semibold text-gray-800 mb-2"&gt;Dasha Dottie's Bubblegum Pop: A Sweet Makeup Journey &lt;span class="text-xs bg-yellow-300 text-yellow-800 px-2 py-1 rounded-full ml-2"&gt;PREMIUM&lt;/span&gt;&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 text-sm mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Join Dasha Dottie for a fun, vibrant tutorial on achieving the ultimate bubblegum pop look!</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('dasha-bubblegum-article-section')"&gt;Read More &amp;rarr;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- NEW Paid Article 10 - Daisy Freckles Look --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;article class="bg-white rounded-xl shadow-lg overflow-hidden group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://i.imgur.com/uQRolwC.jpeg" alt="Daisy Freckles Makeup Look Thumbnail" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-semibold text-gray-800 mb-2"&gt;Deli's Guide to the Charming Daisy Freckles Look &lt;span class="text-xs bg-yellow-300 text-yellow-800 px-2 py-1 rounded-full ml-2"&gt;PREMIUM&lt;/span&gt;&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 text-sm mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Embrace a fresh, whimsical aesthetic with this adorable daisy freckles makeup tutorial!</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('daisy-freckles-article-section')"&gt;Read More &amp;rarr;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- NEW Paid Article 11 - Luna's Luscious Peach: A Sun-Kissed Makeup Guide --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;article class="bg-white rounded-xl shadow-lg overflow-hidden group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://i.imgur.com/sP3csQA.png" alt="Peach Makeup Look Thumbnail" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-semibold text-gray-800 mb-2"&gt;Luna's Luscious Peach: A Sun-Kissed Makeup Guide &lt;span class="text-xs bg-yellow-300 text-yellow-800 px-2 py-1 rounded-full ml-2"&gt;PREMIUM&lt;/span&gt;&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 text-sm mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Discover the warmth and glow of a perfect peach makeup look with artist Luna!</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('peach-makeup-article-section')"&gt;Read More &amp;rarr;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/article&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- NEW Paid Article 12 - Holographic Makeup Look --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;article class="bg-white rounded-xl shadow-lg overflow-hidden group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://i.imgur.com/ET3SbJa.jpeg" alt="Holographic Makeup Look Thumbnail" class="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 group-hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-semibold text-gray-800 mb-2"&gt;Deli's Guide to the Mesmerizing Holographic Makeup Look &lt;span class="text-xs bg-yellow-300 text-yellow-800 px-2 py-1 rounded-full ml-2"&gt;PREMIUM&lt;/span&gt;&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-600 text-sm mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>Step into a world of shifting colors and ethereal glow with this cutting-edge holographic makeup tutorial!</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('holographic-makeup-article-section')"&gt;Read More &amp;rarr;&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/article&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Individual Article Sections --&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- My Top 5 Must-Have Foundations of 2025 (Premium Article) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="foundation-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="showSection('blog-posts-list-section')"&gt;&amp;larr; Back to Blog Posts&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-4xl font-bold text-gray-800 mb-6 text-center"&gt;My Top 5 Must-Have Foundations of 2025 (Premium Content!)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-lg text-gray-700 mb-8 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Exclusively for Deli's VIP members! Finding the perfect foundation is crucial for any makeup look.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>After extensive testing, I'm thrilled to share my top 5 picks for 2025, ensuring flawless coverage and lasting wear.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="article-content max-w-3xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Foundation 1 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;1. Flawless Radiance Liquid Foundation&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/4gzT3f7.gif" alt="Flawless Radiance Liquid Foundation" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>This foundation is a dream come true for anyone seeking a luminous, natural finish. It blends seamlessly into the skin,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>providing medium-to-full coverage that still allows your natural complexion to shine through. I love how it</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>minimizes the appearance of pores and fine lines, making the skin look incredibly smooth. It's also super long-wearing,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>perfect for those long days when you need your makeup to stay put without creasing or fading. Ideal for normal to dry skin types.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Foundation 2 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;2. Everlasting Matte Perfection&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/3t7o6dv.jpeg" alt="Everlasting Matte Perfection Foundation" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>For my oily and combination skin beauties, this is your holy grail! Everlasting Matte Perfection provides</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>an incredible soft-matte finish that controls shine throughout the day without feeling heavy or cakey.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>It offers excellent full coverage, blurring imperfections and redness, making it perfect for events or photoshoots.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Despite its matte finish, it doesn't settle into fine lines and keeps the skin looking fresh. A true game-changer for oily skin.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Foundation 3 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;3. Hydrating Glow Serum Foundation&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/RSR45bz.jpeg" alt="Hydrating Glow Serum Foundation" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>If hydration and a dewy finish are what you're after, look no further. This serum-infused foundation</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>feels incredibly lightweight, almost like a second skin. It provides light-to-medium coverage that</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>evens out your skin tone while giving it a healthy, radiant glow. It's packed with nourishing ingredients</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>that keep your skin moisturized all day, preventing any dry patches. Perfect for those who prefer a</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"no-makeup" makeup look or have drier skin types.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Foundation 4 (Placeholder) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;4. Weightless Buildable Coverage&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://placehold.co/600x400/C0C0C0/555555?text=Foundation+4" alt="Weightless Buildable Coverage Foundation" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>This versatile foundation is my go-to when I need customizable coverage. You can apply a thin layer</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>for a sheer, everyday look, or build it up for full glam without it ever looking heavy. Its formula is</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>incredibly weightless, feeling comfortable on the skin even after hours of wear. It's suitable for</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>most skin types, offering a beautiful satin finish that's neither too matte nor too dewy.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Foundation 5 (Placeholder) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;5. The All-Day Perfection Stick&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://placehold.co/600x400/B0B0B0/444444?text=Foundation+5" alt="All-Day Perfection Stick Foundation" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>For quick touch-ups or targeted coverage, this stick foundation is a lifesaver. Its creamy texture</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>glides smoothly onto the skin, providing excellent coverage that can be blended out with a brush,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>sponge, or even your fingers. It's incredibly convenient for on-the-go applications and offers</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>a natural-looking finish that blurs imperfections. Great for normal to oily skin and those who</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>value speed and efficiency in their routine.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-lg text-gray-700 mt-8 text-center font-semibold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>I hope you enjoyed this exclusive deep dive into my favorite foundations of 2025!</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Stay tuned for more premium beauty content coming soon to Deli's World!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-center mt-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="btn-primary" onclick="showSection('premium-plans-section')"&gt;Become a VIP Member!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Mastering the Perfect Smoky Eye Article (Free Article Placeholder) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="smoky-eye-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="showSection('blog-posts-list-section')"&gt;&amp;larr; Back to Blog Posts&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-4xl font-bold text-gray-800 mb-6 text-center"&gt;Mastering the Perfect Smoky Eye&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;img src="https://placehold.co/800x450/F0F0F0/888888?text=Smoky+Eye+Tutorial" alt="Smoky Eye Tutorial" class="w-full h-48 object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="article-content max-w-3xl mx-auto text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>The smoky eye is a timeless look that can be adapted for any occasion, from a subtle daytime smolder</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>to a dramatic evening statement. The key is blending! Start with a neutral primer to ensure your</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>shadows last all day.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-3"&gt;Step-by-Step Guide:&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="list-disc list-inside mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;Apply a dark base color (black, deep brown, or charcoal grey) to your eyelid.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;Blend a slightly lighter transition shade into your crease, working in circular motions.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;Add a highlight shade to your brow bone and inner corner of your eye.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;Line your upper and lower lash lines with a kohl pencil or gel liner, then smudge for a soft effect.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;Finish with generous coats of mascara.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Experiment with different colors and textures to find your signature smoky eye!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Quick Beauty Hacks for Busy Mornings Article (Free Article Placeholder) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="quick-hacks-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="showSection('blog-posts-list-section')"&gt;&amp;larr; Back to Blog Posts&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-4xl font-bold text-gray-800 mb-6 text-center"&gt;Quick Beauty Hacks for Busy Mornings&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;img src="https://placehold.co/800x450/D0D0D0/666666?text=Quick+Hacks" alt="Quick Beauty Hacks" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="article-content max-w-3xl mx-auto text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Mornings can be a rush, but that doesn't mean you have to sacrifice looking fabulous!</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Here are a few of my go-to hacks for getting ready quickly.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="list-disc list-inside mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Tinted Moisturizer &amp; Concealer:** Skip heavy foundation. Opt for a tinted moisturizer for light coverage and spot conceal where needed.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Cream Blush &amp; Lip Tint:** Use a cream blush on your cheeks and dab a little on your lips for a cohesive, fresh look.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Brow Gel:** Tame and define your brows in seconds with a tinted brow gel.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Curl Lashes &amp; Mascara:** A quick curl and a coat of mascara open up your eyes instantly.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>These simple steps can make a huge difference when you're short on time!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Advanced Contouring &amp; Highlighting Article (NEW Premium Article Placeholder) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="contouring-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="showSection('blog-posts-list-section')"&gt;&amp;larr; Back to Blog Posts&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-4xl font-bold text-gray-800 mb-6 text-center"&gt;Advanced Contouring &amp; Highlighting (Premium Content!)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;img src="https://placehold.co/800x450/FFD1DC/FF6B8B?text=Contouring+Techniques" alt="Advanced Contouring Techniques" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="article-content max-w-3xl mx-auto text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-4 text-center text-red-500 font-bold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>This is premium content! Please subscribe to Deli's VIP Experience to unlock the full article.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Ready to take your contouring and highlighting skills to the next level? This exclusive guide delves</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>into advanced techniques used by professional makeup artists to define and illuminate your features</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>like never before. We'll cover everything from precise product placement to strategic blending for</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>a sculpted, natural finish.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-3"&gt;What You'll Learn:&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="list-disc list-inside mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;Understanding face shapes for customized contouring.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;Cream vs. Powder: When and how to use each for optimal results.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;Advanced nose and jawline sculpting.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;Strategic highlight placement for a radiant glow.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;Blending techniques for a seamless, undetectable finish.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;**(Full content available for VIP members.)**&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-center mt-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="btn-primary" onclick="showSection('premium-plans-section')"&gt;Become a VIP Member!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Pro Makeup Brush Guide &amp; Cleaning Article (NEW Premium Article Placeholder) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="brush-guide-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="showSection('blog-posts-list-section')"&gt;&amp;larr; Back to Blog Posts&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-4xl font-bold text-gray-800 mb-6 text-center"&gt;Pro Makeup Brush Guide &amp; Cleaning (Premium Content!)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;img src="https://placehold.co/800x450/CCE6FF/66A3FF?text=Pro+Brush+Guide" alt="Makeup Brush Guide" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="article-content max-w-3xl mx-auto text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-4 text-center text-red-500 font-bold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>This is premium content! Please subscribe to Deli's VIP Experience to unlock the full article.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Your makeup brushes are essential tools for a flawless application, and knowing which brush to use</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>for what, and how to properly care for them, can elevate your makeup game dramatically. This guide</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>will walk you through my essential collection and best practices for cleaning.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-3"&gt;Inside This Guide:&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="list-disc list-inside mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;The ultimate foundation brushes for every finish.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;Eye brushes: detailed explanations for blending, packing, and lining.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;Face brushes for blush, contour, and highlight.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;My secrets to deep cleaning and maintaining brush longevity.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;**(Full content available for VIP members.)**&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-center mt-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="btn-primary" onclick="showSection('premium-plans-section')"&gt;Become a VIP Member!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Rhode's Glazing Milk &amp; Glass Skin Look Article (NEW Premium Article) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="rhode-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="showSection('blog-posts-list-section')"&gt;&amp;larr; Back to Blog Posts&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-4xl font-bold text-gray-800 mb-6 text-center"&gt;Deli Introduces Rhode's Glazing Milk for Glass Skin (Premium Content!)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;img src="https://i.imgur.com/pCcuwk1.jpeg" alt="Rhode Glazing Milk and Glass Skin" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="article-content max-w-3xl mx-auto text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-4 text-center text-red-500 font-bold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>This is premium content! Please subscribe to Deli's VIP Experience to unlock the full article.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>The "glass skin" trend is all about achieving a complexion so luminous and smooth, it looks almost translucent.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>And let me tell you, Rhode's Glazing Milk has been a game-changer in my routine for achieving exactly that!</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>It's more than just a serum; it's a hydrating, barrier-supporting powerhouse that instantly gives your skin</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>that healthy, dewy glow.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-3"&gt;Why I'm Obsessed with Rhode:&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="list-disc list-inside mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Glazing Milk:** The star product! This lightweight, milky essence is packed with ceramides and peptides. It deeply hydrates, plumps the skin, and strengthens your skin barrier, creating the perfect base for that 'glazed donut' look.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Barrier Restore Cream:** A rich, comforting moisturizer that locks in all the goodness. It's fantastic for dry patches and keeping your skin feeling supple throughout the day.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Peptide Lip Treatment:** Don't forget the lips! These treatments are incredibly nourishing, adding a subtle plumpness and a beautiful sheen.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;**(Full content available for VIP members.)**&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-center mt-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="btn-primary" onclick="showSection('premium-plans-section')"&gt;Become a VIP Member!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Deli's Top 5 Must-Have Lipstick Brands (VIP Unlocked Article) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="lipstick-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="showSection('blog-posts-list-section')"&gt;&amp;larr; Back to Blog Posts&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-4xl font-bold text-gray-800 mb-6 text-center"&gt;Deli's Top 5 Must-Have Lipstick Brands (VIP Exclusive!)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;img src="https://i.imgur.com/qj12l82.jpeg" alt="Lipstick Brands Feature Image 1" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="article-content max-w-3xl mx-auto text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Lipstick is the ultimate accessory! A single swipe can transform your entire look and mood.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>After trying countless formulas and finishes, I've narrowed down my absolute top 5 lipstick brands</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>that consistently deliver on color, comfort, and wear. Get ready to discover your new favorites!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;1. MAC Cosmetics: The Velvety Mattes&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/6nzFZVV.jpeg" alt="MAC Cosmetics Lipstick" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>MAC's matte lipsticks are legendary for a reason. Their Retro Matte and Powder Kiss formulas</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>offer a sophisticated, non-drying matte finish with intense color payoff. From Ruby Woo to Velvet Teddy,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>their iconic shades are a staple in every makeup lover's collection. They wear beautifully for hours.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;2. Charlotte Tilbury: The Hydrating Satins&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/mL4TTN1.jpeg" alt="Charlotte Tilbury Lipstick" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Charlotte Tilbury's K.I.S.S.I.N.G. and Pillow Talk lipsticks are pure luxury. These hydrating satin</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>formulas glide on with a dream-like texture, providing a comfortable wear with a subtle sheen.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>They plump the lips and come in universally flattering shades that make you feel instantly glamorous.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;3. Maybelline SuperStay Matte Ink: Long-Wear Liquids&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/bSdCvRr.jpeg" alt="Maybelline SuperStay Matte Ink Lipstick" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>For a liquid lipstick that truly lasts through meals and beyond, Maybelline's SuperStay Matte Ink is my top pick.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>These offer incredible pigment and a fierce matte finish that won't budge for up to 16 hours.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>The precise applicator makes it easy to get a clean line, and the shade range is fantastic for drugstore options.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;4. Dior Addict Lip Glow: The Glossy Balms&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/BUfynlt.jpeg" alt="Dior Addict Lip Glow" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Dior's Lip Glow and Lip Glow Oil are the epitome of chic, comfortable lip color. These luxurious tinted balms</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>and oils react to your lip's pH to create a custom shade, while providing intense hydration and a beautiful,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>non-sticky glossy finish. Perfect for an effortless, natural-looking pout.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;5. Bite Beauty Lip Lab: Custom Color Creations&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/cVarRfw.gif" alt="Bite Beauty Lip Lab Custom Lipstick Creation" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>While the physical Bite Beauty Lip Labs might be limited, the concept of creating your own custom lipstick</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>is still revolutionary. Imagine choosing your perfect shade, finish (matte, satin, glossy), and even flavor.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>It's an immersive experience that results in a truly personalized lipstick that perfectly matches your vision.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-3xl font-bold text-gray-800 mb-6 mt-10 text-center"&gt;Advanced Lipstick Tips (VIP Exclusive!)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-lg text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>As a VIP member, you get access to my pro tips for flawless, long-lasting lipstick application.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>These techniques will elevate your lip game and ensure your pout looks perfect from day to night!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="list-disc list-inside mb-6 text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Prep is Key:** Always exfoliate your lips gently and follow with a hydrating lip balm. Blot off excess balm before applying color.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Conceal the Edges:** For a super sharp look, lightly apply concealer around the perimeter of your lips with a small brush *after* lipstick application. This cleans up any edges and makes the color pop.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Layering for Longevity:** For maximum wear, apply a thin layer of lipstick, blot with a tissue, lightly dust translucent powder over the tissue, and then apply a second layer of lipstick. This technique "sets" the color.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Ombre Lips:** For a fuller-looking pout, apply a darker liner or lipstick shade to the outer corners and blend it inwards, then apply a lighter shade to the center of your lips. Blend the two shades seamlessly for a beautiful gradient effect.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Fixing Feathering:** If your lipstick tends to bleed or feather, try applying a clear lip primer or a waxy lip pencil just outside your natural lip line before applying color.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Customizing Shades:** Don't be afraid to mix and match! Layering different lipstick shades can create a unique custom color perfectly suited to your mood or outfit.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-lg text-gray-700 mt-8 text-center font-semibold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Master these advanced tips, and your lips will always be the star of the show!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-center mt-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="btn-primary" onclick="showSection('premium-plans-section')"&gt;Become a VIP Member!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- NEW Combined Paid Article: Deli's Top 5 Must-Have Blush &amp; Eyeshadow Brands (VIP UNLOCKED) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="blush-eyeshadow-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="showSection('blog-posts-list-section')"&gt;&amp;larr; Back to Blog Posts&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-4xl font-bold text-gray-800 mb-6 text-center"&gt;Deli's Top 5 Must-Have Blush &amp; Eyeshadow Brands (VIP Exclusive!)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="article-content max-w-3xl mx-auto text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Elevate your entire makeup look with the perfect blush and eyeshadow! These two elements can</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>transform your face, adding dimension, color, and depth. I've curated my top 5 favorite brands for</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>both categories that consistently deliver stunning results for every occasion.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-3xl font-bold text-pink-600 mb-6 mt-10 text-center"&gt;Top 5 Must-Have Blush Brands&lt;/h3&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;1. Rare Beauty Soft Pinch Liquid Blush&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/WIcv6Ct.gif" alt="Rare Beauty Soft Pinch Liquid Blush" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Rare Beauty's liquid blushes are an absolute phenomenon. They are incredibly pigmented,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>so a tiny dot goes a long way, and they blend out effortlessly to a natural, dewy finish.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>The shades are vibrant and flattering on a wide range of skin tones, leaving a beautiful, flushed look.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;2. NARS Blush (Orgasm)&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://placehold.co/600x400/FF69B4/FFFFFF?text=NARS+Blush" alt="NARS Blush Orgasm" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>An iconic classic, NARS Orgasm blush lives up to its hype. This peachy-pink shade with a subtle</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>golden shimmer is universally flattering and gives a gorgeous, natural flush. The finely-milled</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>powder formula blends seamlessly and builds easily for more intensity.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;3. Hourglass Ambient Lighting Blush&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://placehold.co/600x400/DDA0DD/FFFFFF?text=Hourglass+Blush" alt="Hourglass Ambient Lighting Blush" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Hourglass blushes are a luxury experience. They combine the perfect amount of pigment with a</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>diffused, luminous finish thanks to their Ambient Lighting Powder technology. They give a soft,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>airbrushed glow that looks incredibly natural and flattering, never chalky.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;4. Milani Baked Blush&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://placehold.co/600x400/FFA07A/FFFFFF?text=Milani+Blush" alt="Milani Baked Blush" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>For an affordable yet high-performing option, Milani's Baked Blushes are incredible. They offer a beautiful</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>radiant finish, making the cheeks look luminous and healthy. The pigmentation is excellent, and they blend</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>effortlessly, often compared to high-end alternatives. Luminoso is a cult favorite for a reason!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;5. Glossier Cloud Paint&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://placehold.co/600x400/FF6347/FFFFFF?text=Glossier+Blush" alt="Glossier Cloud Paint Blush" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>If you love a sheer, buildable, and incredibly natural-looking flush, Glossier's Cloud Paint is your match.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>These gel-cream blushes are super easy to apply and blend, creating a diffused, watercolor-like effect</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>on the cheeks. They give that coveted "lit-from-within" glow and are perfect for a minimalist makeup routine.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-3xl font-bold text-pink-600 mb-6 mt-10 text-center"&gt;Top 5 Must-Have Eyeshadow Brands&lt;/h3&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;1. Natasha Denona: The Pigment Queen&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://placehold.co/600x400/8A2BE2/FFFFFF?text=Natasha+Denona+Palette" alt="Natasha Denona Eyeshadow Palette" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Natasha Denona palettes are a splurge, but they are absolutely worth every penny for their unparalleled</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>pigmentation and effortless blendability. Her eyeshadows feel like butter and truly pack a punch of color,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>whether you're working with mattes, shimmers, or metallics. They make creating complex looks a breeze.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;2. Pat McGrath Labs: The Luxe Shimmers&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://placehold.co/600x400/B22222/FFFFFF?text=Pat+McGrath+Eyeshadow" alt="Pat McGrath Labs Eyeshadow" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>For truly mesmerizing metallics and glitters, Pat McGrath Labs is unmatched. Her Mothership palettes</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>feature some of the most unique and dazzling special shades you'll ever encounter. The quality is supreme,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>and a single swipe delivers an intense, multi-dimensional sparkle that elevates any eye look.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;3. Anastasia Beverly Hills: The Blending Master&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://placehold.co/600x400/DDA0DD/FFFFFF?text=ABH+Palette" alt="Anastasia Beverly Hills Eyeshadow Palette" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Anastasia Beverly Hills palettes are known for their exceptional blendability and carefully curated color stories.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Their matte shades are particularly easy to work with, allowing for seamless transitions and diffused edges.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Palettes like Modern Renaissance are a classic for a reason, offering versatile looks.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;4. ColourPop Cosmetics: Affordable Quality&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://placehold.co/600x400/ADD8E6/00008B?text=ColourPop+Eyeshadow" alt="ColourPop Eyeshadow" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>ColourPop continually impresses with its innovative formulas and vast range of affordable eyeshadows.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Their Super Shock Shadows are a unique bouncy cream-to-powder formula that applies beautifully with fingers,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>delivering intense shimmer. Their pressed powder palettes also offer great quality for the price.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;5. Urban Decay: The Long-Wear Legends&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://placehold.co/600x400/808080/FFFFFF?text=Urban+Decay+Palette" alt="Urban Decay Eyeshadow Palette" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Urban Decay palettes, especially the Naked series, revolutionized eyeshadow. They are celebrated for their</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>smooth formulas, blendability, and impressive longevity. Their eyeshadows truly stay put all day without</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>creasing, making them a reliable choice for any look.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-lg text-gray-700 mt-8 text-center font-semibold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Master the art of color with these incredible blush and eyeshadow brands!</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Stay tuned for more premium beauty content coming soon to Deli's World!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-center mt-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="btn-primary" onclick="showSection('premium-plans-section')"&gt;Become a VIP Member!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- NEW Paid Article 7 - Daya's Dazzling Blue: Eyeshadow &amp; Stars Look --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="daya-blue-eyeshadow-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="showSection('blog-posts-list-section')"&gt;&amp;larr; Back to Blog Posts&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-4xl font-bold text-gray-800 mb-6 text-center"&gt;Daya's Dazzling Blue: Eyeshadow &amp; Stars Tutorial (VIP Exclusive!)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="article-content max-w-3xl mx-auto text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Hello, gorgeous! Daya here, ready to take you on a cosmic journey with this enchanting blue eyeshadow</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>and star-studded look. It's perfect for making a statement, whether it's a special event or just</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>when you want to feel truly magical.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 1: Prep &amp; Prime&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/I9Ovaw0.jpeg" alt="Daya Blue Eyeshadow Step 1" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Start with a clean, moisturized eyelid. Apply a good quality eyeshadow primer to create a smooth</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>base and ensure your colors pop and last all night. This step is crucial for intense pigment!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 2: Laying Down the Blue Base&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Using a flat eyeshadow brush, pack a vibrant matte electric blue eyeshadow all over your eyelid,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>extending slightly into the crease. Don't be shy with the color; we want maximum impact!</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Blend the edges softly with a fluffy brush to avoid harsh lines.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 3: Deepening the Outer Corner &amp; Lower Lash Line&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Take a deeper, navy blue or indigo eyeshadow on a smaller, denser brush and apply it to the</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>outer corner of your eye, blending it into the crease to add depth. Lightly extend this shade</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>onto your lower lash line, connecting it to the upper lid for a cohesive look.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 4: Adding the Shimmer &amp; Inner Corner Pop&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>With your finger or a dense flat brush, press a shimmery or metallic blue eyeshadow onto the</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>center of your eyelid, focusing on the mobile lid. For an extra pop, add a touch of iridescent</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>blue or silver shimmer to your inner corner.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 5: The Star Application&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/nB8rNoT.jpeg" alt="Daya Blue Eyeshadow Step 5" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>This is where the magic happens! Using a very thin brush and cosmetic adhesive (like a lash glue</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>that dries clear), carefully pick up small blue star glitters or sequins. Strategically place</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>them around your outer eye area, extending towards your temple, and a few on your lower lash line</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>for a whimsical, celestial effect. Be precise to ensure they lay flat.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 6: Liner, Lashes &amp; Finishing Touches&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Complete the look with a sharp black liquid eyeliner, creating a winged liner for drama.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Apply generous coats of black mascara, and add a pair of voluminous false lashes for ultimate impact.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Keep the rest of your face relatively simple to let your eyes be the star! A nude lip is perfect.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-lg text-gray-700 mt-8 text-center font-semibold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>And there you have it! A dazzling blue eyeshadow and stars look that's sure to turn heads.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Feel free to experiment with different colored stars or glitter for your own unique twist.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Enjoy your VIP access, and stay tuned for more exclusive tutorials!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-center mt-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="btn-primary" onclick="showSection('premium-plans-section')"&gt;Become a VIP Member!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- NEW Paid Article 8 - Deli's Guide to the Sweet Strawberry Makeup Look --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="strawberry-makeup-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="showSection('blog-posts-list-section')"&gt;&amp;larr; Back to Blog Posts&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-4xl font-bold text-gray-800 mb-6 text-center"&gt;Deli's Guide to the Sweet Strawberry Makeup Look (VIP Exclusive!)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="article-content max-w-3xl mx-auto text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Get ready to look as sweet and fresh as a strawberry! This trending makeup look is all about</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>achieving a youthful, sun-kissed, and subtly flushed complexion, reminiscent of ripe strawberries.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>It's natural, vibrant, and perfect for spring and summer. Let's dive into how to achieve this adorable style.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 1: Fresh, Dewy Skin Base&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/FGt7RgU.jpeg" alt="Strawberry Makeup Base" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>The foundation of this look is glowing, healthy skin. Opt for a lightweight tinted moisturizer,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>BB cream, or a dewy-finish foundation. Focus on evening out your skin tone rather than heavy coverage.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Conceal only where absolutely necessary. Finish with a hydrating setting spray to lock in the dewiness.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 2: The Signature Strawberry Blush&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/9fcRH0K.gif" alt="Strawberry Makeup Blush Application" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>This is the star of the show! Choose a vibrant liquid or cream blush in a berry, strawberry-red,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>or bright pink shade. Apply it generously across the apples of your cheeks, extending slightly</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>upwards towards your temples, and lightly across the bridge of your nose. This mimics a natural,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>sun-kissed flush. Blend well for a seamless, diffused effect.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 3: Faux Freckles (Optional, but Adorable!)&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>To enhance the natural, youthful charm of this look, consider adding faux freckles.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Use a freckle pen, a brow pen, or even a soft brown eyeliner pencil. Dot small, irregular</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>marks across your nose and cheeks where the blush is most concentrated. Gently tap with your</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>finger to blend and soften them for a more natural appearance.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 4: Sweet &amp; Simple Eyes&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Keep the eyes minimal and fresh to let the blush shine. A sheer wash of a soft pink or</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>peachy eyeshadow across the lids is perfect. A subtle winged liner using a brown or black liquid</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>liner can define the eyes, and a few coats of mascara will open them up.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 5: Juicy, Glossy Lips&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/OFjC7DY.jpeg" alt="Strawberry Makeup Glossy Lips" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Complete the look with juicy, hydrated lips. Opt for a tinted lip balm or a sheer lip gloss</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>in a cherry red, berry, or pink shade. The goal is a plump, succulent finish that complements</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>the flushed cheeks.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-lg text-gray-700 mt-8 text-center font-semibold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>And there you have it – the delightful Strawberry Makeup Look! It's fresh, youthful, and</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>radiant, perfect for any sunny day. Enjoy your VIP access to this sweet tutorial!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-center mt-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="btn-primary" onclick="showSection('premium-plans-section')"&gt;Become a VIP Member!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- NEW Paid Article 9 - Dasha Dottie's Bubblegum Pop Look --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="dasha-bubblegum-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="showSection('blog-posts-list-section')"&gt;&amp;larr; Back to Blog Posts&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-4xl font-bold text-gray-800 mb-6 text-center"&gt;Dasha Dottie's Bubblegum Pop: A Sweet Makeup Journey (VIP Exclusive!)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="article-content max-w-3xl mx-auto text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Get ready to dial up the fun and embrace a burst of color with Dasha Dottie's signature</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Bubblegum Pop makeup look! This playful style is all about vibrant hues, graphic lines,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>and a youthful, energetic vibe. Perfect for festivals, parties, or when you just want to express</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>your inner candy-colored dream.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 1: Prepare Your Canvas&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/rDEjbNA.jpeg" alt="Dasha Dottie Bubblegum Pop Step 1" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Start with a clean, primed face. For this look, a smooth, slightly matte base works best to</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>make the colors truly pop. Apply your favorite foundation and concealer, setting it lightly</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>with translucent powder. Lightly fill in your brows, keeping them natural to balance the bold eyes.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 2: Electric Eye Base&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Pick a vibrant, opaque eyeshadow primer or a white cream shadow base. Apply it all over your eyelid</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>up to the brow bone. This will ensure your bright eyeshadows appear true to color and stay put.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Then, apply a bright matte pink or fuchsia eyeshadow across your entire lid and slightly into the crease,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>blending the edges softly.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 3: Graphic Eyeliner Fun&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/f4Oh7sX.jpeg" alt="Dasha Dottie Bubblegum Pop Eyeliner" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>This is where the 'pop' comes in! Using a bright, opaque liquid eyeliner (think electric blue,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>lime green, or even white), create a sharp, dramatic winged liner. You can stop there, or for an</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>extra playful touch, add a second, thinner graphic line above the first, following the curve</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>of your crease, or draw a small star in the outer corner. Precision is key here!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 4: Lower Lash Line Pop&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Take a contrasting bright color, like a matte purple or orange eyeshadow, on a small detail brush.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Smudge it along your lower lash line to tie the look together and add another unexpected pop of color.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Blend it softly so it looks intentional, not messy.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 5: Lashes, Lashes, Lashes!&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/1EB5yig.jpeg" alt="Dasha Dottie Bubblegum Pop Lashes" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Complete the eyes with a generous coat of black mascara. For that extra doll-like, bubblegum pop effect,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>apply a pair of dramatic, fluttery false lashes. The bigger, the better for this look!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 6: Candy-Coated Lips &amp; Cheeks&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/us81o2Y.png" alt="Dasha Dottie Bubblegum Pop Lips" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Keep the lips fun but not overwhelming. A glossy pink or nude lip gloss works perfectly.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>For cheeks, apply a matching bubblegum pink blush lightly on the apples of your cheeks, blending</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>it upwards. A touch of iridescent highlight on the high points of your face will add to the whimsical vibe.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-lg text-gray-700 mt-8 text-center font-semibold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>And there you have it – Dasha Dottie's Bubblegum Pop Look! It's bold, fun, and totally on trend.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Feel free to play with different color combinations to truly make it your own.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Enjoy your VIP access, and stay tuned for more exclusive tutorials!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-center mt-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="btn-primary" onclick="showSection('premium-plans-section')"&gt;Become a VIP Member!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- NEW Paid Article 10 - Daisy Freckles Look --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="daisy-freckles-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="showSection('blog-posts-list-section')"&gt;&amp;larr; Back to Blog Posts&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-4xl font-bold text-gray-800 mb-6 text-center"&gt;Deli's Guide to the Charming Daisy Freckles Look (VIP Exclusive!)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="article-content max-w-3xl mx-auto text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Embrace a fresh, whimsical aesthetic with this adorable daisy freckles makeup tutorial!</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Perfect for adding a touch of playful charm to your everyday look or for a special occasion.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 1: Fresh, Luminous Base&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/uQRolwC.jpeg" alt="Daisy Freckles Makeup Base" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Start with a light-to-medium coverage foundation or tinted moisturizer to allow your natural skin</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>to show through. The goal is a fresh, dewy base. Conceal any blemishes or dark circles, but keep it minimal.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Lightly set with a translucent powder only in oily areas.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 2: Gentle Blush &amp; Highlight&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Apply a soft, peachy-pink blush to the apples of your cheeks, blending gently upwards.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>A liquid or cream blush works beautifully for a natural flush. Add a subtle highlight to your</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>cheekbones and the bridge of your nose for a healthy glow.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 3: Creating the Freckles&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/Gq4TFc4.jpeg" alt="Daisy Freckles Creation" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>This is the fun part! Use a freckle pen, a brow pen, or a very fine-tipped brown eyeliner pencil.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Start by dotting small, irregular freckles across your nose and cheeks, where the sun would naturally hit.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Vary the size and intensity to make them look realistic. Gently tap over them with your finger to blur</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>and soften them.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 4: The Daisy Details&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>For the tiny daisy accents, you'll need a very fine detail brush and white liquid eyeliner or white</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>face paint. Draw tiny daisy shapes (a small dot for the center, and a few tiny petals around it)</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>strategically placed among your freckles, perhaps on the cheekbones or temples. You can add a tiny</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>yellow dot in the center of each daisy for extra detail.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 5: Soft Eyes &amp; Lips&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Keep the rest of your makeup understated to let the freckles and daisies shine. A natural</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>eyeshadow look with a touch of mascara is perfect. For lips, opt for a clear gloss or a sheer,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>natural-toned lip balm.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-lg text-gray-700 mt-8 text-center font-semibold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>And there you have it – the charming Daisy Freckles Look! It's perfect for a playful,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>ethereal vibe. Enjoy your VIP access to this whimsical tutorial!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-center mt-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="btn-primary" onclick="showSection('premium-plans-section')"&gt;Become a VIP Member!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- NEW Paid Article 11 - Luna's Luscious Peach: A Sun-Kissed Makeup Guide --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="peach-makeup-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="showSection('blog-posts-list-section')"&gt;&amp;larr; Back to Blog Posts&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-4xl font-bold text-gray-800 mb-6 text-center"&gt;Luna's Luscious Peach: A Sun-Kissed Makeup Guide (VIP Exclusive!)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="article-content max-w-3xl mx-auto text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Hello, sunshine! Luna here, and I'm thrilled to share my secrets to achieving the freshest,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>most radiant "Peach Makeup Look." This trend is all about embracing warm, soft, and juicy</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>peach tones across your eyes, cheeks, and lips for an effortlessly glowing complexion. It's</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>universally flattering and perfect for brightening up any day!</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 1: Peachy Keen Base&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/sP3csQA.png" alt="Peach Makeup Base" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Start with a luminous or dewy foundation to give your skin a natural glow. If you prefer,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>a tinted moisturizer will also work. The goal is fresh, healthy-looking skin, not heavy coverage.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Apply a light layer, blending seamlessly.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 2: Warm Eye Tones&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/YvqxMI2.jpeg" alt="Peach Eyeshadow Application" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>For the eyes, choose a palette with soft peach, coral, and warm brown shades.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Apply a matte peach shade all over your lid as a base. Deepen the crease with a slightly</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>warmer brown or terracotta shade for dimension. A shimmer peach or gold on the center of the lid</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>and inner corner will add brightness. Finish with a soft brown eyeliner and a touch of mascara.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 3: Flushed Peach Cheeks&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/3GvBV7n.jpeg" alt="Peach Blush Application" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>The cheeks are vital for this look! Opt for a cream or liquid blush in a true peach, coral,</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>or apricot shade. Apply it generously to the apples of your cheeks, extending slightly</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>upwards towards your temples, and you can even extend it slightly across the bridge of your nose for a sun-kissed effect.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="text-2xl font-semibold text-pink-600 mb-4"&gt;Step 4: Soft &amp; Juicy Lips&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="https://i.imgur.com/us81o2Y.png" alt="Peach Lip Gloss Application" class="w-full h-auto object-cover rounded-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Complete the look with juicy, hydrated lips. Opt for a tinted lip balm or a sheer lip gloss</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>in a cherry red, berry, or pink shade. The goal is a plump, succulent finish that complements</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>the flushed cheeks.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-3xl font-bold text-gray-800 mb-6 mt-10 text-center"&gt;Advanced Peach Makeup Tips (VIP Exclusive!)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-lg text-gray-700 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Ready to take your peach look to the next level? Here are some extra tips to master this radiant style:</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="list-disc list-inside mb-6 text-gray-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Monochromatic Magic:** For a truly cohesive look, use the same liquid or cream peach blush on your eyelids as a base before eyeshadow. This ties everything together beautifully.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Subtle Inner Corner Pop:** Instead of a traditional highlight, use a very light, shimmery peach or champagne eyeshadow on your inner corner to brighten the eyes.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Warm Bronzer Contour:** Instead of a cool-toned contour, use a warm, peachy-toned bronzer to softly sculpt the face. This enhances the overall warmth of the look.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Glossy Lids (for editorial):** For a more editorial or high-fashion peach look, apply a thin layer of clear lip gloss or a dedicated eye gloss over your peach eyeshadow. This creates a dewy, reflective finish.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Pair with Peach Accessories:** To really lean into the aesthetic, consider wearing peach-toned clothing or accessories that complement your makeup.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li class="mb-2"&gt;**Layering Liquid and Powder Blush:** For ultimate longevity and intensity, apply a liquid/cream peach blush first, set it lightly with a translucent powder, and then layer a matching powder peach blush on top.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-lg text-gray-700 mt-8 text-center font-semibold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>Embrace the warmth and freshness of the peach look! Enjoy your VIP access to these exclusive tips.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="text-center mt-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="btn-primary" onclick="showSection('premium-plans-section')"&gt;Become a VIP Member!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- About Deli Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="about-deli-section" class="page-section text-center mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-4xl font-semibold text-gray-800 mb-4"&gt;About Deli&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;img src="https://placehold.co/300x300/FDCEDF/B44D6C?text=Deli" alt="About Deli" class="rounded-full mx-auto mb-6 w-48 h-48 object-cover"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-lg text-gray-600 max-w-2xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Hello beautiful people! I'm Deli, and makeup is my passion.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>From discovering the latest trends to sharing my honest product reviews,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>I'm here to guide you through the wonderful world of beauty.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Deli's World is my space to connect with you, share my expertise,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>and help you feel confident and beautiful in your own skin.</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Thank you for being here!</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Contact Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="contact-section" class="page-section text-center mb-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-4xl font-semibold text-gray-800 mb-4"&gt;Contact Deli&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-lg text-gray-600 max-w-xl mx-auto mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Have a question, a beauty dilemma, or just want to say hi?</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Fill out the form below or reach out via my social media!</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;form class="max-w-md mx-auto bg-white p-8 rounded-xl shadow-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="name" class="block text-gray-700 text-left text-sm font-bold mb-2"&gt;Name:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Your Name"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="email" class="block text-gray-700 text-left text-sm font-bold mb-2"&gt;Email:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="your@example.com"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="message" class="block text-gray-700 text-left text-sm font-bold mb-2"&gt;Message:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;textarea id="message" name="message" rows="5" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Your message..."&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button type="submit" class="btn-primary"&gt;Send Message&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/form&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Premium Plans Section (Visible when exploring plans) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="premium-plans-section" class="page-section text-center mb-16 py-12 px-6 gradient-bg rounded-2xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="showSection('home-section')"&gt;&amp;larr; Back to Home&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 class="text-4xl font-bold text-gray-800 mb-6"&gt;Unlock Deli's Premium World!&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-xl text-gray-800 max-w-3xl mx-auto mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Gain exclusive access to in-depth tutorials, personalized product recommendations,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>one-on-one Q&amp;A sessions, and early access to new content. Elevate your beauty game!</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Premium Tier 1 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="premium-card p-8 flex flex-col items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="text-2xl font-bold text-pink-600 mb-4"&gt;Basic Beauty Access&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-gray-700 text-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>Access to all premium blog posts and monthly live Q&amp;A.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-4xl font-bold text-gray-900 mb-6"&gt;$9.99&lt;span class="text-lg font-normal text-gray-500"&gt;/month&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="btn-primary" onclick="window.location.href='https://buy.stripe.com/5kQeVd7C62C2cFMc1w3cc02'"&gt;Subscribe Now&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Premium Tier 2 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="premium-card p-8 flex flex-col items-center border-4 border-pink-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="text-3xl font-bold text-pink-700 mb-4"&gt;Deli's VIP Experience&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-gray-700 text-lg mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>Everything in Basic Beauty Access, plus personalized tutorials,</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>early content, and exclusive product discounts.</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-5xl font-bold text-gray-900 mb-6"&gt;$19.99&lt;span class="text-xl font-normal text-gray-500"&gt;/month&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="btn-primary" onclick="window.location.href='https://buy.stripe.com/6oU9AT4pUccC0X48Pk3cc01'"&gt;Go VIP!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer class="bg-gray-800 text-white py-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container mx-auto px-4 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&amp;copy; 2025 Deli's World. All rights reserved.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex justify-center space-x-6 mt-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#" class="hover:text-pink-400"&gt;Privacy Policy&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#" class="hover:text-pink-400"&gt;Terms of Service&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// JavaScript for simple page routing</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showSection(sectionId) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Hide all sections</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.querySelectorAll('.page-section').forEach(section =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>section.classList.remove('active');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Show the requested section</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const targetSection = document.getElementById(sectionId);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (targetSection) { // Check if the element exists</p>
+<p class="p1"><span class="Apple-converted-space">                </span>targetSection.classList.add('active');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>window.scrollTo(0, 0); // Scroll to top of the page</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Initially show the home section</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>showSection('home-section');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
