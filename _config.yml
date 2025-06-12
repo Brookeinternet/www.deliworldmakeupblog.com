@@ -1,1 +1,5 @@
 theme: jekyll-theme-minimal
+---
+layout: default
+---
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
