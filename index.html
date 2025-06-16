@@ -1615,4 +1615,98 @@
       </div>
     </section>
 <!-- END BLOCK 16 -->
+<ul class="space-y-4">
+  <!-- Free Article Example -->
+  <li>
+    <a href="#" onclick="openArticle('smoky-eye-article-section', 'free')" class="font-bold hover:underline">Mastering the Perfect Smoky Eye</a>
+    <span class="ml-2 px-2 py-1 rounded-full text-xs bg-green-100 text-green-800">Free</span>
+  </li>
+  <!-- Basic & VIP Article Example -->
+  <li>
+    <a href="#" onclick="openArticle('contouring-article-section', 'basic')" class="font-bold hover:underline">Advanced Contouring & Highlighting</a>
+    <span class="ml-2 px-2 py-1 rounded-full text-xs bg-blue-100 text-blue-800">Basic & VIP</span>
+  </li>
+  <!-- VIP Article Example -->
+  <li>
+    <a href="#" onclick="openArticle('foundation-article-section', 'vip')" class="font-bold hover:underline">My Top 5 Must-Have Foundations of 2025</a>
+    <span class="ml-2 px-2 py-1 rounded-full text-xs bg-pink-100 text-pink-800">VIP</span>
+  </li>
+  <!-- Add more articles similarly... -->
+</ul>
 
+<!-- Article Sections (example for one article) -->
+<section id="smoky-eye-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16" style="display:none;">
+  <a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="closeArticle()">&larr; Back to Blog Posts</a>
+  <h3 class="text-4xl font-bold text-gray-800 mb-6 text-center">Mastering the Perfect Smoky Eye</h3>
+  <div class="article-content">
+    <p>This is a free article. Anyone can read it!</p>
+  </div>
+</section>
+<section id="contouring-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16" style="display:none;">
+  <a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="closeArticle()">&larr; Back to Blog Posts</a>
+  <h3 class="text-4xl font-bold text-gray-800 mb-6 text-center">Advanced Contouring & Highlighting</h3>
+  <div class="article-content">
+    <p>This article is for Basic & VIP members.</p>
+  </div>
+</section>
+<section id="foundation-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16" style="display:none;">
+  <a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="closeArticle()">&larr; Back to Blog Posts</a>
+  <h3 class="text-4xl font-bold text-gray-800 mb-6 text-center">My Top 5 Must-Have Foundations of 2025</h3>
+  <div class="article-content">
+    <p>This is a VIP article. You need to be a VIP member to read it.</p>
+  </div>
+</section>
+<!-- ...more article sections... -->
+
+<!-- Overlay for Locked Content -->
+<div id="locked-overlay" class="fixed inset-0 bg-white bg-opacity-90 z-50 flex flex-col items-center justify-center" style="display:none;">
+  <div class="text-center">
+    <h3 class="text-2xl font-bold text-gray-700 mb-4" id="locked-message"></h3>
+    <button class="btn-primary" onclick="closeLockedOverlay()">Back to Blog Posts</button>
+  </div>
+</div>
+
+<script>
+  // Simulate user tier: 'free', 'basic', 'vip'
+  var userTier = 'free'; // Set this after login/auth
+
+  function openArticle(sectionId, requiredTier) {
+    // Hide all article sections first
+    document.querySelectorAll('.page-section').forEach(function(sec) {
+      sec.style.display = 'none';
+    });
+
+    // Check permissions
+    var canView = false;
+    if (requiredTier === 'free') {
+      canView = true;
+    } else if (requiredTier === 'basic' && (userTier === 'basic' || userTier === 'vip')) {
+      canView = true;
+    } else if (requiredTier === 'vip' && userTier === 'vip') {
+      canView = true;
+    }
+
+    if (canView) {
+      document.getElementById(sectionId).style.display = 'block';
+    } else {
+      // Show locked overlay with appropriate message
+      var msg = '';
+      if (requiredTier === 'basic') msg = 'This article is for Basic & VIP members only.';
+      if (requiredTier === 'vip') msg = 'This article is for VIP members only.';
+      document.getElementById('locked-message').textContent = msg;
+      document.getElementById('locked-overlay').style.display = 'flex';
+    }
+  }
+
+  function closeArticle() {
+    // Hide all article sections
+    document.querySelectorAll('.page-section').forEach(function(sec) {
+      sec.style.display = 'none';
+    });
+  }
+
+  function closeLockedOverlay() {
+    document.getElementById('locked-overlay').style.display = 'none';
+    closeArticle();
+  }
+</script>
