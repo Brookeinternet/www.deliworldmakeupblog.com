@@ -819,49 +819,65 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body class="bg-gray-50">
-  <main class="max-w-2xl mx-auto py-8 px-4 bg-white rounded-xl shadow-lg">
-    <h1 class="text-3xl font-bold text-blue-700 mb-4">Midnight Muse: Deep Blue & Smoky Indigo Makeup</h1>
-    <p class="text-lg text-gray-700 mb-8">
-      Dive into the depths of dramatic beauty with this Midnight Muse look! Rich navy and indigo hues, paired with smoky blending and subtle sparkle, create an alluring and mysterious vibe—perfect for evening events or whenever you want to channel your inner night goddess.
-    </p>
+  <main class="max-w-2xl mx-auto py-8 px-4 bg-white rounded-xl shadow-lg relative">
+    <!-- VIP Lock Overlay -->
+    <div class="absolute inset-0 bg-white/80 flex flex-col items-center justify-center z-20 pointer-events-auto">
+      <svg class="w-12 h-12 mb-4 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 17a1.5 1.5 0 001.5-1.5V14a1.5 1.5 0 00-3 0v1.5A1.5 1.5 0 0012 17zm6-6V9a6 6 0 10-12 0v2a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2v-6a2 2 0 00-2-2zM6 9a6 6 0 1112 0v2"></path>
+      </svg>
+      <div class="text-xl font-bold text-blue-700 mb-2">VIP Tutorial</div>
+      <div class="text-gray-700 mb-6 text-center max-w-xs">
+        This article is for VIP members only.<br>
+        Upgrade your plan to unlock the full tutorial!
+      </div>
+      <a href="/#premium-plans-section" class="btn-primary px-6 py-2 rounded-lg font-semibold text-white bg-blue-700 hover:bg-blue-800 transition">
+        Upgrade to VIP
+      </a>
+    </div>
+    <!-- Blurred & Dimmed Content -->
+    <div class="filter blur-sm opacity-60 pointer-events-none select-none">
+      <h1 class="text-3xl font-bold text-blue-700 mb-4">Midnight Muse: Deep Blue & Smoky Indigo Makeup</h1>
+      <p class="text-lg text-gray-700 mb-8">
+        Dive into the depths of dramatic beauty with this Midnight Muse look! Rich navy and indigo hues, paired with smoky blending and subtle sparkle, create an alluring and mysterious vibe—perfect for evening events or whenever you want to channel your inner night goddess.
+      </p>
 
-    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 1: Velvet Base</h4>
-    <img src="https://i.imgur.com/9f5r3K1.jpeg" alt="Midnight Muse Velvet Base" class="w-full h-auto object-cover rounded-lg mb-6">
-    <p class="text-gray-700 mb-6">
-      Prepare skin with a smoothing primer and a satin-finish foundation. Use concealer to brighten under the eyes and set with a touch of translucent powder for a flawless, velvety canvas.
-    </p>
+      <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 1: Velvet Base</h4>
+      <img src="https://i.imgur.com/9f5r3K1.jpeg" alt="Midnight Muse Velvet Base" class="w-full h-auto object-cover rounded-lg mb-6">
+      <p class="text-gray-700 mb-6">
+        Prepare skin with a smoothing primer and a satin-finish foundation. Use concealer to brighten under the eyes and set with a touch of translucent powder for a flawless, velvety canvas.
+      </p>
 
-    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 2: Indigo Smoky Eyes</h4>
-    <p class="text-gray-700 mb-6">
-      Blend deep navy and indigo shadows across the lids and into the crease, smoking outwards for a winged effect. Deepen the outer corners with a matte black, and add a hint of silver or navy shimmer to the center of the lid for dimension.
-    </p>
+      <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 2: Indigo Smoky Eyes</h4>
+      <p class="text-gray-700 mb-6">
+        Blend deep navy and indigo shadows across the lids and into the crease, smoking outwards for a winged effect. Deepen the outer corners with a matte black, and add a hint of silver or navy shimmer to the center of the lid for dimension.
+      </p>
 
-    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 3: Inky Liner & Lush Lashes</h4>
-    <img src="https://i.imgur.com/HQ6jptQ.jpeg" alt="Midnight Muse Liner Lashes" class="w-full h-auto object-cover rounded-lg mb-6">
-    <p class="text-gray-700 mb-6">
-      Sweep a jet-black or navy gel liner along the upper and lower lash lines, smudging slightly for a sultry finish. Apply several coats of volumizing mascara or add dramatic false lashes.
-    </p>
+      <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 3: Inky Liner & Lush Lashes</h4>
+      <img src="https://i.imgur.com/HQ6jptQ.jpeg" alt="Midnight Muse Liner Lashes" class="w-full h-auto object-cover rounded-lg mb-6">
+      <p class="text-gray-700 mb-6">
+        Sweep a jet-black or navy gel liner along the upper and lower lash lines, smudging slightly for a sultry finish. Apply several coats of volumizing mascara or add dramatic false lashes.
+      </p>
 
-    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 4: Cool Contour & Soft Highlight</h4>
-    <p class="text-gray-700 mb-6">
-      Use a cool-toned contour powder to sculpt the cheeks, jawline, and temples. Add a silvery or icy highlighter to the high points of the face for an ethereal glow.
-    </p>
+      <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 4: Cool Contour & Soft Highlight</h4>
+      <p class="text-gray-700 mb-6">
+        Use a cool-toned contour powder to sculpt the cheeks, jawline, and temples. Add a silvery or icy highlighter to the high points of the face for an ethereal glow.
+      </p>
 
-    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 5: Berry or Nude Lips</h4>
-    <p class="text-gray-700 mb-6">
-      Pair your bold eye look with a deep berry lipstick for drama, or a soft nude gloss for balance. Add a dab of highlighter to the cupid’s bow for extra allure.
-    </p>
+      <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 5: Berry or Nude Lips</h4>
+      <p class="text-gray-700 mb-6">
+        Pair your bold eye look with a deep berry lipstick for drama, or a soft nude gloss for balance. Add a dab of highlighter to the cupid’s bow for extra allure.
+      </p>
 
-    <p class="text-lg text-gray-700 mt-8 text-center font-semibold">
-      You’re ready to mesmerize with your Midnight Muse look! Share your creation with <span class="text-blue-600 font-bold">#DelisWorldVIP</span> for a chance to be featured.
-    </p>
-    <div class="text-center mt-12">
-      <button class="btn-primary" onclick="showSection('premium-plans-section')">Become a VIP Member!</button>
+      <p class="text-lg text-gray-700 mt-8 text-center font-semibold">
+        You’re ready to mesmerize with your Midnight Muse look! Share your creation with <span class="text-blue-600 font-bold">#DelisWorldVIP</span> for a chance to be featured.
+      </p>
+      <div class="text-center mt-12">
+        <button class="btn-primary" onclick="showSection('premium-plans-section')">Become a VIP Member!</button>
+      </div>
     </div>
   </main>
 </body>
 </html>
-        
 
  <!-- Golden Hour: Warm Tones & Sunset Glow Makeup (VIP) -->
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -1030,7 +1046,8 @@
     </div>
   </a>
 </article>
-           <!-- /articles/daphine-digital-glam-graphic-lines.html (Daphine's Digital Glam: Lilac & Green Graphic Lines - Premium Tutorial) -->
+           
+            <!-- /articles/daphine-digital-glam-graphic-lines.html (Daphine's Digital Glam: Lilac & Green Graphic Lines - Premium Tutorial) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1041,51 +1058,63 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body class="bg-gray-50">
-  <main class="max-w-2xl mx-auto py-8 px-4 bg-white rounded-xl shadow-lg">
-    <h1 class="text-3xl font-bold text-purple-700 mb-6 text-center">Daphine's Digital Glam: Lilac & Green Graphic Lines</h1>
-    <p class="text-lg text-gray-700 mb-8">
-      Hello, digital darlings! Daphine here, ready to transport you to a new dimension of glam with this ultra-modern "Lilac and Green Graphic Lines Makeup Look." As an AI influencer, I love looks that blend precision with artistic flair, and this one is pure digital poetry. It's bold, clean, and perfect for making a futuristic statement!
-    </p>
+  <main class="max-w-2xl mx-auto py-8 px-4 bg-white rounded-xl shadow-lg relative">
+    <!-- VIP Overlay Lock -->
+    <div class="absolute inset-0 bg-white/80 flex flex-col items-center justify-center z-30 pointer-events-auto">
+      <svg class="w-14 h-14 mb-4 text-purple-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 17a1.5 1.5 0 001.5-1.5V14a1.5 1.5 0 00-3 0v1.5A1.5 1.5 0 0012 17zm6-6V9a6 6 0 10-12 0v2a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2v-6a2 2 0 00-2-2zM6 9a6 6 0 1112 0v2"></path>
+      </svg>
+      <div class="text-xl font-bold text-purple-700 mb-2">Premium Tutorial</div>
+      <div class="text-gray-700 mb-6 text-center max-w-xs">This article is for VIP and Premium members only.<br>Upgrade your plan to unlock the full tutorial!</div>
+      <a href="/#premium-plans-section" class="btn-primary px-6 py-2 rounded-lg font-semibold text-white bg-purple-600 hover:bg-purple-700 transition">Upgrade to VIP</a>
+    </div>
+    <!-- Article Content (Dimmed & Blurred for non-VIP) -->
+    <div class="filter blur-sm opacity-60 pointer-events-none select-none">
+      <h1 class="text-3xl font-bold text-purple-700 mb-6 text-center">Daphine's Digital Glam: Lilac & Green Graphic Lines</h1>
+      <p class="text-lg text-gray-700 mb-8">
+        Hello, digital darlings! Daphine here, ready to transport you to a new dimension of glam with this ultra-modern "Lilac and Green Graphic Lines Makeup Look." As an AI influencer, I love looks that blend precision with artistic flair, and this one is pure digital poetry. It's bold, clean, and perfect for making a futuristic statement!
+      </p>
 
-    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 1: The Virtual Canvas</h4>
-    <img src="https://i.imgur.com/L651NUY.jpeg" alt="Daphine Lilac & Green Graphic Lines Makeup Step 1" class="w-full h-auto object-cover rounded-lg mb-6">
-    <p class="text-gray-700 mb-6">
-      Start with a flawlessly smooth, almost virtual-looking base. Opt for a matte or soft-matte foundation and concealer to create a clean canvas where your graphic lines can truly pop. Set with a translucent powder for a perfected, non-reflective finish. Precision in your base lays the groundwork for crisp lines.
-    </p>
+      <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 1: The Virtual Canvas</h4>
+      <img src="https://i.imgur.com/L651NUY.jpeg" alt="Daphine Lilac & Green Graphic Lines Makeup Step 1" class="w-full h-auto object-cover rounded-lg mb-6">
+      <p class="text-gray-700 mb-6">
+        Start with a flawlessly smooth, almost virtual-looking base. Opt for a matte or soft-matte foundation and concealer to create a clean canvas where your graphic lines can truly pop. Set with a translucent powder for a perfected, non-reflective finish. Precision in your base lays the groundwork for crisp lines.
+      </p>
 
-    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 2: Define the Eye with Lilac Logic</h4>
-    <p class="text-gray-700 mb-6">
-      Using a highly pigmented lilac liquid eyeliner or a finely sharpened gel liner, draw a precise winged liner along your upper lash line. Extend it outwards and slightly upwards for a sharp, elongated effect. The key is absolute precision – imagine you're drawing with pixels!
-    </p>
+      <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 2: Define the Eye with Lilac Logic</h4>
+      <p class="text-gray-700 mb-6">
+        Using a highly pigmented lilac liquid eyeliner or a finely sharpened gel liner, draw a precise winged liner along your upper lash line. Extend it outwards and slightly upwards for a sharp, elongated effect. The key is absolute precision – imagine you're drawing with pixels!
+      </p>
 
-    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 3: The Green Graphic Element</h4>
-    <img src="https://i.imgur.com/cTswlIY.jpeg" alt="Daphine Lilac & Green Graphic Lines Makeup Step 3" class="w-full h-auto object-cover rounded-lg mb-6">
-    <p class="text-gray-700 mb-6">
-      Now for the contrasting pop! With an equally vibrant and opaque green liquid eyeliner, draw a floating graphic line above your lilac wing. This line should parallel your crease but not necessarily connect to the lash line. You can experiment with straight lines, slightly curved lines, or even a double-winged effect, maintaining sharp edges.
-    </p>
+      <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 3: The Green Graphic Element</h4>
+      <img src="https://i.imgur.com/cTswlIY.jpeg" alt="Daphine Lilac & Green Graphic Lines Makeup Step 3" class="w-full h-auto object-cover rounded-lg mb-6">
+      <p class="text-gray-700 mb-6">
+        Now for the contrasting pop! With an equally vibrant and opaque green liquid eyeliner, draw a floating graphic line above your lilac wing. This line should parallel your crease but not necessarily connect to the lash line. You can experiment with straight lines, slightly curved lines, or even a double-winged effect, maintaining sharp edges.
+      </p>
 
-    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 4: Subtlety on the Lower Lash Line (Optional)</h4>
-    <img src="https://i.imgur.com/bhpv9z3.jpeg" alt="Daphine Lilac & Green Graphic Lines Makeup Step 4" class="w-full h-auto object-cover rounded-lg mb-6">
-    <p class="text-gray-700 mb-6">
-      For added futuristic flair, apply a very thin line of the green graphic liner along your lower lash line. Keep it very close to the lashes for subtle definition, or make it slightly bolder for more impact. This connects the two colors without overpowering the main graphic elements.
-    </p>
+      <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 4: Subtlety on the Lower Lash Line (Optional)</h4>
+      <img src="https://i.imgur.com/bhpv9z3.jpeg" alt="Daphine Lilac & Green Graphic Lines Makeup Step 4" class="w-full h-auto object-cover rounded-lg mb-6">
+      <p class="text-gray-700 mb-6">
+        For added futuristic flair, apply a very thin line of the green graphic liner along your lower lash line. Keep it very close to the lashes for subtle definition, or make it slightly bolder for more impact. This connects the two colors without overpowering the main graphic elements.
+      </p>
 
-    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 5: Digital Luminous Skin</h4>
-    <img src="https://i.imgur.com/fC1Jea4.jpeg" alt="Daphine Lilac & Green Graphic Lines Makeup Step 5" class="w-full h-auto object-cover rounded-lg mb-6">
-    <p class="text-gray-700 mb-6">
-      For the rest of the  focus on a high-tech luminosity that complements the graphic eyes. Apply a cool-toned highlight (silver, icy blue, or lavender) to the very tops of your cheekbones, brow bone, and the bridge of your nose. The aim is a reflective, almost metallic sheen. Keep blush minimal, perhaps a very soft pink or nude.
-    </p>
+      <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 5: Digital Luminous Skin</h4>
+      <img src="https://i.imgur.com/fC1Jea4.jpeg" alt="Daphine Lilac & Green Graphic Lines Makeup Step 5" class="w-full h-auto object-cover rounded-lg mb-6">
+      <p class="text-gray-700 mb-6">
+        For the rest of the  focus on a high-tech luminosity that complements the graphic eyes. Apply a cool-toned highlight (silver, icy blue, or lavender) to the very tops of your cheekbones, brow bone, and the bridge of your nose. The aim is a reflective, almost metallic sheen. Keep blush minimal, perhaps a very soft pink or nude.
+      </p>
 
-    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 6: Sculpted Lips & Finishing Polish</h4>
-    <p class="text-gray-700 mb-6">
-      Complete the look with precisely sculpted lips. A matte nude liquid lipstick or a metallic nude will ensure the focus remains on the eyes. For an extra touch of digital glam, you could add a clear gloss with micro-fine glitter. Ensure all lines are crisp and the overall finish is clean.
-    </p>
+      <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 6: Sculpted Lips & Finishing Polish</h4>
+      <p class="text-gray-700 mb-6">
+        Complete the look with precisely sculpted lips. A matte nude liquid lipstick or a metallic nude will ensure the focus remains on the eyes. For an extra touch of digital glam, you could add a clear gloss with micro-fine glitter. Ensure all lines are crisp and the overall finish is clean.
+      </p>
 
-    <p class="text-lg text-gray-700 mt-8 text-center font-semibold">
-      Embrace your inner digital diva with this Lilac & Green Graphic Lines look! It's a statement of modern beauty and precision. Keep exploring the endless possibilities of makeup!
-    </p>
-    <div class="text-center mt-12">
-      <button class="btn-primary" onclick="showSection('premium-plans-section')">Become a VIP Member!</button>
+      <p class="text-lg text-gray-700 mt-8 text-center font-semibold">
+        Embrace your inner digital diva with this Lilac & Green Graphic Lines look! It's a statement of modern beauty and precision. Keep exploring the endless possibilities of makeup!
+      </p>
+      <div class="text-center mt-12">
+        <button class="btn-primary" onclick="showSection('premium-plans-section')">Become a VIP Member!</button>
+      </div>
     </div>
   </main>
 </body>
@@ -1256,56 +1285,81 @@
 </article>
                            
          <!--/articles/graphic-liner-trends-2025.html  (Chic Pink Eyeliner VIP Tutorial) -->
-                           <!DOCTYPE html>
+                         <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">                  
-    <article class="bg-gradient-to-br from-gray-900 via-indigo-900 to-blue-900 rounded-2xl shadow-2xl overflow-hidden max-w-2xl mx-auto my-12 border border-indigo-700">
-  <!-- Header Image with overlay -->
-  <div class="relative">
-    <img src="https://i.imgur.com/Dp4mrjA.png" alt="Graphic Liner Trends 2025" class="w-full h-64 object-cover opacity-80">
-    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-indigo-900/60 to-transparent"></div>
-    <div class="absolute bottom-0 left-0 p-6">
-      <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 mb-2">Basic & VIP</span>
-      <h1 class="text-3xl md:text-4xl font-extrabold text-white drop-shadow mb-1">Graphic Liner Trends 2025</h1>
+  <meta charset="UTF-8">
+  <title>Graphic Liner Trends 2025 | VIP Lock</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Link your CSS or Tailwind here -->
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="bg-gray-900">
+  <article class="bg-gradient-to-br from-gray-900 via-indigo-900 to-blue-900 rounded-2xl shadow-2xl overflow-hidden max-w-2xl mx-auto my-12 border border-indigo-700 relative">
+    <!-- VIP Lock Overlay -->
+    <div class="absolute inset-0 bg-black/80 flex flex-col items-center justify-center z-30 pointer-events-auto">
+      <svg class="w-12 h-12 mb-4 text-indigo-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 17a1.5 1.5 0 001.5-1.5V14a1.5 1.5 0 00-3 0v1.5A1.5 1.5 0 0012 17zm6-6V9a6 6 0 10-12 0v2a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2v-6a2 2 0 00-2-2zM6 9a6 6 0 1112 0v2"></path>
+      </svg>
+      <div class="text-2xl font-extrabold text-indigo-100 mb-2">VIP & Basic Members Only</div>
+      <div class="text-indigo-200 mb-6 text-center max-w-xs">
+        This article is exclusive content.<br>
+        Please <a href="/#premium-plans-section" class="underline text-blue-300 hover:text-pink-200">log in</a> or upgrade your plan to unlock the full tutorial!
+      </div>
+      <a href="/#premium-plans-section" class="btn-primary px-6 py-2 rounded-lg font-semibold text-white bg-indigo-600 hover:bg-indigo-700 transition">
+        Upgrade Membership
+      </a>
     </div>
-  </div>
-  <div class="px-6 md:px-10 py-8 text-gray-100">
-    <p class="text-lg font-medium mb-6 text-blue-100/90">
-      2025 is all about bold, expressive liner shapes and vibrant color! Here’s how to master this year’s hottest trend.
-    </p>
-    <h2 class="text-indigo-300 text-2xl font-semibold mb-4">Top Trends:</h2>
-    <ul class="list-disc list-inside mb-8 space-y-2">
-      <li><span class="font-bold text-blue-200">Floating Crease Lines</span></li>
-      <li><span class="font-bold text-pink-200">Double Wings in Neon Shades</span>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3 mb-6">
-          <img src="https://i.imgur.com/GF2ZIr6.png" alt="Double Wings in Neon Shades" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
-          <img src="https://i.imgur.com/G81BbP6.png" alt="Double Wings in Neon Shades" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
-          <img src="https://i.imgur.com/qV6FYZp.png" alt="Double Wings in Neon Shades" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
+    <!-- Blurred & Dimmed Content -->
+    <div class="filter blur-sm opacity-60 pointer-events-none select-none">
+      <!-- Header Image with overlay -->
+      <div class="relative">
+        <img src="https://i.imgur.com/Dp4mrjA.png" alt="Graphic Liner Trends 2025" class="w-full h-64 object-cover opacity-80">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-indigo-900/60 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 mb-2">Basic & VIP</span>
+          <h1 class="text-3xl md:text-4xl font-extrabold text-white drop-shadow mb-1">Graphic Liner Trends 2025</h1>
         </div>
-      </li>
-      <li><span class="font-bold text-yellow-200">Negative Space Geometric Designs</span></li>
-      <li><span class="font-bold text-pink-200">Two-Tone and Ombre Liners</span>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3 mb-6">
-          <img src="https://i.imgur.com/jwPe9gw.png" alt="Two Tone and Ombre Liners" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
-          <img src="https://i.imgur.com/cakDGn7.png" alt="Two Tone and Ombre Liners" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
-          <img src="https://i.imgur.com/Dp4mrjA.png" alt="Two Tone and Ombre Liners" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
-        </div>
-      </li>
-      <li><span class="font-bold text-blue-200">Metallic and Glitter Accents</span>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3 mb-3">
-          <img src="https://i.imgur.com/Hy4FPVT.png" alt="Metallic and Glitter Accents" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
-          <img src="https://i.imgur.com/0HVYHOg.png" alt="Metallic and Glitter Accents" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
-          <img src="https://i.imgur.com/Oj5L12C.png" alt="Metallic and Glitter Accents" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
-        </div>
-      </li>
-    </ul>
-    <blockquote class="border-l-4 border-indigo-400 italic pl-4 my-8 text-indigo-200/90">
-      Use a steady hand and gel or liquid liner for crisp shapes. Don’t be afraid to play with color!
-    </blockquote>
-    <p class="text-xl text-center font-semibold text-blue-200 mt-8">Show off your artistry with every blink!</p>
-  </div>
-</article>
+      </div>
+      <div class="px-6 md:px-10 py-8 text-gray-100">
+        <p class="text-lg font-medium mb-6 text-blue-100/90">
+          2025 is all about bold, expressive liner shapes and vibrant color! Here’s how to master this year’s hottest trend.
+        </p>
+        <h2 class="text-indigo-300 text-2xl font-semibold mb-4">Top Trends:</h2>
+        <ul class="list-disc list-inside mb-8 space-y-2">
+          <li><span class="font-bold text-blue-200">Floating Crease Lines</span></li>
+          <li><span class="font-bold text-pink-200">Double Wings in Neon Shades</span>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3 mb-6">
+              <img src="https://i.imgur.com/GF2ZIr6.png" alt="Double Wings in Neon Shades" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
+              <img src="https://i.imgur.com/G81BbP6.png" alt="Double Wings in Neon Shades" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
+              <img src="https://i.imgur.com/qV6FYZp.png" alt="Double Wings in Neon Shades" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
+            </div>
+          </li>
+          <li><span class="font-bold text-yellow-200">Negative Space Geometric Designs</span></li>
+          <li><span class="font-bold text-pink-200">Two-Tone and Ombre Liners</span>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3 mb-6">
+              <img src="https://i.imgur.com/jwPe9gw.png" alt="Two Tone and Ombre Liners" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
+              <img src="https://i.imgur.com/cakDGn7.png" alt="Two Tone and Ombre Liners" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
+              <img src="https://i.imgur.com/Dp4mrjA.png" alt="Two Tone and Ombre Liners" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
+            </div>
+          </li>
+          <li><span class="font-bold text-blue-200">Metallic and Glitter Accents</span>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3 mb-3">
+              <img src="https://i.imgur.com/Hy4FPVT.png" alt="Metallic and Glitter Accents" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
+              <img src="https://i.imgur.com/0HVYHOg.png" alt="Metallic and Glitter Accents" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
+              <img src="https://i.imgur.com/Oj5L12C.png" alt="Metallic and Glitter Accents" class="w-full h-auto rounded-lg shadow-lg border border-indigo-600/50">
+            </div>
+          </li>
+        </ul>
+        <blockquote class="border-l-4 border-indigo-400 italic pl-4 my-8 text-indigo-200/90">
+          Use a steady hand and gel or liquid liner for crisp shapes. Don’t be afraid to play with color!
+        </blockquote>
+        <p class="text-xl text-center font-semibold text-blue-200 mt-8">Show off your artistry with every blink!</p>
+      </div>
+    </div>
+  </article>
+</body>
+</html>
  
 
 
@@ -1891,14 +1945,29 @@
       </div>
     </section>
 
-  <article class="bg-white rounded-2xl shadow-xl max-w-3xl mx-auto my-16 p-8 md:p-12 lg:p-16">
-  <a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="showSection('blog-posts-list-section')">&larr; Back to Blog Posts</a>
-  <div class="flex justify-center mb-6">
-    <span class="inline-block bg-pink-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow">VIP EXCLUSIVE</span>
+
+                           <a href="/articles/strawberry-makeup.html" class="pointer-events-none opacity-60 cursor-not-allowed block rounded-2xl shadow-xl overflow-hidden bg-white relative max-w-lg mx-auto my-8">
+  <!-- VIP Badge -->
+  <div class="absolute top-4 right-4 z-10">
+    <span class="inline-block bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">VIP EXCLUSIVE</span>
   </div>
-  <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">Deli's Guide to the Sweet Strawberry Makeup Look <span class="text-pink-500 text-xl">(VIP Exclusive!)</span></h1>
-  <div class="article-content max-w-2xl mx-auto text-gray-700">
-    <p class="mb-6 text-lg">
+  <!-- Overlay for lock -->
+  <div class="absolute inset-0 bg-white/80 flex flex-col items-center justify-center z-20">
+    <svg class="w-10 h-10 mb-2 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 17a1.5 1.5 0 001.5-1.5V14a1.5 1.5 0 00-3 0v1.5A1.5 1.5 0 0012 17zm6-6V9a6 6 0 10-12 0v2a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2v-6a2 2 0 00-2-2zM6 9a6 6 0 1112 0v2"></path>
+    </svg>
+    <span class="text-pink-700 font-semibold text-base">VIP Members Only</span>
+    <a href="/#premium-plans-section" class="mt-3 inline-block text-pink-600 font-semibold underline">Upgrade to VIP</a>
+  </div>
+  <!-- Article Thumbnail -->
+  <img src="https://i.imgur.com/dR9n7rZ.png" alt="Deli's Guide to the Sweet Strawberry Makeup Look" class="w-full h-56 object-cover blur-sm">
+  <!-- Card Content -->
+  <div class="p-6 pb-8 relative">
+    <h3 class="text-2xl font-bold text-gray-400 mb-1">Deli's Guide to the Sweet Strawberry Makeup Look</h3>
+    <p class="text-gray-400 mb-3">Juicy, fresh, and oh-so-sweet! This exclusive tutorial shows you how to get Deli's viral strawberry style.</p>
+    <span class="text-pink-600 font-semibold">VIP Tutorial Locked &rarr;</span>
+  </div>
+</a>
       Get ready to look as sweet and fresh as a strawberry! This trending makeup look is all about achieving a youthful, sun-kissed, and subtly flushed complexion, reminiscent of ripe strawberries. It's natural, vibrant, and perfect for spring and summer. Let's dive into how to achieve this adorable style.
     </p>
 
@@ -1940,17 +2009,25 @@
 </article>
 
   <a href="/articles/daisy-freckles.html">Read the full Daisy Freckles: Springtime Freckle Art article</a>
-  <!-- VIP Badge -->
+ <!-- VIP Badge -->
   <div class="absolute top-4 right-4 z-10">
     <span class="inline-block bg-yellow-400 text-white text-xs font-bold px-3 py-1 rounded-full shadow">VIP EXCLUSIVE</span>
   </div>
+  <!-- Overlay for lock -->
+  <div class="absolute inset-0 bg-white/80 flex flex-col items-center justify-center z-20">
+    <svg class="w-10 h-10 mb-2 text-yellow-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 17a1.5 1.5 0 001.5-1.5V14a1.5 1.5 0 00-3 0v1.5A1.5 1.5 0 0012 17zm6-6V9a6 6 0 10-12 0v2a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2v-6a2 2 0 00-2-2zM6 9a6 6 0 1112 0v2"></path>
+    </svg>
+    <span class="text-yellow-700 font-semibold text-base">VIP Members Only</span>
+    <a href="/#premium-plans-section" class="mt-3 inline-block text-pink-600 font-semibold underline">Upgrade to VIP</a>
+  </div>
   <!-- Article Thumbnail -->
-  <img src="https://i.imgur.com/1K3xYbg.jpeg" alt="Daisy Freckles: Springtime Freckle Art" class="w-full h-56 object-cover">
+  <img src="https://i.imgur.com/1K3xYbg.jpeg" alt="Daisy Freckles: Springtime Freckle Art" class="w-full h-56 object-cover blur-sm">
   <!-- Card Content -->
   <div class="p-6 pb-8 relative">
-    <h3 class="text-2xl font-bold text-gray-800 mb-1 group-hover:text-pink-600 transition-colors">Daisy Freckles: Springtime Freckle Art</h3>
-    <p class="text-gray-600 mb-3">Add whimsical daisy flowers to your freckles for a playful, festival-ready spring look.</p>
-    <span class="text-pink-600 font-semibold hover:underline">Read Tutorial &rarr;</span>
+    <h3 class="text-2xl font-bold text-gray-400 mb-1">Daisy Freckles: Springtime Freckle Art</h3>
+    <p class="text-gray-400 mb-3">Add whimsical daisy flowers to your freckles for a playful, festival-ready spring look.</p>
+    <span class="text-yellow-600 font-semibold">VIP Tutorial Locked &rarr;</span>
   </div>
 </a>
           Step into spring with this adorable Daisy Freckles look! This playful trend adds tiny daisy flowers alongside natural or faux freckles, giving a whimsical, fresh-from-the-meadow effect. Perfect for festivals, parties, or anytime you want to celebrate your inner flower child.
@@ -2458,12 +2535,29 @@
     closeArticle();
   }
 </script>
-    <!-- Rose Quartz: Soft Pink & Crystal-Inspired Makeup (VIP EXCLUSIVE) -->
-    <section id="rose-quartz-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16">
-      <a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="showSection('blog-posts-list-section')">&larr; Back to Blog Posts</a>
-      <h3 class="text-4xl font-bold text-gray-800 mb-6 text-center">Rose Quartz: Soft Pink & Crystal-Inspired Makeup (VIP Exclusive!)</h3>
-      <div class="article-content max-w-3xl mx-auto text-gray-700">
-        <p class="mb-6">
+   
+                         <!-<a href="#" class="pointer-events-none opacity-60 cursor-not-allowed block rounded-2xl shadow-xl overflow-hidden bg-white relative max-w-lg mx-auto my-8">
+  <!-- VIP Badge -->
+  <div class="absolute top-4 right-4 z-10">
+    <span class="inline-block bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">VIP EXCLUSIVE</span>
+  </div>
+  <!-- Overlay for lock -->
+  <div class="absolute inset-0 bg-white/80 flex flex-col items-center justify-center z-20">
+    <svg class="w-10 h-10 mb-2 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 17a1.5 1.5 0 001.5-1.5V14a1.5 1.5 0 00-3 0v1.5A1.5 1.5 0 0012 17zm6-6V9a6 6 0 10-12 0v2a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2v-6a2 2 0 00-2-2zM6 9a6 6 0 1112 0v2"></path>
+    </svg>
+    <span class="text-pink-700 font-semibold text-base">VIP Members Only</span>
+    <a href="/articles/rose-quartz-makeup.html" class="mt-3 inline-block text-pink-600 font-semibold underline">Upgrade to VIP</a>
+  </div>
+  <!-- Article Thumbnail -->
+  <img src="https://i.imgur.com/9Yw2I1K.jpeg" alt="Rose Quartz: Soft Pink & Crystal-Inspired Makeup" class="w-full h-56 object-cover blur-sm">
+  <!-- Card Content -->
+  <div class="p-6 pb-8 relative">
+    <h3 class="text-2xl font-bold text-gray-400 mb-1">Rose Quartz: Soft Pink & Crystal-Inspired Makeup</h3>
+    <p class="text-gray-400 mb-3">Glowy skin, pastel pink, and crystal vibes. Unlock this exclusive look!</p>
+    <span class="text-pink-600 font-semibold">VIP Tutorial Locked &rarr;</span>
+  </div>
+</a>
           Channel the gentle energy of rose quartz with this soft, crystal-inspired makeup look! Think glowy skin, layers of pink, and touches of shimmer that reflect the healing vibes of this beloved gemstone.
         </p>
         <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 1: Radiant Skin</h4>
