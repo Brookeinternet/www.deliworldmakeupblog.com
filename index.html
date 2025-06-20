@@ -665,7 +665,8 @@
   </main>
 </body>
 </html>
-  
+
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"> 
    <!-- Blog Post: Deli Introduces Rhode's Glazing Milk for Glass Skin (VIP) -->
 <article class="bg-white rounded-xl shadow-lg overflow-hidden group">
   <a href="/articles/rhode-glazing-milk.html" class="block focus:outline-none focus:ring-2 focus:ring-pink-500">
@@ -1379,8 +1380,10 @@
 </article>
 
 
+
+                             <!--//blog/candy-clouds-makeup.html (Candy Clouds: Cotton Candy Pastel Makeup) -->
                              <!DOCTYPE html>
-<html lang="en">
+                             <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Candy Clouds: Cotton Candy Pastel Makeup | Deli World Makeup</title>
@@ -1549,35 +1552,56 @@
       </div>
     </section>
 
-    <!-- Example: Add more premium/tutorial sections here (repeat pattern as needed) -->
-
-<!-- END BLOCK 4 -->
-    <!-- Rhode's Glazing Milk & Glass Skin Look Article (Premium Example) -->
-    <section id="rhode-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16">
-      <a href="#" class="btn-secondary inline-flex items-center mb-6" onclick="showSection('blog-posts-list-section')">&larr; Back to Blog Posts</a>
-      <h3 class="text-4xl font-bold text-gray-800 mb-6 text-center">Deli Introduces Rhode's Glazing Milk for Glass Skin (Premium Content!)</h3>
+   <!--/articles/rhode-glazing-milk.html(Rhode Glazing Milk & Glass Skin) -->
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rhode Glazing Milk & Glass Skin (VIP) | Deli World Makeup</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles.css"><!-- Link to your CSS file -->
+</head>
+<body class="bg-gray-50">
+  <article class="bg-white rounded-2xl shadow-xl max-w-3xl mx-auto my-16 p-8 md:p-12 lg:p-16 relative overflow-hidden">
+    <!-- VIP Badge -->
+    <div class="flex justify-center mb-6">
+      <span class="inline-block bg-pink-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow">VIP ONLY</span>
+    </div>
+    <!-- VIP Lock Overlay (set display:flex to lock for VIP only, display:none if unlocked) -->
+    <div class="vip-lock-overlay absolute inset-0 bg-white/80 flex flex-col items-center justify-center z-20" style="display: flex;">
+      <svg class="w-10 h-10 mb-2 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 17a1.5 1.5 0 001.5-1.5V14a1.5 1.5 0 00-3 0v1.5A1.5 1.5 0 0012 17zm6-6V9a6 6 0 10-12 0v2a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2v-6a2 2 0 00-2-2zM6 9a6 6 0 1112 0v2"></path>
+      </svg>
+      <span class="text-pink-700 font-semibold text-base mb-2">VIP Section Locked</span>
+      <a href="/#premium-plans-section" class="inline-block text-pink-600 font-semibold underline mb-2">Upgrade to VIP</a>
+      <span class="text-gray-500 text-sm">Unlock full article & exclusive tips!</span>
+    </div>
+    <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">Deli Introduces Rhode's Glazing Milk for Glass Skin</h1>
+    <div class="article-content max-w-2xl mx-auto text-gray-700">
       <img src="https://i.imgur.com/pCcuwk1.jpeg" alt="Rhode Glazing Milk and Glass Skin" class="w-full h-auto object-cover rounded-lg mb-6">
-      <div class="article-content max-w-3xl mx-auto text-gray-700">
-        <p class="mb-4 text-center text-red-500 font-bold">
-          This is premium content! Please subscribe to Deli's VIP Experience to unlock the full article.
-        </p>
-        <p class="mb-6">
-          The "glass skin" trend is all about achieving a complexion so luminous and smooth, it looks almost translucent.
-          And let me tell you, Rhode's Glazing Milk has been a game-changer in my routine for achieving exactly that!
-          It's more than just a serum; it's a hydrating, barrier-supporting powerhouse that instantly gives your skin that healthy, dewy glow.
-        </p>
-        <h4 class="text-2xl font-semibold text-pink-600 mb-3">Why I'm Obsessed with Rhode:</h4>
-        <ul class="list-disc list-inside mb-6">
-          <li class="mb-2"><strong>Glazing Milk:</strong> The star product! This lightweight, milky essence is packed with ceramides and peptides for barrier repair and hydration.</li>
-          <li class="mb-2"><strong>Barrier Restore Cream:</strong> A rich, comforting moisturizer that locks in all the goodness. Leaves you glowing all day!</li>
-          <li class="mb-2"><strong>Peptide Lip Treatment:</strong> Don't forget the lips! These treatments are incredibly nourishing and give a perfect glossy pout.</li>
-          <li><strong>(Full content available for VIP members.)</strong></li>
-        </ul>
-        <div class="text-center mt-12">
-          <button class="btn-primary" onclick="showSection('premium-plans-section')">Become a VIP Member!</button>
-        </div>
-      </div>
-    </section>
+      <p class="mb-4 text-center text-red-500 font-bold">
+        This is premium content! Please subscribe to Deli's VIP Experience to unlock the full article.
+      </p>
+      <p class="mb-6">
+        The "glass skin" trend is all about achieving a complexion so luminous and smooth, it looks almost translucent.
+        And let me tell you, Rhode's Glazing Milk has been a game-changer in my routine for achieving exactly that!
+        It's more than just a serum; it's a hydrating, barrier-supporting powerhouse that instantly gives your skin that healthy, dewy glow.
+      </p>
+      <h2 class="text-2xl font-semibold text-pink-600 mb-3">Why I'm Obsessed with Rhode:</h2>
+      <ul class="list-disc list-inside mb-6">
+        <li class="mb-2"><strong>Glazing Milk:</strong> The star product! This lightweight, milky essence is packed with ceramides and peptides for barrier repair and hydration.</li>
+        <li class="mb-2"><strong>Barrier Restore Cream:</strong> A rich, comforting moisturizer that locks in all the goodness. Leaves you glowing all day!</li>
+        <li class="mb-2"><strong>Peptide Lip Treatment:</strong> Don't forget the lips! These treatments are incredibly nourishing and give a perfect glossy pout.</li>
+        <li><strong>(Full content available for VIP members.)</strong></li>
+      </ul>
+    </div>
+    <div class="text-center mt-12">
+      <a href="/#premium-plans-section" class="btn-primary">Become a VIP Member!</a>
+    </div>
+  </article>
+</body>
+</html>
+                             
 
     <!-- Deli's Top 5 Must-Have Lipstick Brands Article (VIP Unlocked Example) -->
     <section id="lipstick-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16">
@@ -2019,68 +2043,77 @@
 
 
                            <a href="/articles/strawberry-makeup.html" class="pointer-events-none opacity-60 cursor-not-allowed block rounded-2xl shadow-xl overflow-hidden bg-white relative max-w-lg mx-auto my-8">
-  <!-- VIP Badge -->
-  <div class="absolute top-4 right-4 z-10">
-    <span class="inline-block bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">VIP EXCLUSIVE</span>
-  </div>
-  <!-- Overlay for lock -->
-  <div class="absolute inset-0 bg-white/80 flex flex-col items-center justify-center z-20">
-    <svg class="w-10 h-10 mb-2 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M12 17a1.5 1.5 0 001.5-1.5V14a1.5 1.5 0 00-3 0v1.5A1.5 1.5 0 0012 17zm6-6V9a6 6 0 10-12 0v2a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2v-6a2 2 0 00-2-2zM6 9a6 6 0 1112 0v2"></path>
-    </svg>
-    <span class="text-pink-700 font-semibold text-base">VIP Members Only</span>
-    <a href="/#premium-plans-section" class="mt-3 inline-block text-pink-600 font-semibold underline">Upgrade to VIP</a>
-  </div>
-  <!-- Article Thumbnail -->
-  <img src="https://i.imgur.com/dR9n7rZ.png" alt="Deli's Guide to the Sweet Strawberry Makeup Look" class="w-full h-56 object-cover blur-sm">
-  <!-- Card Content -->
-  <div class="p-6 pb-8 relative">
-    <h3 class="text-2xl font-bold text-gray-400 mb-1">Deli's Guide to the Sweet Strawberry Makeup Look</h3>
-    <p class="text-gray-400 mb-3">Juicy, fresh, and oh-so-sweet! This exclusive tutorial shows you how to get Deli's viral strawberry style.</p>
-    <span class="text-pink-600 font-semibold">VIP Tutorial Locked &rarr;</span>
-  </div>
-</a>
-      Get ready to look as sweet and fresh as a strawberry! This trending makeup look is all about achieving a youthful, sun-kissed, and subtly flushed complexion, reminiscent of ripe strawberries. It's natural, vibrant, and perfect for spring and summer. Let's dive into how to achieve this adorable style.
-    </p>
-
-    <h2 class="text-2xl font-semibold text-pink-600 mb-4 mt-10">Step 1: Fresh, Dewy Skin Base</h2>
-    <img src="https://i.imgur.com/FGt7RgU.jpeg" alt="Strawberry Makeup Base" class="w-full h-auto object-cover rounded-lg mb-6">
-    <p class="mb-6">
-      The foundation of this look is glowing, healthy skin. Opt for a lightweight tinted moisturizer, BB cream, or a dewy-finish foundation. Focus on evening out your skin tone rather than heavy coverage. Conceal only where absolutely necessary. Finish with a hydrating setting spray to lock in the dewiness.
-    </p>
-
-    <h2 class="text-2xl font-semibold text-pink-600 mb-4 mt-10">Step 2: The Signature Strawberry Blush</h2>
-    <img src="https://i.imgur.com/9fcRH0K.gif" alt="Strawberry Makeup Blush Application" class="w-full h-auto object-cover rounded-lg mb-6">
-    <p class="mb-6">
-      This is the star of the show! Choose a vibrant liquid or cream blush in a berry, strawberry-red, or bright pink shade. Apply it generously across the apples of your cheeks, extending slightly upwards towards your temples, and lightly across the bridge of your nose. This mimics a natural, sun-kissed flush. Blend well for a seamless, diffused effect.
-    </p>
-
-    <h2 class="text-2xl font-semibold text-pink-600 mb-4 mt-10">Step 3: Faux Freckles (Optional, but Adorable!)</h2>
-    <p class="mb-6">
-      To enhance the natural, youthful charm of this look, consider adding faux freckles. Use a freckle pen, a brow pen, or even a soft brown eyeliner pencil. Dot small, irregular marks across your nose and cheeks where the blush is most concentrated. Gently tap with your finger to blend and soften them for a more natural appearance.
-    </p>
-
-    <h2 class="text-2xl font-semibold text-pink-600 mb-4 mt-10">Step 4: Sweet & Simple Eyes</h2>
-    <p class="mb-6">
-      Keep the eyes minimal and fresh to let the blush shine. A sheer wash of a soft pink or peachy eyeshadow across the lids is perfect. A subtle winged liner using a brown or black liquid liner can define the eyes, and a few coats of mascara will open them up.
-    </p>
-
-    <h2 class="text-2xl font-semibold text-pink-600 mb-4 mt-10">Step 5: Juicy, Glossy Lips</h2>
-    <img src="https://i.imgur.com/OFjC7DY.jpeg" alt="Strawberry Makeup Glossy Lips" class="w-full h-auto object-cover rounded-lg mb-6">
-    <p class="mb-6">
-      Complete the look with juicy, hydrated lips. Opt for a tinted lip balm or a sheer lip gloss in a cherry red, berry, or pink shade. The goal is a plump, succulent finish that complements the flushed cheeks.
-    </p>
-
-    <p class="text-lg text-gray-700 mt-10 text-center font-semibold">
-      And there you have it – the delightful Strawberry Makeup Look! It's fresh, youthful, and radiant, perfect for any sunny day. Enjoy your VIP access to this sweet tutorial!
-    </p>
-    <div class="text-center mt-12">
-      <button class="btn-primary" onclick="showSection('premium-plans-section')">Become a VIP Member!</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Deli's Guide to the Sweet Strawberry Makeup Look | VIP</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles.css"><!-- Link to your CSS file -->
+</head>
+<body class="bg-gray-50">
+  <article class="bg-white rounded-2xl shadow-xl max-w-3xl mx-auto my-16 p-8 md:p-12 lg:p-16 relative overflow-hidden">
+    <!-- VIP Badge -->
+    <div class="flex justify-center mb-6">
+      <span class="inline-block bg-pink-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow">VIP EXCLUSIVE</span>
     </div>
-  </div>
-</article>
+    <!-- VIP Lock Overlay (set display:flex to lock for VIP only, display:none if unlocked) -->
+    <div class="vip-lock-overlay absolute inset-0 bg-white/80 flex flex-col items-center justify-center z-20" style="display: flex;">
+      <svg class="w-10 h-10 mb-2 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 17a1.5 1.5 0 001.5-1.5V14a1.5 1.5 0 00-3 0v1.5A1.5 1.5 0 0012 17zm6-6V9a6 6 0 10-12 0v2a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2v-6a2 2 0 00-2-2zM6 9a6 6 0 1112 0v2"></path>
+      </svg>
+      <span class="text-pink-700 font-semibold text-base">VIP Members Only</span>
+      <a href="/#premium-plans-section" class="mt-3 inline-block text-pink-600 font-semibold underline">Upgrade to VIP</a>
+      <span class="text-gray-500 text-sm mt-1">Unlock the full exclusive tutorial and more!</span>
+    </div>
+    <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">Deli's Guide to the Sweet Strawberry Makeup Look</h1>
+    <div class="article-content max-w-2xl mx-auto text-gray-700">
+      <img src="https://i.imgur.com/dR9n7rZ.png" alt="Deli's Guide to the Sweet Strawberry Makeup Look" class="w-full h-56 object-cover rounded-lg mb-6 blur-sm">
+      <p class="mb-6 text-lg text-gray-700 font-semibold text-center">
+        Get ready to look as sweet and fresh as a strawberry! This trending makeup look is all about achieving a youthful, sun-kissed, and subtly flushed complexion, reminiscent of ripe strawberries. It's natural, vibrant, and perfect for spring and summer. Let's dive into how to achieve this adorable style.
+      </p>
 
-  <a href="/articles/daisy-freckles.html">Read the full Daisy Freckles: Springtime Freckle Art article</a>
+      <h2 class="text-2xl font-semibold text-pink-600 mb-4 mt-10">Step 1: Fresh, Dewy Skin Base</h2>
+      <img src="https://i.imgur.com/FGt7RgU.jpeg" alt="Strawberry Makeup Base" class="w-full h-auto object-cover rounded-lg mb-6">
+      <p class="mb-6">
+        The foundation of this look is glowing, healthy skin. Opt for a lightweight tinted moisturizer, BB cream, or a dewy-finish foundation. Focus on evening out your skin tone rather than heavy coverage. Conceal only where absolutely necessary. Finish with a hydrating setting spray to lock in the dewiness.
+      </p>
+
+      <h2 class="text-2xl font-semibold text-pink-600 mb-4 mt-10">Step 2: The Signature Strawberry Blush</h2>
+      <img src="https://i.imgur.com/9fcRH0K.gif" alt="Strawberry Makeup Blush Application" class="w-full h-auto object-cover rounded-lg mb-6">
+      <p class="mb-6">
+        This is the star of the show! Choose a vibrant liquid or cream blush in a berry, strawberry-red, or bright pink shade. Apply it generously across the apples of your cheeks, extending slightly upwards towards your temples, and lightly across the bridge of your nose. This mimics a natural, sun-kissed flush. Blend well for a seamless, diffused effect.
+      </p>
+
+      <h2 class="text-2xl font-semibold text-pink-600 mb-4 mt-10">Step 3: Faux Freckles (Optional, but Adorable!)</h2>
+      <p class="mb-6">
+        To enhance the natural, youthful charm of this look, consider adding faux freckles. Use a freckle pen, a brow pen, or even a soft brown eyeliner pencil. Dot small, irregular marks across your nose and cheeks where the blush is most concentrated. Gently tap with your finger to blend and soften them for a more natural appearance.
+      </p>
+
+      <h2 class="text-2xl font-semibold text-pink-600 mb-4 mt-10">Step 4: Sweet & Simple Eyes</h2>
+      <p class="mb-6">
+        Keep the eyes minimal and fresh to let the blush shine. A sheer wash of a soft pink or peachy eyeshadow across the lids is perfect. A subtle winged liner using a brown or black liquid liner can define the eyes, and a few coats of mascara will open them up.
+      </p>
+
+      <h2 class="text-2xl font-semibold text-pink-600 mb-4 mt-10">Step 5: Juicy, Glossy Lips</h2>
+      <img src="https://i.imgur.com/OFjC7DY.jpeg" alt="Strawberry Makeup Glossy Lips" class="w-full h-auto object-cover rounded-lg mb-6">
+      <p class="mb-6">
+        Complete the look with juicy, hydrated lips. Opt for a tinted lip balm or a sheer lip gloss in a cherry red, berry, or pink shade. The goal is a plump, succulent finish that complements the flushed cheeks.
+      </p>
+
+      <p class="text-lg text-gray-700 mt-10 text-center font-semibold">
+        And there you have it – the delightful Strawberry Makeup Look! It's fresh, youthful, and radiant, perfect for any sunny day. Enjoy your VIP access to this sweet tutorial!
+      </p>
+      <div class="text-center mt-12">
+        <a class="btn-primary" href="/#premium-plans-section">Become a VIP Member!</a>
+      </div>
+    </div>
+  </article>
+</body>
+</html>
+
+
+                             <!--/articles/daisy-freckles.html (Daisy Freckles) -->
  <!-- VIP Badge -->
   <div class="absolute top-4 right-4 z-10">
     <span class="inline-block bg-yellow-400 text-white text-xs font-bold px-3 py-1 rounded-full shadow">VIP EXCLUSIVE</span>
