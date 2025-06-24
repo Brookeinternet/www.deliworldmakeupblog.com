@@ -140,7 +140,9 @@
           <li><a href="#" class="hover:underline" onclick="showSection('home-section')">Home</a></li>
           <li><a href="#" class="hover:underline" onclick="showSection('blog-posts-list-section')">Blog Posts</a></li>
           <li><a href="#" class="hover:underline" onclick="showSection('about-deli-section')">About Deli</a></li>
-          <li><a href="#" class="hover:underline" onclick="showSection('contact-section')">Contact</a></li>
+          <li><a href="#" class="hover:underline" onclick="showSection('contact-section')">Contact</a></li>         
+          <li><a href="#" class="hover:underline" onclick="showSection('signin-section')"><button onclick="document.getElementById('authModal').style.display='block'">Sign In</button>
+</a></li>
         </ul>
       </nav>
     </div>
@@ -300,10 +302,9 @@
     </section>
   </main>
 </body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
+
+
   <meta charset="UTF-8">
   <meta http-equiv="Content-Style-Type" content="text/css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -341,6 +342,8 @@
   <header class="gradient-bg py-8 shadow-md">
     <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
       <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 md:mb-0">Deli's World</h1>
+      <button onclick="document.getElementById('authModal').style.display='block'">Sign In</button>
+
       <nav>
         <ul class="flex space-x-6 text-gray-800 text-lg">
           <li><a href="#" class="hover:underline" onclick="showSection('home-section')">Home</a></li>
@@ -353,6 +356,8 @@
   </header>
   <main class="container mx-auto px-4 py-12">
     <!-- Home Section -->
+    <button onclick="document.getElementById('authModal').style.display='block'">Sign In</button>
+
     <section id="home-section" class="page-section active text-center mb-16">
       <h2 class="text-4xl font-semibold text-gray-800 mb-4">Welcome to Deli's World of Beauty!</h2>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto">
