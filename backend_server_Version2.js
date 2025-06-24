@@ -1,12 +1,12 @@
 const express = require('express');
 const cors = require('cors');
-const stripe = require('stripe')('sk_test_yourSecretKey'); // Replace with your Stripe secret key
+const stripe = require('stripe')('sk_pk_live_51RXVHEDUGtG6RSaQSRA3mNRjmKDpm3uaS5yqLGQaioQAF4h46xtK8iZAicPPSazyONwHec6nYXpc7QsXRM4KEedu00taF9cnOX'); // Replace with your Stripe secret key
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Create a Stripe Checkout Session for the Basic/VIP plan
+// Create a Stripe Checkout Session for the VIP plan
 app.post('/create-basic-checkout-session', async (req, res) => {
   // Optionally, get user info from req.body (email, uid) if you want to track users
   // const { email, uid } = req.body;
@@ -17,7 +17,7 @@ app.post('/create-basic-checkout-session', async (req, res) => {
       mode: 'subscription',
       line_items: [
         {
-          price: 'price_12345', // Replace with your actual Stripe Price ID for VIP/basic plan
+          price: 'price_prod_ST0JYBPCoJ6np4', // Replace with your actual Stripe Price ID for VIP plan
           quantity: 1
         }
       ],
@@ -34,7 +34,7 @@ app.post('/create-basic-checkout-session', async (req, res) => {
 
 // (Optional) Stripe Webhook endpoint for marking users VIP after payment
 app.post('/webhook', express.raw({type: 'application/json'}), (request, response) => {
-  const endpointSecret = 'whsec_XXXXXXXXXXXXXXXX'; // Replace with your Stripe webhook secret
+  const endpointSecret = 'whsec__pKuu7CbQfHmhA5KIDZHUNP6e43NT5jzV'; // Replace with your Stripe webhook secret
   const sig = request.headers['stripe-signature'];
   let event;
   try {
