@@ -179,61 +179,12 @@
     <ul class="space-y-4">
   
 
-<!-- Overlay for Locked Content -->
-<div id="locked-overlay" class="fixed inset-0 bg-white bg-opacity-90 z-50 flex flex-col items-center justify-center" style="display:none;">
-  <div class="text-center">
-    <h3 class="text-2xl font-bold text-gray-700 mb-4" id="locked-message"></h3>
-    <button class="btn-primary" onclick="closeLockedOverlay()">Back to Blog Posts</button>
-  </div>
-</div>
+
 
 <script>
-  // Simulate user tier: 'free', 'basic', 'vip'
-  var userTier = 'free'; // Set this after login/auth
 
-  function openArticle(sectionId, requiredTier) {
-    // Hide all article sections first
-    document.querySelectorAll('.page-section').forEach(function(sec) {
-      sec.style.display = 'none';
-    });
 
-    // Check permissions
-    var canView = false;
-    if (requiredTier === 'free') {
-      canView = true;
-    } else if (requiredTier === 'basic' && (userTier === 'basic' || userTier === 'vip')) {
-      canView = true;
-    } else if (requiredTier === 'vip' && userTier === 'vip') {
-      canView = true;
-    }
-
-    if (canView) {
-      var section = document.getElementById(sectionId);
-      if (section) section.style.display = 'block';
-    } else {
-      // Show locked overlay with appropriate message
-      var msg = '';
-      if (requiredTier === 'basic') msg = 'This article is for Basic & VIP members only.';
-      if (requiredTier === 'vip') msg = 'This article is for VIP members only.';
-      document.getElementById('locked-message').textContent = msg;
-      document.getElementById('locked-overlay').style.display = 'flex';
-    }
-  }
-
-  function closeArticle() {
-    // Hide all article sections
-    document.querySelectorAll('.page-section').forEach(function(sec) {
-      sec.style.display = 'none';
-    });
-  }
-
-  function closeLockedOverlay() {
-    document.getElementById('locked-overlay').style.display = 'none';
-    closeArticle();
-  }
-</script>
-    <ul class="space-y-4">
-  <ul class="space-y-8">
+   
  
 
  
