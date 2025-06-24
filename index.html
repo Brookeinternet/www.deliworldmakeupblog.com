@@ -248,6 +248,19 @@
       <h3 class="text-3xl font-bold text-gray-800 mb-6 text-center">About Deli</h3>
       <p class="text-gray-700 max-w-2xl mx-auto text-center">
         Deli is a passionate beauty enthusiast and professional makeup artist. With over a decade of experience in the industry, she loves sharing the latest trends, honest reviews, and empowering tutorials for makeup lovers everywhere.
+
+        <!-- Sign In/Sign Up Modal -->
+<div id="authModal" style="display:none;">
+  <form onsubmit="return handleSignIn(event)">
+    <input type="email" id="auth-email" placeholder="Email" required>
+    <input type="password" id="auth-password" placeholder="Password" required>
+    <button type="submit">Sign In</button>
+    <button type="button" onclick="handleSignUp()">Sign Up</button>
+  </form>
+</div>
+
+<button onclick="document.getElementById('authModal').style.display='block'">Sign In</button>
+
       </p>
     </section>
 
@@ -305,83 +318,7 @@
 
 
 
-  <meta charset="UTF-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deli's World - Your Ultimate Makeup Destination</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts - Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-    .gradient-bg { background: linear-gradient(to right, #fecaca, #fbcfe8);}
-    .premium-card { background-color: #fff; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s }
-    .premium-card:hover { transform: translateY(-5px);}
-    .btn-primary { background-color: #ec4899; color: #fff; padding: 0.75rem 1.5rem; border-radius: 9999px; font-weight: 600; border: none; cursor: pointer; transition: background 0.3s;}
-    .btn-primary:hover { background-color: #db2777;}
-    .btn-secondary { background-color: #e5e7eb; color: #1f2937; padding: 0.5rem 1.25rem; border-radius: 9999px; font-weight: 500; border: none; cursor: pointer; transition: background 0.3s;}
-    .btn-secondary:hover { background-color: #d1d5db;}
-    .article-content img { max-width: 100%; height: auto; border-radius: 0.75rem; margin-bottom: 1.5rem;}
-    .page-section { display: none; }
-    .page-section.active { display: block; }
-    .premium-content-lock { position: relative; filter: blur(2px); pointer-events: none; }
-    .premium-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.8); display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; padding: 2rem; border-radius: 0.75rem; backdrop-filter: blur(5px); z-index: 10; }
-  </style>
-  <script>
-    function showSection(id) {
-      document.querySelectorAll('.page-section').forEach(function(section) {
-        section.classList.remove('active');
-      });
-      document.getElementById(id).classList.add('active');
-      window.scrollTo(0, 0);
-    }
-  </script>
-</head>
-<body>
-  <header class="gradient-bg py-8 shadow-md">
-    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 md:mb-0">Deli's World</h1>
-      <button onclick="document.getElementById('authModal').style.display='block'">Sign In</button>
-
-      <nav>
-        <ul class="flex space-x-6 text-gray-800 text-lg">
-          <li><a href="#" class="hover:underline" onclick="showSection('home-section')">Home</a></li>
-          <li><a href="#" class="hover:underline" onclick="showSection('blog-posts-list-section')">Blog Posts</a></li>
-          <li><a href="#" class="hover:underline" onclick="showSection('about-deli-section')">About Deli</a></li>
-          <li><a href="#" class="hover:underline" onclick="showSection('contact-section')">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <main class="container mx-auto px-4 py-12">
-    <!-- Home Section -->
-    <button onclick="document.getElementById('authModal').style.display='block'">Sign In</button>
-
-    <section id="home-section" class="page-section active text-center mb-16">
-      <h2 class="text-4xl font-semibold text-gray-800 mb-4">Welcome to Deli's World of Beauty!</h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-        Dive into a realm where beauty knows no bounds. Discover makeup tips, product reviews, and exclusive tutorials.
-      </p>
-      <div class="mt-12">
-        <h3 class="text-3xl font-semibold text-gray-800 mb-8 text-center">Featured Post</h3>
-        <article class="bg-white rounded-xl shadow-lg overflow-hidden group max-w-xl mx-auto">
-          <img src="https://i.imgur.com/3t7o6dv.jpeg" alt="Deli's Product Review - Face Powder Shades" class="w-full h-48 object-cover">
-          <div class="p-6">
-            <h4 class="text-xl font-semibold text-gray-800 mb-2">My Top 5 Must-Have Foundations of 2025 (Premium!)</h4>
-            <p class="text-gray-600 text-sm mb-4">
-              Unlock my exclusive list of the best foundations for a flawless finish.
-            </p>
-            <a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('foundation-article-section')">Read Premium Article</a>
-          </div>
-        </article>
-      </div>
-      <section class="text-center py-12">
-        <h3 class="text-3xl font-semibold text-gray-800 mb-4">Ready to Transform Your Look?</h3>
-        <p class="text-lg text-gray-600 mb-8">Join Deli's World today and embark on your beauty journey!</p>
-        <button class="btn-primary" onclick="showSection('premium-plans-section')">Explore All Plans</button>
-      </section>
-    </section>
+ 
    <!-- Blog Posts List Section -->
 <section id="blog-posts-list-section" class="page-section mb-16">
   <h3 class="text-3xl font-semibold text-gray-800 mb-8 text-center">All Blog Posts</h3>
