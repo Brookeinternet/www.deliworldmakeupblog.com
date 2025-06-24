@@ -150,6 +150,9 @@ window.handleSignIn = function(event) {
 
 <button onclick="document.getElementById('authModal').style.display='block'">Sign In</button>
 
+    <button id="vipSubscribeBtn">Go VIP!</button>
+    <button id="basicSubscribeBtn">Subscribe to Basic</button>
+
   <header class="gradient-bg py-8 shadow-md">
     <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
       <!-- Blog Title -->
@@ -301,6 +304,46 @@ window.handleSignIn = function(event) {
             <li>Early access to new content</li>
           </ul>
           <button class="btn-primary" onclick="window.location.href='https://buy.stripe.com/6oU9AT4pUccC0X48Pk3cc01'">Go VIP!</button>
+
+  const stripe = Stripe('pk_test_pk_live_51RXVHEDUGtG6RSaQSRA3mNRjmKDpm3uaS5yqLGQaioQAF4h46xtK8iZAicPPSazyONwHec6nYXpc7QsXRM4KEedu00taF9cnOX'); // Replace with your Stripe publishable key
+
+document.getElementById('basicSubscribeBtn').addEventListener('click', async function() {
+  const response = await fetch('http://localhost:4242/create-basic-checkout-session', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+  });
+  const session = await response.json();
+  const result = await stripe.redirectToCheckout({ sessionId: session.id });
+  if (result.error) {
+    alert(result.error.message);
+  }
+});
+      
+      <script src="https://js.stripe.com/v3/"></script>
+<script>
+const stripe = Stripe('pk_test_pk_live_51RXVHEDUGtG6RSaQSRA3mNRjmKDpm3uaS5yqLGQaioQAF4h46xtK8iZAicPPSazyONwHec6nYXpc7QsXRM4KEedu00taF9cnOX'); // Use your real publishable key
+
+document.getElementById('vipSubscribeBtn').addEventListener('click', async function() {
+  // Get current Firebase user (assumes they're logged in)
+  const user = firebase.auth().currentUser;
+  if (!user) {
+    alert("Please sign in first!");
+    return;
+  }
+  // Call your backend to create a Stripe Checkout session
+  const response = await fetch('/create-checkout-session', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ email: user.email, uid: user.uid })
+  });
+  const session = await response.json();
+  // Redirect to Stripe Checkout
+  const result = await stripe.redirectToCheckout({ sessionId: session.id });
+  if (result.error) {
+    alert(result.error.message);
+  }
+});
+</script>
         </div>
       </div>
     </section>
