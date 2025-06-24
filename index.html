@@ -64,21 +64,7 @@
     .page-section.active {
       display: block;
     }
-    .premium-content-lock {
-      position: relative;
-      filter: blur(2px);
-      pointer-events: none;
-    }
-    .premium-overlay {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(255,255,255,0.8);
-      display: flex; justify-content: center; align-items: center; flex-direction: column;
-      text-align: center;
-      padding: 2rem;
-      border-radius: 0.75rem;
-      backdrop-filter: blur(5px);
-      z-index: 10;
+ 
     }
   </style>
   <script>
@@ -151,24 +137,41 @@
   <main class="container mx-auto px-4 py-12">
     <!-- Home Section -->
     <section id="home-section" class="page-section active text-center mb-16">
-      <h2 class="text-4xl font-semibold text-gray-800 mb-4">Welcome to Deli's World of Beauty!</h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-        Dive into a realm where beauty knows no bounds. Discover makeup tips, product reviews, and exclusive tutorials.
-      </p>
-      <div class="mt-12">
-        <h3 class="text-3xl font-semibold text-gray-800 mb-8 text-center">Featured Post</h3>
-        <!-- Featured Blog Post -->
-        <article class="bg-white rounded-xl shadow-lg overflow-hidden group max-w-xl mx-auto">
-          <img src="https://i.imgur.com/3t7o6dv.jpeg" alt="Deli's Product Review - Face Powder Shades" class="w-full h-48 object-cover">
-          <div class="p-6">
-            <h4 class="text-xl font-semibold text-gray-800 mb-2">My Top 5 Must-Have Foundations of 2025 (Premium!)</h4>
-            <p class="text-gray-600 text-sm mb-4">
-              Unlock my exclusive list of the best foundations for a flawless finish.
-            </p>
-            <a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('foundation-article-section')">Read Premium Article</a>
-          </div>
-        </article>
+  <h2 class="text-4xl font-semibold text-gray-800 mb-4">Welcome to Deli's World of Beauty!</h2>
+  <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+    Dive into a realm where beauty knows no bounds. Discover makeup tips, product reviews, and exclusive tutorials.
+  </p>
+  <div class="mt-12">
+         <!-- Sign In/Sign Up Modal -->
+<div id="authModal" style="display:none;">
+  <form onsubmit="return handleSignIn(event)">
+    <input type="email" id="auth-email" placeholder="Email" required>
+    <input type="password" id="auth-password" placeholder="Password" required>
+    <button type="submit">Sign In</button>
+    <button type="button" onclick="handleSignUp()">Sign Up</button>
+  </form>
+</div>
+
+<button onclick="document.getElementById('authModal').style.display='block'">Sign In</button>
+
+    <h3 class="text-3xl font-semibold text-gray-800 mb-8 text-center">Featured Post</h3>
+    <article class="bg-white rounded-xl shadow-lg overflow-hidden group max-w-xl mx-auto">
+      <img src="https://i.imgur.com/3t7o6dv.jpeg" alt="Deli's Product Review - Face Powder Shades" class="w-full h-48 object-cover">
+      <div class="p-6">
+        <h4 class="text-xl font-semibold text-gray-800 mb-2">My Top 5 Must-Have Foundations of 2025 (Premium!)</h4>
+        <p class="text-gray-600 text-sm mb-4">
+          Unlock my exclusive list of the best foundations for a flawless finish.
+        </p>
+        <a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('foundation-article-section')">Read Premium Article</a>
       </div>
+    </article>
+  </div>
+  <section class="text-center py-12">
+    <h3 class="text-3xl font-semibold text-gray-800 mb-4">Ready to Transform Your Look?</h3>
+    <p class="text-lg text-gray-600 mb-8">Join Deli's World today and embark on your beauty journey!</p>
+    <button class="btn-primary" onclick="showSection('premium-plans-section')">Explore All Plans</button>
+  </section>
+</section>
       <!-- Call to Action Section -->
       <section class="text-center py-12">
         <h3 class="text-3xl font-semibold text-gray-800 mb-4">Ready to Transform Your Look?</h3>
