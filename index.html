@@ -320,8 +320,22 @@
 
  
    <!-- Blog Posts List Section -->
+      
 <section id="blog-posts-list-section" class="page-section mb-16">
   <h3 class="text-3xl font-semibold text-gray-800 mb-8 text-center">All Blog Posts</h3>
+
+  <!-- Sign In/Sign Up Modal -->
+<div id="authModal" style="display:none;">
+  <form onsubmit="return handleSignIn(event)">
+    <input type="email" id="auth-email" placeholder="Email" required>
+    <input type="password" id="auth-password" placeholder="Password" required>
+    <button type="submit">Sign In</button>
+    <button type="button" onclick="handleSignUp()">Sign Up</button>
+  </form>
+</div>
+
+<button onclick="document.getElementById('authModal').style.display='block'">Sign In</button>
+
 
   <section id="blog-posts-list-section" class="page-section mb-16">
   <h3 class="text-3xl font-semibold text-gray-800 mb-8 text-center">All Blog Posts</h3>
