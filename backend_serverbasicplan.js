@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.post('http://localhost:4242/create-basic-checkout-session', async (req, res) => {
+app.post('', async (req, res) => {
   // You could get email or uid from req.body if using Firebase
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
