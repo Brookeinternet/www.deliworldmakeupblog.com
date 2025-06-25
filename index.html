@@ -321,6 +321,8 @@ document.getElementById('basicSubscribeBtn').addEventListener('click', async fun
       
       <script src="https://js.stripe.com/v3/"></script>
 <script>
+  import { getAuth } from "firebase/auth";
+
 const stripe = Stripe('pk_test_pk_live_51RXVHEDUGtG6RSaQSRA3mNRjmKDpm3uaS5yqLGQaioQAF4h46xtK8iZAicPPSazyONwHec6nYXpc7QsXRM4KEedu00taF9cnOX'); // Use your real publishable key
 
 document.getElementById('vipSubscribeBtn').addEventListener('click', async function() {
@@ -343,6 +345,30 @@ document.getElementById('vipSubscribeBtn').addEventListener('click', async funct
     alert(result.error.message);
   }
 });
+  const auth = getAuth(); // Place this somewhere above in your script if it’s not already declared
+const user = auth.currentUser;
+
+document.getElementById('vipSubscribeBtn').addEventListener('click', async function() {
+  const user = auth.currentUser;
+  if (!user) {
+    alert("Please sign in first!");
+    return;
+  }
+  const response = await fetch('/create-checkout-session', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ email: user.email, uid: user.uid })
+  });
+  const session = await response.json();
+  const result = await stripe.redirectToCheckout({ sessionId: session.id });
+  if (result.error) {
+    alert(result.error.message);
+  }
+});
+
+
+  ...
+
 </script>
         </div>
       </div>
