@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 // Create a Stripe Checkout Session for the VIP plan
-app.post('/create-basic-checkout-session', async (req, res) => {
+app.post('http://localhost:4242/create-basic-checkout-session', async (req, res) => {
   // Optionally, get user info from req.body (email, uid) if you want to track users
   // const { email, uid } = req.body;
 
