@@ -1,0 +1,13 @@
+{
+  "name": "deliworld-backend",
+  "version": "1.0.0",
+  "main": "backend_server_VIPplan.js",
+  "scripts": {
+    "start": "node backend_server_VIPplan.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "stripe": "^11.0.0",
+    "cors": "^2.8.5"
+  }
+}
