@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.post('', async (req, res) => {
+app.post('fetch('https://www-deliworldmakeupandbeautyblog-com.onrender.com/create-basic-checkout-session')', async (req, res) => {
   // You could get email or uid from req.body if using Firebase
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
@@ -26,7 +26,7 @@ app.post('', async (req, res) => {
 app.listen(4242, () => console.log('Server running on port 4242'));
 
 // (Optional) Stripe Webhook endpoint for marking users  Basic after payment
-app.post('https://www.deliworldmakeupandbeautyblog.com/webhooks/stripe', express.raw({type: 'application/json'}), (request, response) => {
+app.post('/webhooks/stripe', express.raw({type: 'application/json'}), (request, response) => {
   const endpointSecret = 'whsec_cSMxzKisOufbbLKtAewYE0CCg8pkqZ1b'; // Replace with your Stripe webhook secret
   const sig = request.headers['stripe-signature'];
   let event;
