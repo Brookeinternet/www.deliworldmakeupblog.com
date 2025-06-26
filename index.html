@@ -84,7 +84,52 @@
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
   
   
-  const auth = getAuth();
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+
+// ✅ 1. Initialize Firebase properly
+const firebaseConfig = {
+  apiKey: "AIzaSyBDeFd1HMO3rQfJu5JzqKXkzq-Oz68dQDk",
+  authDomain: "deli-sworld-subscription.firebaseapp.com",
+  projectId: "deli-sworld-subscription",
+  storageBucket: "deli-sworld-subscription.appspot.com",
+  messagingSenderId: "678490444860",
+  appId: "1:678490444860:web:3294be895f8033e7d01f39",
+  measurementId: "G-4T8CL2174E"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth(app); // ✅ Moved here — *after* init
+
+// Sign Up
+window.handleSignUp = function() {
+  const email = document.getElementById('auth-email').value;
+  const password = document.getElementById('auth-password').value;
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(userCredential => {
+      alert('Sign up successful! You are now logged in.');
+    })
+    .catch(error => {
+      alert(error.message);
+    });
+}
+
+// Sign In
+window.handleSignIn = function(event) {
+  event.preventDefault();
+  const email = document.getElementById('auth-email').value;
+  const password = document.getElementById('auth-password').value;
+  signInWithEmailAndPassword(auth, email, password)
+    .then(userCredential => {
+      alert('Sign in successful!');
+    })
+    .catch(error => {
+      alert(error.message);
+    });
+}
+
 
 // Sign Up function
 window.handleSignUp = function() {
