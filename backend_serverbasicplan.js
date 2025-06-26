@@ -37,10 +37,11 @@ app.post('https://www.deliworldmakeupandbeautyblog.com/webhooks/stripe', express
   }
 
   // Handle the event
-  if (event.type === 'checkout.session.completed') {
-    const session = event.data.object;
-    // Here, mark the user as Basic in your database using session.customer_email or session.metadata.firebaseUID
-    // Example: updateUserToBasic(session.customer_email);
-    console.log('Basic payment completed for:', session.customer_email || session.metadata);
-  }
+ if ( event . type === 'checkout.session.completed' ) {
+  const session = event . data . object ;
+  console .log ( 'Basic payment completed for:' , session . customer_email || session . metadata ) ;
+}
+
+response . status ( 200 ) . send ( 'Webhook received.' ) ;
+} ) ;
 
