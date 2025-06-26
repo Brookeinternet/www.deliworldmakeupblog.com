@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 // Create a Stripe Checkout Session for the VIP plan
-app.post('', async (req, res) => {
+app.post('https://backend-server-vipplan-js.onrender.com/create-checkout-session', async (req, res) => {
   // Optionally, get user info from req.body (email, uid) if you want to track users
   // const { email, uid } = req.body;
 
@@ -33,7 +33,7 @@ app.post('', async (req, res) => {
 });
 
 // (Optional) Stripe Webhook endpoint for marking users VIP after payment
-app.post('https://www.deliworldmakeupandbeautyblog.com/webhooks/stripe', express.raw({type: 'application/json'}), (request, response) => {
+app.post('https://backend-server-vipplan-js.onrender.com/webhooks/stripe', express.raw({type: 'application/json'}), (request, response) => {
   const endpointSecret = 'whsec__pKuu7CbQfHmhA5KIDZHUNP6e43NT5jzV'; // Replace with your Stripe webhook secret
   const sig = request.headers['stripe-signature'];
   let event;
