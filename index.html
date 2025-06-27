@@ -66,6 +66,8 @@
                     <li><a href="#" class="hover:underline" onclick="showSection('home-section')">Home</a></li>
                     <li><a href="#" class="hover:underline" onclick="showSection('blog-posts-list-section')">Blog Posts</a></li>
                    <li><a href="#" class="hover:underline" onclick="showSection('contact-section')">Contact</a></li>
+<button class="btn-primary" onclick="document.getElementById('authModal').style.display = 'flex'">Sign Up</button>
+<button class="btn-primary ml-4" onclick="document.getElementById('loginModal').style.display = 'flex'">Log In</button>
 
 
       <li><a href="#" class="hover:underline" onclick="showSection('about-deli-section')">About Deli</a></li>
@@ -118,6 +120,15 @@ document.getElementById("authModal").style.display = "flex";
   <input id="auth-password" type="password" placeholder="Password" class="mb-2 px-4 py-2 border rounded w-full max-w-sm" />
   <input id="auth-confirm-password" type="password" placeholder="Confirm Password" class="mb-4 px-4 py-2 border rounded w-full max-w-sm" />
   <button onclick="handleSignUp()" class="btn-primary">Sign Up</button>
+</div>
+<div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" style="display: none;">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-4 text-center">Log In</h2>
+    <input type="email" id="loginEmail" placeholder="Email" class="w-full mb-4 p-2 border rounded" />
+    <input type="password" id="loginPassword" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
+    <button class="btn-primary w-full" onclick="handleLogin()">Log In</button>
+    <button class="mt-4 text-sm text-gray-500 hover:underline w-full" onclick="document.getElementById('loginModal').style.display='none'">Cancel</button>
+  </div>
 </div>
 
 
@@ -230,6 +241,19 @@ document.getElementById("authModal").style.display = "flex";
       document.getElementById("vipSubscribeBtn").onclick = () => redirectToCheckout("vip");
     };
   </script>
+function handleLogin() {
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      alert("Logged in successfully!");
+      document.getElementById("loginModal").style.display = "none";
+    })
+    .catch((error) => {
+      alert("Login failed: " + error.message);
+    });
+}
 
 </body>
 </html>
