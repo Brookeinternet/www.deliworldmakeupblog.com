@@ -476,21 +476,21 @@ document.getElementById('vipSubscribeBtn').addEventListener('click', async funct
  
 
 
-  }
-}
+ 
 
 
-</script>
         </div>
       </div>
     </section>
   </main>
-    <!-- Firebase SDKs -->
+  
+</script>
+<!-- Firebase SDKs -->
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
 
 <script>
-  // 🔧 Your Firebase Configuration
+  // 🎯 Firebase config for Deli's World
   const firebaseConfig = {
     apiKey: "AIzaSyBuHboIYER7hLMOkR4zQPSlxW_d09nxZRY",
     authDomain: "deliworldmakeupandbeauty.firebaseapp.com",
@@ -501,10 +501,10 @@ document.getElementById('vipSubscribeBtn').addEventListener('click', async funct
     measurementId: "G-KC9ZEC8EZT"
   };
 
-  // 🚀 Initialize Firebase once
+  // 🔥 Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
-  // 📝 Sign-up handler
+  // 🧾 Handle user sign-up
   function handleSignUp() {
     const email = document.getElementById('auth-email').value;
     const password = document.getElementById('auth-password').value;
@@ -517,8 +517,7 @@ document.getElementById('vipSubscribeBtn').addEventListener('click', async funct
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
-        alert("Account created for " + user.email);
+        alert("Account created for " + userCredential.user.email);
         document.getElementById('authModal').style.display = 'none';
       })
       .catch((error) => {
@@ -526,7 +525,7 @@ document.getElementById('vipSubscribeBtn').addEventListener('click', async funct
       });
   }
 
-  // 🛒 Handle Basic subscription
+  // 🛒 Handle Basic plan access
   function handleBasicSubscribe() {
     const user = firebase.auth().currentUser;
     if (user) {
@@ -537,7 +536,7 @@ document.getElementById('vipSubscribeBtn').addEventListener('click', async funct
     }
   }
 
-  // 👑 Handle VIP subscription
+  // 👑 Handle VIP plan access
   function handleVIPSubscribe() {
     const user = firebase.auth().currentUser;
     if (user) {
@@ -548,7 +547,7 @@ document.getElementById('vipSubscribeBtn').addEventListener('click', async funct
     }
   }
 
-  // 🧠 Optional: Close modal on login
+  // ✨ Auto-close modal on successful login
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       document.getElementById('authModal').style.display = 'none';
