@@ -380,12 +380,19 @@ document.getElementById('basicSubscribeBtn').addEventListener('click', async fun
   const result = await stripe.redirectToCheckout({ sessionId: session.id });
   if (result.error) {
     alert(result.error.message);
-  }
-});
+const auth = firebase.auth();
+ <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
       
-      <script src="https://js.stripe.com/v3/"></script>
-<script>
-  import { getAuth } from "firebase/auth";
+    
+
+
+
+
+ <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+const auth = firebase.auth();
+
 
 const stripe = Stripe('pk_test_pk_live_51RXVHEDUGtG6RSaQSRA3mNRjmKDpm3uaS5yqLGQaioQAF4h46xtK8iZAicPPSazyONwHec6nYXpc7QsXRM4KEedu00taF9cnOX'); // Use your real publishable key
 
