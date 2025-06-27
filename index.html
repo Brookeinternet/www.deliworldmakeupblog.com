@@ -190,17 +190,19 @@ window.handleSignIn = function(event) {
     <input type="password" id="auth-password" placeholder="Password" required>
     <button type="submit">Sign In</button>
     <button type="button" onclick=<button class="btn-primary" onclick="handleBasicSubscribe()">Subscribe to Basic</button>
-<button class="btn-primary" onclick="handleVIPSubscribe()">Subscribe to VIP</button>
+ function handleVIPSubscribe() {
+  const user = firebase.auth().currentUser;
+  if (user) {
+    window.location.href = 'https://buy.stripe.com/6oU9AT4pUccC0X48Pk3cc01l';
+  } else {
+    alert("Please sign in to access VIP features.");
+    document.getElementById('authModal').style.display = 'block';
+    <button class="btn-primary" onclick="handleVIPSubscribe()">Subscribe to VIP</button>
 
   </form>
 </div>
 
-<button onclick="<button class="btn-primary" onclick="handleBasicSubscribe()">Subscribe to Basic</button>
-<button class="btn-primary" onclick="handleVIPSubscribe()">Subscribe to VIP</button>
 
-
-    <button id="vipSubscribeBtn">Go VIP!</button>
-    <button id="basicSubscribeBtn">Subscribe to Basic</button>
 
   <header class="gradient-bg py-8 shadow-md">
     <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
@@ -213,8 +215,10 @@ window.handleSignIn = function(event) {
           <li><a href="#" class="hover:underline" onclick="showSection('blog-posts-list-section')">Blog Posts</a></li>
           <li><a href="#" class="hover:underline" onclick="showSection('about-deli-section')">About Deli</a></li>
           <li><a href="#" class="hover:underline" onclick="showSection('contact-section')">Contact</a></li>         
-         <button class="btn-primary" onclick="handleBasicSubscribe()">Subscribe to Basic</button>
-<button class="btn-primary" onclick="handleVIPSubscribe()">Subscribe to VIP</button>
+         
+          <button class="btn-primary" onclick="handleBasicSubscribe()">Subscribe to Basic</button>
+ =
+          <button class="btn-primary" onclick="handleVIPSubscribe()">Subscribe to VIP</button>
 
          
           <li><a href="blogpage1.html" class="hover:underline" onclick="showSection('blogpage1--section')">Go to Blog Page 1</a></li> 
@@ -241,10 +245,14 @@ window.handleSignIn = function(event) {
     <button type="button" onclick="handleSignUp()">Sign Up</button>
   </form>
 </div>
-
+=
+  }
 <button class="btn-primary" onclick="handleBasicSubscribe()">Subscribe to Basic</button>
 <!-- and/or -->
-<button class="btn-primary" onclick="handleVIPSubscribe()">Subscribe to VIP</button>
+ fk';
+     }
+}
+    <button class="btn-primary" onclick="handleVIPSubscribe()">Subscribe to VIP</button>
 
 
 
@@ -375,7 +383,8 @@ document.getElementById('basicSubscribeBtn').addEventListener('click', async fun
   const response = await fetch('https://www-deliworldmakeupandbeautyblog-com.onrender.com/create-basic-checkout-session', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-  });
+const auth = firebase.auth();
+
   const session = await response.json();
   const result = await stripe.redirectToCheckout({ sessionId: session.id });
   if (result.error) {
@@ -464,44 +473,9 @@ document.getElementById('vipSubscribeBtn').addEventListener('click', async funct
       alert("Error: " + error.message);
     });
 }
- function handleBasicSubscribe() {
-  const user = firebase.auth().currentUser;
-  if (user) {
-    window.location.href = 'https://buy.stripe.com/5kQeVd7C62C2cFMc1w3cc02';
-  } else {
-    alert("Please sign in to subscribe.");
-    document.getElementById('authModal').style.display = 'block';
-  }
-}
+ 
 
-function handleBasicSubscribe() {
-  const user = firebase.auth().currentUser;
-  if (user) {
-    window.location.href = 'https://buy.stripe.com/5kQeVd7C62C2cFMc1w3cc02';
-  } else {
-    alert("Please sign in to subscribe.");
-    document.getElementById('authModal').style.display = 'block';
-  }
-}
 
-function handleVIPSubscribe() {
-  const user = firebase.auth().currentUser;
-  if (user) {
-    window.location.href = 'https://buy.stripe.com/6oU9AT4pUccC0X48Pk3cc01';
-  } else {
-    alert("Please sign in to access VIP.");
-    document.getElementById('authModal').style.display = 'block';
-  }
-}
-
-  
-  function handleVIPSubscribe() {
-  const user = firebase.auth().currentUser;
-  if (user) {
-    window.location.href = 'https://buy.stripe.com/6oU9AT4pUccC0X48Pk3cc01l';
-  } else {
-    alert("Please sign in to access VIP features.");
-    document.getElementById('authModal').style.display = 'block';
   }
 }
 
