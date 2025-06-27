@@ -291,10 +291,20 @@ window.handleSignIn = function(event) {
         <!-- Sign In/Sign Up Modal -->
 <div id="authModal" style="display:none;">
   <form onsubmit="return handleSignIn(event)">
-    <input type="email" id="auth-email" placeholder="Email" required>
-    <input type="password" id="auth-password" placeholder="Password" required>
-    <button type="submit">Sign In</button>
+  <input type="password" id="auth-password" placeholder="Password" required>
+<input type="password" id="auth-confirm-password" placeholder="Confirm Password" required>
+<button type="submit">Sign In</button>
     <button type="button" onclick="handleSignUp()">Sign Up</button>
+      function handleSignUp() {
+  const password = document.getElementById('auth-password').value;
+  const confirmPassword = document.getElementById('auth-confirm-password').value;
+  if (password !== confirmPassword) {
+    alert("Passwords don't match!");
+    return;
+  }
+  // Proceed with Firebase sign-up logic here...
+}
+
   </form>
 </div>
 
@@ -413,6 +423,32 @@ document.getElementById('vipSubscribeBtn').addEventListener('click', async funct
 
 
   ...
+
+  function handleSignUp() {
+  const email = document.getElementById('auth-email').value;
+  const password = document.getElementById('auth-password').value;
+  const confirmPassword = document.getElementById('auth-confirm-password').value;
+
+  // 1. Check that passwords match
+  if (password !== confirmPassword) {
+    alert("Passwords don't match!");
+    return;
+  }
+
+  // 2. Create user with Firebase Auth
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Success: User created
+      const user = userCredential.user;
+      alert("Account created! Welcome, " + user.email);
+      document.getElementById('authModal').style.display = 'none';
+    })
+    .catch((error) => {
+      // Handle errors
+      alert("Error: " + error.message);
+    });
+}
+
 
 </script>
         </div>
