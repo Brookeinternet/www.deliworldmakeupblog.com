@@ -485,6 +485,77 @@ document.getElementById('vipSubscribeBtn').addEventListener('click', async funct
       </div>
     </section>
   </main>
+    <!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+
+<script>
+  // 🔧 Your Firebase Configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBuHboIYER7hLMOkR4zQPSlxW_d09nxZRY",
+    authDomain: "deliworldmakeupandbeauty.firebaseapp.com",
+    projectId: "deliworldmakeupandbeauty",
+    storageBucket: "deliworldmakeupandbeauty.appspot.com",
+    messagingSenderId: "798514852556",
+    appId: "1:798514852556:web:b9934f12fcab917f3c3a38",
+    measurementId: "G-KC9ZEC8EZT"
+  };
+
+  // 🚀 Initialize Firebase once
+  firebase.initializeApp(firebaseConfig);
+
+  // 📝 Sign-up handler
+  function handleSignUp() {
+    const email = document.getElementById('auth-email').value;
+    const password = document.getElementById('auth-password').value;
+    const confirmPassword = document.getElementById('auth-confirm-password').value;
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        alert("Account created for " + user.email);
+        document.getElementById('authModal').style.display = 'none';
+      })
+      .catch((error) => {
+        alert("Sign-up error: " + error.message);
+      });
+  }
+
+  // 🛒 Handle Basic subscription
+  function handleBasicSubscribe() {
+    const user = firebase.auth().currentUser;
+    if (user) {
+      window.location.href = 'https://buy.stripe.com/5kQeVd7C62C2cFMc1w3cc02';
+    } else {
+      alert("Please sign in to subscribe to Basic.");
+      document.getElementById('authModal').style.display = 'block';
+    }
+  }
+
+  // 👑 Handle VIP subscription
+  function handleVIPSubscribe() {
+    const user = firebase.auth().currentUser;
+    if (user) {
+      window.location.href = 'https://buy.stripe.com/6oU9AT4pUccC0X48Pk3cc01';
+    } else {
+      alert("Please sign in to access VIP content.");
+      document.getElementById('authModal').style.display = 'block';
+    }
+  }
+
+  // 🧠 Optional: Close modal on login
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      document.getElementById('authModal').style.display = 'none';
+    }
+  });
+</script>
+
 </body>
 
 
