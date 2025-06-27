@@ -189,11 +189,15 @@ window.handleSignIn = function(event) {
     <input type="email" id="auth-email" placeholder="Email" required>
     <input type="password" id="auth-password" placeholder="Password" required>
     <button type="submit">Sign In</button>
-    <button type="button" onclick="handleSignUp()">Sign Up</button>
+    <button type="button" onclick=<button class="btn-primary" onclick="handleBasicSubscribe()">Subscribe to Basic</button>
+<button class="btn-primary" onclick="handleVIPSubscribe()">Subscribe to VIP</button>
+
   </form>
 </div>
 
-<button onclick="document.getElementById('authModal').style.display='block'">Sign In</button>
+<button onclick="<button class="btn-primary" onclick="handleBasicSubscribe()">Subscribe to Basic</button>
+<button class="btn-primary" onclick="handleVIPSubscribe()">Subscribe to VIP</button>
+
 
     <button id="vipSubscribeBtn">Go VIP!</button>
     <button id="basicSubscribeBtn">Subscribe to Basic</button>
@@ -209,8 +213,9 @@ window.handleSignIn = function(event) {
           <li><a href="#" class="hover:underline" onclick="showSection('blog-posts-list-section')">Blog Posts</a></li>
           <li><a href="#" class="hover:underline" onclick="showSection('about-deli-section')">About Deli</a></li>
           <li><a href="#" class="hover:underline" onclick="showSection('contact-section')">Contact</a></li>         
-          <li><a href="#" class="hover:underline" onclick="showSection('signin-section')"><button onclick="document.getElementById('authModal').style.display='block'">Sign In</button>
-</a></li>
+         <button class="btn-primary" onclick="handleBasicSubscribe()">Subscribe to Basic</button>
+<button class="btn-primary" onclick="handleVIPSubscribe()">Subscribe to VIP</button>
+
          
           <li><a href="blogpage1.html" class="hover:underline" onclick="showSection('blogpage1--section')">Go to Blog Page 1</a></li> 
           <a href="blogpage1.html">Go to Blog Page 1</a>
@@ -237,7 +242,11 @@ window.handleSignIn = function(event) {
   </form>
 </div>
 
-<button onclick="document.getElementById('authModal').style.display='block'">Sign In</button>
+<button class="btn-primary" onclick="handleBasicSubscribe()">Subscribe to Basic</button>
+<!-- and/or -->
+<button class="btn-primary" onclick="handleVIPSubscribe()">Subscribe to VIP</button>
+
+
 
     <h3 class="text-3xl font-semibold text-gray-800 mb-8 text-center">Featured Post</h3>
     <article class="bg-white rounded-xl shadow-lg overflow-hidden group max-w-xl mx-auto">
@@ -447,6 +456,46 @@ document.getElementById('vipSubscribeBtn').addEventListener('click', async funct
       // Handle errors
       alert("Error: " + error.message);
     });
+}
+ function handleBasicSubscribe() {
+  const user = firebase.auth().currentUser;
+  if (user) {
+    window.location.href = 'https://buy.stripe.com/5kQeVd7C62C2cFMc1w3cc02';
+  } else {
+    alert("Please sign in to subscribe.");
+    document.getElementById('authModal').style.display = 'block';
+  }
+}
+
+function handleBasicSubscribe() {
+  const user = firebase.auth().currentUser;
+  if (user) {
+    window.location.href = 'https://buy.stripe.com/5kQeVd7C62C2cFMc1w3cc02';
+  } else {
+    alert("Please sign in to subscribe.");
+    document.getElementById('authModal').style.display = 'block';
+  }
+}
+
+function handleVIPSubscribe() {
+  const user = firebase.auth().currentUser;
+  if (user) {
+    window.location.href = 'https://buy.stripe.com/6oU9AT4pUccC0X48Pk3cc01';
+  } else {
+    alert("Please sign in to access VIP.");
+    document.getElementById('authModal').style.display = 'block';
+  }
+}
+
+  
+  function handleVIPSubscribe() {
+  const user = firebase.auth().currentUser;
+  if (user) {
+    window.location.href = 'https://buy.stripe.com/6oU9AT4pUccC0X48Pk3cc01l';
+  } else {
+    alert("Please sign in to access VIP features.");
+    document.getElementById('authModal').style.display = 'block';
+  }
 }
 
 
