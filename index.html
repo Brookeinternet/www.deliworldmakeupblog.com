@@ -9,7 +9,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Google Fonts - Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Firebase SDKs (using v10.12.0) -->
   <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
@@ -435,10 +435,12 @@
         return;
       }
 
-      // Determine the correct backend endpoint based on the plan
-      const endpoint = plan === "vip"
-        ? "https://www-deliworldmakeupandbeautyblog-com.onrender.com/create-vip-checkout-session"
-        : "https://www-deliworldmakeupandbeautyblog-com.onrender.com/create-basic-checkout-session";
+      let endpoint;
+      if (plan === "vip") {
+        endpoint = "https://backend-server-vipplan-js.onrender.com"; // New VIP endpoint
+      } else { // "basic" plan
+        endpoint = "https://www-deliworldmakeupandbeautyblog-com.onrender.com"; // New Basic endpoint
+      }
 
       try {
         // Send a request to your backend to create a Stripe Checkout Session
@@ -449,12 +451,25 @@
           body: JSON.stringify({ uid: user.uid, email: user.email })
         });
 
+        // Check if the response is OK (status 200-299)
         if (!res.ok) {
-          const errorData = await res.json();
-          throw new Error(errorData.error || `HTTP error! status: ${res.status}`);
+          const errorText = await res.text(); // Get raw text to see if it's HTML
+          console.error("Backend response not OK:", res.status, errorText);
+          showMessage(`Checkout process error: Server responded with status ${res.status}. Response: ${errorText.substring(0, 100)}... (check console for full response)`);
+          return; // Exit if response is not OK
         }
 
-        const session = await res.json(); // Get the session ID from the backend response
+        // Try to parse the response as JSON
+        let session;
+        try {
+          session = await res.json();
+        } catch (jsonError) {
+          const errorText = await res.text(); // Get raw text to see what was sent
+          console.error("Error parsing JSON response from backend:", jsonError, "Full response text:", errorText);
+          showMessage(`Checkout process error: Received invalid JSON from server. Response starts with: ${errorText.substring(0, 100)}...`);
+          return; // Exit if JSON parsing fails
+        }
+
 
         // Redirect to Stripe Checkout page
         const result = await stripe.redirectToCheckout({ sessionId: session.id });
@@ -467,7 +482,7 @@
       } catch (err) {
         // Catch any errors during the fetch or JSON parsing
         showMessage("Checkout process error: " + err.message);
-        console.error("Checkout process error:", err);
+        console.error("Checkout process error (network/other):", err);
       }
     }
 
