@@ -91,13 +91,13 @@
       <!-- Navigation -->
       <nav>
         <ul class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-gray-800 text-lg">
-          <li><a href="#" class="hover:underline" onclick="showSection('home-section')">Home</a></li>
-          <li><a href="#" class="hover:underline" onclick="showSection('blog-posts-list-section')">Blog Posts</a></li>
-          <li><a href="#" class="hover:underline" onclick="showSection('about-deli-section')">About Deli</a></li>
-          <li><a href="#" class="hover:underline" onclick="showSection('contact-section')">Contact</a></li>
+          <li><a href="#" class="hover:underline nav-link" data-section="home-section">Home</a></li>
+          <li><a href="#" class="hover:underline nav-link" data-section="blog-posts-list-section">Blog Posts</a></li>
+          <li><a href="#" class="hover:underline nav-link" data-section="about-deli-section">About Deli</a></li>
+          <li><a href="#" class="hover:underline nav-link" data-section="contact-section">Contact</a></li>
           <li id="auth-buttons-container" class="flex space-x-4">
-            <button class="btn-primary" onclick="document.getElementById('authModal').style.display = 'flex'">Sign Up</button>
-            <button class="btn-primary" onclick="document.getElementById('loginModal').style.display = 'flex'">Log In</button>
+            <button class="btn-primary" id="signup-modal-btn">Sign Up</button>
+            <button class="btn-primary" id="login-modal-btn">Log In</button>
           </li>
           <li id="logged-in-status" class="hidden flex items-center space-x-4">
             <span id="user-status" class="text-gray-700 text-sm"></span>
@@ -130,7 +130,7 @@
             <p class="text-gray-600 text-sm mb-4">
               Unlock my exclusive list of the best foundations for a flawless finish.
             </p>
-            <a href="#" class="text-pink-500 hover:underline font-medium" onclick="showSection('foundation-article-section')">Read Premium Article &rarr;</a>
+            <a href="#" class="text-pink-500 hover:underline section-link" data-section="foundation-article-section">Read Premium Article &rarr;</a>
           </div>
         </article>
       </div>
@@ -138,7 +138,7 @@
       <section class="text-center py-12">
         <h3 class="text-3xl font-semibold text-gray-800 mb-4">Ready to Transform Your Look?</h3>
         <p class="text-lg text-gray-600 mb-8">Join Deli's World today and embark on your beauty journey!</p>
-        <button class="btn-primary" onclick="showSection('premium-plans-section')">Explore All Plans</button>
+        <button class="btn-primary" id="explore-plans-btn">Explore All Plans</button>
       </section>
     </section>
 
@@ -152,7 +152,7 @@
                 <div class="p-6">
                     <h4 class="text-xl font-semibold text-gray-800 mb-2">5 Essential Makeup Tips for Beginners</h4>
                     <p class="text-gray-600 text-sm mb-4">Learn the basics to start your makeup journey with confidence.</p>
-                    <a href="#" class="text-pink-500 hover:underline font-medium">Read More &rarr;</a>
+                    <a href="#" class="text-pink-500 hover:underline">Read More &rarr;</a>
                 </div>
             </article>
             <!-- Example Blog Post Card 2 -->
@@ -161,7 +161,7 @@
                 <div class="p-6">
                     <h4 class="text-xl font-semibold text-gray-800 mb-2">Review: The Latest Anti-Aging Serum</h4>
                     <p class="text-gray-600 text-sm mb-4">An in-depth look at whether this serum lives up to its claims.</p>
-                    <a href="#" class="text-pink-500 hover:underline font-medium">Read More &rarr;</a>
+                    <a href="#" class="text-pink-500 hover:underline">Read More &rarr;</a>
                 </div>
             </article>
             <!-- Example Blog Post Card 3 -->
@@ -170,7 +170,7 @@
                 <div class="p-6">
                     <h4 class="text-xl font-semibold text-gray-800 mb-2">Top Beauty Trends to Try in 2025</h4>
                     <p class="text-gray-600 text-sm mb-4">Stay ahead with the hottest looks and styles.</p>
-                    <a href="#" class="text-pink-500 hover:underline font-medium">Read More &rarr;</a>
+                    <a href="#" class="text-pink-500 hover:underline">Read More &rarr;</a>
                 </div>
             </article>
         </div>
@@ -290,8 +290,8 @@
       <input id="auth-email" type="email" placeholder="Email" class="mb-2 px-4 py-2 border rounded w-full" />
       <input id="auth-password" type="password" placeholder="Password" class="mb-2 px-4 py-2 border rounded w-full" />
       <input id="auth-confirm-password" type="password" placeholder="Confirm Password" class="mb-4 px-4 py-2 border rounded w-full" />
-      <button onclick="handleSignUp()" class="btn-primary w-full">Sign Up</button>
-      <button class="modal-close-btn bg-gray-300 text-gray-800 hover:bg-gray-400" onclick="document.getElementById('authModal').style.display = 'none'">Cancel</button>
+      <button id="signup-button" class="btn-primary w-full">Sign Up</button>
+      <button class="modal-close-btn bg-gray-300 text-gray-800 hover:bg-gray-400" id="signup-cancel-btn">Cancel</button>
     </div>
   </div>
 
@@ -301,8 +301,8 @@
       <h2 class="text-2xl font-bold mb-4 text-center">Log In</h2>
       <input type="email" id="loginEmail" placeholder="Email" class="w-full mb-4 p-2 border rounded" />
       <input type="password" id="loginPassword" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
-      <button class="btn-primary w-full" onclick="handleLogin()">Log In</button>
-      <button class="modal-close-btn bg-gray-300 text-gray-800 hover:bg-gray-400" onclick="document.getElementById('loginModal').style.display='none'">Cancel</button>
+      <button id="login-button" class="btn-primary w-full">Log In</button>
+      <button class="modal-close-btn bg-gray-300 text-gray-800 hover:bg-gray-400" id="login-cancel-btn">Cancel</button>
     </div>
   </div>
 
@@ -310,7 +310,7 @@
   <div id="messageModal" class="modal-overlay hidden">
     <div class="modal-content">
       <p id="messageText" class="text-lg text-gray-700 mb-4"></p>
-      <button class="modal-close-btn" onclick="document.getElementById('messageModal').style.display = 'none'">OK</button>
+      <button class="modal-close-btn" id="message-ok-btn">OK</button>
     </div>
   </div>
 
@@ -350,7 +350,7 @@
     }
 
     // Function to handle user sign-up
-    window.handleSignUp = async () => {
+    async function handleSignUp() {
       const email = document.getElementById("auth-email").value;
       const password = document.getElementById("auth-password").value;
       const confirmPassword = document.getElementById("auth-confirm-password").value;
@@ -373,10 +373,10 @@
         showMessage("Sign-up error: " + error.message);
         console.error("Sign-up error:", error);
       }
-    };
+    }
 
     // Function to handle user login
-    window.handleLogin = async () => {
+    async function handleLogin() {
       const email = document.getElementById("loginEmail").value;
       const password = document.getElementById("loginPassword").value;
 
@@ -388,10 +388,10 @@
         showMessage("Login failed: " + error.message);
         console.error("Login error:", error);
       }
-    };
+    }
 
     // Function to handle user logout
-    window.handleLogout = async () => {
+    async function handleLogout() {
       try {
         await signOut(auth);
         showMessage("Logged out successfully.");
@@ -400,10 +400,10 @@
         showMessage("Logout error: " + error.message);
         console.error("Logout error:", error);
       }
-    };
+    }
 
     // Function to switch between sections
-    window.showSection = (sectionId) => {
+    function showSection(sectionId) {
       document.querySelectorAll('.page-section').forEach(section => {
         section.classList.remove('active');
       });
@@ -413,10 +413,10 @@
       } else {
         console.error(`Section with ID '${sectionId}' not found.`);
       }
-    };
+    }
 
     // Function to redirect to Stripe Checkout
-    window.redirectToCheckout = async (plan) => {
+    async function redirectToCheckout(plan) {
       const user = auth.currentUser;
       if (!user) {
         showMessage("Please sign in to subscribe.");
@@ -458,7 +458,7 @@
         showMessage("Checkout process error: " + err.message);
         console.error("Checkout process error:", err);
       }
-    };
+    }
 
     // Listen for Firebase authentication state changes
     onAuthStateChanged(auth, async (user) => {
@@ -521,14 +521,64 @@
       }
     });
 
-    // Event listeners for subscribe buttons
-    window.onload = () => {
+    // Event listeners are set up after the DOM is fully loaded
+    document.addEventListener("DOMContentLoaded", () => {
+      // Navigation links (using .nav-link class)
+      document.querySelectorAll(".nav-link").forEach(link => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault(); // Prevent default anchor behavior
+          const sectionId = event.target.dataset.section;
+          if (sectionId) {
+            showSection(sectionId);
+          }
+        });
+      });
+
+      // Section-specific links (using .section-link class)
+      document.querySelectorAll(".section-link").forEach(link => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault(); // Prevent default anchor behavior
+          const sectionId = event.target.dataset.section;
+          if (sectionId) {
+            showSection(sectionId);
+          }
+        });
+      });
+
+      // Authentication modal buttons
+      document.getElementById("signup-modal-btn").addEventListener("click", () => {
+        document.getElementById("authModal").style.display = "flex";
+      });
+      document.getElementById("login-modal-btn").addEventListener("click", () => {
+        document.getElementById("loginModal").style.display = "flex";
+      });
+
+      // Auth actions
+      document.getElementById("signup-button").addEventListener("click", handleSignUp);
+      document.getElementById("login-button").addEventListener("click", handleLogin);
+      document.getElementById("logout-button").addEventListener("click", handleLogout);
+
+      // Modal close buttons
+      document.getElementById("signup-cancel-btn").addEventListener("click", () => {
+        document.getElementById("authModal").style.display = "none";
+      });
+      document.getElementById("login-cancel-btn").addEventListener("click", () => {
+        document.getElementById("loginModal").style.display = "none";
+      });
+      document.getElementById("message-ok-btn").addEventListener("click", () => {
+        document.getElementById("messageModal").style.display = "none";
+      });
+
+      // Premium plan subscription buttons
       document.getElementById("basicSubscribeBtn").addEventListener("click", () => redirectToCheckout("basic"));
       document.getElementById("vipSubscribeBtn").addEventListener("click", () => redirectToCheckout("vip"));
-      document.getElementById("logout-button").addEventListener("click", handleLogout);
-      // Ensure initial section is shown
+
+      // Explore All Plans button
+      document.getElementById("explore-plans-btn").addEventListener("click", () => showSection("premium-plans-section"));
+
+      // Ensure initial section is shown on page load
       showSection('home-section');
-    };
+    });
   </script>
 </body>
 </html>
