@@ -1,15 +1,17 @@
+// This code should be deployed to your SECOND Render.com service: https://backend-server-vipplan-js.onrender.com
+
 const express = require('express');
 const cors = require('cors');
-const stripe = require('stripe')('sk_test_sk_live_51RXVHEDUGtG6RSaQrm3VYfCxZdzeZXN7lHNC1R8bSIjnkxJ6MCot8mMEGJrbaHWxYsKQRgAmCR2NCwtumzdSlPaL00LjI85bDA'); // Replace with your Stripe secret key
+const stripe = require('stripe')('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'); // Replaced with your Stripe secret key
 
 const app = express();
-app.use(cors());
+app.use(cors()); // Enable CORS for your frontend
 app.use(express.json());
 
-// Create a Stripe Checkout Session for the VIP plan
-app.post('https://backend-server-vipplan-js.onrender.com/create-checkout-session', async (req, res) => {
-  // Optionally, get user info from req.body (email, uid) if you want to track users
-  // const { email, uid } = req.body;
+// VIP Plan Checkout Session Endpoint
+// This endpoint corresponds to the base URL of this Render service.
+app.post('/', async (req, res) => {
+  const { uid, email } = req.body; // Get user ID and email from frontend
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -17,41 +19,47 @@ app.post('https://backend-server-vipplan-js.onrender.com/create-checkout-session
       mode: 'subscription',
       line_items: [
         {
-          price: 'price_prod_ST0JYBPCoJ6np4', // Replace with your actual Stripe Price ID for VIP plan
+          // Updated with the provided Stripe Price ID for the VIP plan
+          price: 'price_prod_ST0JYBPCoJ6np4',
           quantity: 1
         }
       ],
-      // customer_email: email, // Uncomment if you wish to pass user's email
-      // metadata: { firebaseUID: uid }, // Uncomment if you use Firebase UID
       success_url: 'https://www.deliworldmakeupandbeautyblog.com/success.html',
       cancel_url: 'https://www.deliworldmakeupandbeautyblog.com/cancel.html',
+      customer_email: email,
+      client_reference_id: uid,
     });
     res.json({ id: session.id });
   } catch (error) {
+    console.error("Error creating Stripe checkout session (VIP Plan):", error);
     res.status(500).json({ error: error.message });
   }
 });
 
-// (Optional) Stripe Webhook endpoint for marking users VIP after payment
-app.post('https://backend-server-vipplan-js.onrender.com/webhooks/stripe', express.raw({type: 'application/json'}), (request, response) => {
-  const endpointSecret = 'whsec__pKuu7CbQfHmhA5KIDZHUNP6e43NT5jzV'; // Replace with your Stripe webhook secret
+// (Optional) Stripe Webhook Endpoint for VIP Plan
+app.post('/webhooks/stripe', express.raw({type: 'application/json'}), (request, response) => {
+  // IMPORTANT: Replaced with your actual Stripe Webhook Secret for this specific VIP webhook
+  const endpointSecret = 'whsec_gB02pzHE0L1erLRDOs6g5XIUg3tTqoTT';
   const sig = request.headers['stripe-signature'];
   let event;
   try {
     event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
   } catch (err) {
+    console.error("Webhook signature verification failed:", err.message);
     return response.status(400).send(`Webhook Error: ${err.message}`);
   }
 
-  // Handle the event
-  if (event.type === 'checkout.session.completed') {
+  if ( event.type === 'checkout.session.completed' ) {
     const session = event.data.object;
-    // Here, mark the user as VIP in your database using session.customer_email or session.metadata.firebaseUID
-    // Example: updateUserToVIP(session.customer_email);
-    console.log('VIP payment completed for:', session.customer_email || session.metadata);
+    console.log('VIP payment completed for:', session.customer_details ? session.customer_details.email : 'N/A', 'Client reference ID:', session.client_reference_id);
+    // --- IMPORTANT: Update your Firebase/database here to mark as VIP subscriber ---
+  } else {
+    console.log(`Unhandled event type ${event.type}`);
   }
 
-  response.json({received: true});
+  response.status(200).send('Webhook received.');
 });
 
-app.listen(4242, () => console.log('VIP backend running on port 4242'));
+// Listen on the port provided by Render environment
+const PORT = process.env.PORT || 3000; // Use process.env.PORT on Render
+app.listen(PORT, () => console.log(`VIP Plan Server running on port ${PORT}`));
