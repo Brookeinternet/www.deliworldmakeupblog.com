@@ -33,8 +33,8 @@ app.post('/', async (req, res) => {
       mode: 'subscription',
       line_items: [
         {
-          // Replace 'price_prod_ST0DRJeaBnXYct' with your actual Stripe Price ID for the Basic plan
-          price: 'price_1P3g52DUGtG6RSaQS6f4k5aL', 
+          // Updated with the provided Stripe Price ID for Basic plan
+          price: 'price_prod_ST0DRJeaBnXYct',
           quantity: 1
         }
       ],
@@ -59,7 +59,7 @@ app.post('/', async (req, res) => {
 // (Optional) Stripe Webhook Endpoint
 // This endpoint receives notifications from Stripe about payment events.
 app.post('/webhooks/stripe', express.raw({type: 'application/json'}), (request, response) => {
-  // IMPORTANT: Replace with your actual Stripe Webhook Secret for this endpoint
+  // Updated with the provided Stripe Webhook Secret
   const endpointSecret = 'whsec_cSMxzKisOufbbLKtAewYE0CCg8pkqZ1b'; 
   const sig = request.headers['stripe-signature'];
 
