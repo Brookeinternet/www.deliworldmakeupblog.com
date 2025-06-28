@@ -2,7 +2,7 @@
 
 const express = require('express');
 const cors = require('cors'); // Import the CORS middleware
-const stripe = require('stripe')('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'); // IMPORTANT: Replace with your actual sk_test_ or sk_live_ key
+const stripe = require('stripe')('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'); // IMPORTANT: Replace with your actual sk_test_ or sk_live_ key
 
 const app = express();
 
