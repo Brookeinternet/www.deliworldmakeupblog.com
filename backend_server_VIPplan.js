@@ -20,7 +20,7 @@ app.post('/', async (req, res) => {
       line_items: [
         {
           // Updated with the provided Stripe Price ID for the VIP plan
-          price: 'price_prod_ST0JYBPCoJ6np4',
+          price: 'price_1RY4IZDUGtG6RSaQlxRwUsbH',
           quantity: 1
         }
       ],
