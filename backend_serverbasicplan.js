@@ -34,7 +34,7 @@ app.post('/', async (req, res) => {
       line_items: [
         {
           // Updated with the provided Stripe Price ID for Basic plan
-          price: 'price_prod_ST0DRJeaBnXYct',
+          price: 'price_1RY4DKDUGtG6RSaQKTHSzMkp',
           quantity: 1
         }
       ],
