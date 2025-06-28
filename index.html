@@ -329,12 +329,20 @@
     import { getFirestore, doc, getDoc, collection } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 
-    // Firebase configuration from Canvas environment variables
-    const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-    const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+    // Firebase configuration provided by the user
+    const firebaseConfig = {
+      apiKey: "AIzaSyBDeFd1HMO3rQfJu5JzqKXkzq-Oz68dQDk",
+      authDomain: "deli-sworld-subscription.firebaseapp.com",
+      projectId: "deli-sworld-subscription",
+      storageBucket: "deli-sworld-subscription.firebasestorage.app",
+      messagingSenderId: "678490444860",
+      appId: "1:678490444860:web:3294be895f8033e7d01f39",
+      measurementId: "G-4T8CL2174E"
+    };
 
-    // Debugging: Log the firebaseConfig being used
-    console.log("Firebase Config:", firebaseConfig);
+    // appId is still derived from the Canvas environment variable
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
