@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deli's Guide to the Ethereal Cloud Makeup Look | VIP</title> <!-- Article Specific Title -->
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Firebase SDKs (using v10.12.0) -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            line-height: 1.6;
+            color: #334155;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .gradient-bg { background: linear-gradient(to right, #fecaca, #fbcfe8); }
+        .btn-primary {
+            background-color: #ec4899;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary:hover { background-color: #db2777; }
+
+        /* Styles for the lock overlay */
+        .article-container {
+            position: relative; /* Needed for absolute positioning of overlay */
+            overflow: hidden; /* Hide overflow from blur */
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        .article-content-wrapper {
+            transition: filter 0.3s ease-out, opacity 0.3s ease-out;
+        }
+        .article-lock-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.95); /* More opaque white overlay */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            text-align: center;
+            padding: 20px;
+            border-radius: 1rem;
+            pointer-events: none; /* Allows interaction by default, will be changed by JS */
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s ease-out;
+        }
+        .article-content-wrapper.blurred {
+            filter: blur(8px); /* Stronger blur when locked */
+            pointer-events: none;
+            user-select: none;
+            opacity: 0.3; /* More dim when locked */
+        }
+        .article-lock-overlay.active {
+            opacity: 1;
+            pointer-events: auto; /* Enable interaction when active */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="gradient-bg py-6 shadow-md">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 md:mb-0">Deli's Blog</h1>
+            <nav>
+                <ul class="flex space-x-6 text-gray-800 text-lg">
+                    <li><a href="../index.html" class="hover:underline">Home</a></li> <!-- Adjust path if needed -->
+                    <li><a href="../#blog-posts-list-section" class="hover:underline">All Blog Posts</a></li> <!-- Link back to blog list on main page -->
+                    <li><a href="../contact.html" class="hover:underline">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <div class="article-container">
+            <div id="article-content-wrapper">
+                <!-- START ARTICLE CONTENT FOR "Deli's Guide to the Ethereal Cloud Makeup Look" -->
+                <a href="../#blog-posts-list-section" class="text-pink-500 hover:underline mb-6 inline-block">&larr; Back to Blog Posts</a>
+                <h1 class="text-3xl font-bold text-blue-500 mb-4">Deli's Guide to the Ethereal Cloud Makeup Look</h1>
+                <p class="text-lg text-gray-700 mb-8">
+                    Float away with this dreamy cloud-inspired makeup tutorial! The "Cloud Makeup Look" is all about soft, diffused colors, ethereal glow, and a touch of whimsical artistry. It's perfect for a fantasy-inspired vibe or simply when you want to add a touch of magic to your everyday. Today, we're featuring how this look translates beautifully on different AI influencers, showcasing its versatility!
+                </p>
+
+                <h2 class="text-2xl font-semibold text-pink-600 mb-4">Step 1: A Luminous, Soft-Focus Base</h2>
+                <img src="https://i.imgur.com/ZJ7A0CJ.png" alt="Cloud Makeup Look Base - AI Influencer 1" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    For a cloud-like base, aim for a soft, luminous finish. Use a light-to-medium coverage foundation or a glowing skin tint. Focus on blurring imperfections rather than heavy coverage. Apply a dewy primer underneath for extra radiance. Set very lightly with a translucent powder only where needed.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-pink-600 mb-4">Step 2: Whispers of Cloud Eyes</h2>
+                <img src="https://i.imgur.com/OxdFSIU.png" alt="Cloud Makeup Look Eyes - AI Influencer 2" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    The eyes are the centerpiece. Use soft pastel eyeshadows – think light blues, purples, or muted pinks.
+                    Apply a light blue or lavender shade softly across the lid and blend it upwards and outwards in a diffused, cloud-like shape, avoiding harsh lines. You can use a fluffy brush for this. A touch of iridescent white or silver in the inner corner will brighten the eye.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-pink-600 mb-4">Step 3: Defining with Delicate Lines (Optional)</h2>
+                <img src="https://i.imgur.com/e4LsynE.png" alt="Cloud Makeup Look Graphic Element - AI Influencer 3" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    For a more artistic touch, use a white or light blue liquid eyeliner to draw delicate, wispy cloud shapes or abstract lines on your eyelid or along the crease. This adds an illustrative, dreamlike quality. Keep these lines thin and soft, not stark.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-pink-600 mb-4">Step 4: Blush of Dawn & Glistening Highlight</h2>
+                <img src="https://i.imgur.com/wUJASdd.png" alt="Cloud Makeup Look Blush & Highlight - AI Influencer 4" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    Apply a soft pink or peach cream blush to the apples of your cheeks, blending it seamlessly for a natural flush. For highlighter, choose an iridescent or opalescent shade that shifts between pink, blue, or lavender. Apply generously to your cheekbones, brow bone, and Cupid's bow for an ethereal, almost wet-look glow.
+                </p>
+
+                <h2 class="text-2xl font-semibold text-pink-600 mb-4">Step 5: Dreamy Lips</h2>
+                <p class="text-gray-700 mb-6">
+                    Complete the look with soft, luminous lips. A sheer pink or nude lip gloss with a hint of shimmer, or a tinted lip balm, will keep the focus on the eyes while adding to the overall ethereal vibe. Avoid heavy or matte lipsticks.
+                </p>
+
+                <h3 class="text-3xl font-bold text-gray-800 mb-6 mt-10 text-center">Cloud Makeup Look: AI Influencer Interpretations (VIP Exclusive!)</h3>
+                <p class="text-lg text-gray-700 mb-6">
+                    Observe how AI influencers bring unique nuances to the Cloud Makeup Look, showcasing its adaptable beauty across diverse digital aesthetics.
+                </p>
+                <ul class="list-disc list-inside mb-6 text-gray-700">
+                    <li class="mb-2"><strong>AI Influencer 1:</strong> (Referencing <code>https://i.imgur.com/ZJ7A0CJ.png</code>) This AI influencer features a soft, almost painterly blend of pastel blues and whites on the eyes, creating a truly diffused cloud effect. Their base is luminous but not overly shiny, allowing the eye makeup to take center stage.</li>
+                    <li class="mb-2"><strong>AI Influencer 2:</strong> (Referencing <code>https://i.imgur.com/OxdFSIU.png</code>) Here, the cloud look is interpreted with a more pronounced, almost winged cloud shape, demonstrating how graphic elements can be incorporated. The use of varied blue tones adds depth.</li>
+                    <li class="mb-2"><strong>AI Influencer 3:</strong> (Referencing <code>https://i.imgur.com/e4LsynE.png</code>) This influencer highlights the ethereal quality with subtle, almost invisible shimmer and delicate, barely-there lines that give the impression of light wisps. The overall look is very soft and dreamlike.</li>
+                    <li class="mb-2"><strong>AI Influencer 4:</strong> (Referencing <code>https://i.imgur.com/wUJASdd.png</code>) This interpretation showcases a bolder application of pastel blues and purples, extending the cloud effect higher up the brow bone, proving the look can be adapted for more dramatic artistry.</li>
+                </ul>
+
+                <p class="text-lg text-gray-700 mt-8 text-center font-semibold">
+                    The Cloud Makeup Look is a beautiful way to express your creativity. Experiment with different pastel shades and levels of shimmer to create your own unique ethereal masterpiece!
+                </p>
+                <div class="text-center mt-12">
+                    <button class="btn-primary" onclick="window.location.href='../#premium-plans-section'">Become a VIP Member!</button>
+                </div>
+                <!-- END ARTICLE CONTENT -->
+            </div>
+
+            <!-- The Lock Overlay -->
+            <div id="article-lock-overlay" class="article-lock-overlay">
+                <svg class="w-16 h-16 mb-4 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m0 0v2m-6-2a6 6 0 1112 0v2a2 2 0 01-2 2H8a2 2 0 01-2-2v-2z" />
+                </svg>
+                <p id="lock-message" class="text-xl font-semibold text-gray-800 mb-4">Content Locked</p>
+                <p id="lock-subtext" class="text-lg text-gray-600 mb-6 text-center">
+                    Please log in or upgrade your membership to view this exclusive content.
+                </p>
+                <a id="lock-cta-button" href="../#premium-plans-section" class="btn-primary">View Plans & Unlock</a>
+                <button id="login-from-article-btn" class="text-pink-500 hover:underline mt-4">Already a member? Log In</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Login Modal (duplicate from main app, necessary for standalone page) -->
+    <div id="loginModal" class="modal-overlay hidden">
+      <div class="modal-content w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-4 text-center">Log In</h2>
+        <input type="email" id="loginEmail" placeholder="Email" class="w-full mb-4 p-2 border rounded" />
+        <input type="password" id="loginPassword" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
+        <button id="login-button" class="btn-primary w-full">Log In</button>
+        <button class="modal-close-btn bg-gray-300 text-gray-800 hover:bg-gray-400" id="login-cancel-btn">Cancel</button>
+      </div>
+    </div>
+
+    <!-- Custom Message Modal (duplicate from main app, necessary for standalone page) -->
+    <div id="messageModal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <p id="messageText" class="text-lg text-gray-700 mb-4"></p>
+        <button class="modal-close-btn" id="message-ok-btn">OK</button>
+      </div>
+    </div>
+
+
+    <script type="module">
+        // Firebase initialization (duplicate from main app, necessary for standalone page)
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import {
+            getAuth,
+            signInWithEmailAndPassword,
+            onAuthStateChanged,
+            signInAnonymously,
+            signInWithCustomToken
+        } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBDeFd1HMO3rQfJu5JzqKXkzq-Oz68dQDk",
+            authDomain: "deli-sworld-subscription.firebaseapp.com",
+            projectId: "deli-sworld-subscription",
+            storageBucket: "deli-sworld-subscription.firebasestorage.app",
+            messagingSenderId: "678490444860",
+            appId: "1:678490444860:web:3294be895f8033e7d01f39",
+            measurementId: "G-4T8CL2174E"
+        };
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Function to display custom messages (replaces alert())
+        function showMessage(message) {
+            document.getElementById("messageText").textContent = message;
+            document.getElementById("messageModal").style.display = "flex";
+        }
+
+        // Function to handle user login from article page
+        async function handleLoginFromArticle() {
+            const email = document.getElementById("loginEmail").value;
+            const password = document.getElementById("loginPassword").value;
+
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                showMessage("Logged in successfully!");
+                document.getElementById("loginModal").style.display = "none"; // Hide modal
+                // Access check will run automatically via onAuthStateChanged
+            } catch (error) {
+                showMessage("Login failed: " + error.message);
+                console.error("Login error:", error);
+            }
+        }
+
+        // Function to fetch user's subscription status from Firestore
+        async function getUserSubscriptionTier(uid) {
+            if (!uid) return 'free';
+
+            try {
+                const userDocRef = doc(db, `artifacts/${appId}/users/${uid}`);
+                const userDocSnap = await getDoc(userDocRef);
+
+                if (userDocSnap.exists()) {
+                    const userData = userDocSnap.data();
+                    return userData.subscriptionTier || 'free';
+                }
+                return 'free';
+            } catch (error) {
+                console.error("Error fetching user subscription tier:", error);
+                return 'free';
+            }
+        }
+
+        /**
+         * Checks if the current user has access to the article based on their tier.
+         * @param {string} currentUserTier - The current user's subscription tier ('free', 'basic', 'vip').
+         * @param {string} requiredTier - The tier required for this specific article ('free', 'basic', 'vip').
+         * @returns {boolean} True if the user has access, false otherwise.
+         */
+        function hasAccess(currentUserTier, requiredTier) {
+            if (requiredTier === 'free') {
+                return true; // Free articles are always accessible
+            }
+            if (requiredTier === 'basic') {
+                return currentUserTier === 'basic' || currentUserTier === 'vip';
+            }
+            if (requiredTier === 'vip') {
+                return currentUserTier === 'vip';
+            }
+            return false; // Fallback
+        }
+
+        // Main function to control article visibility
+        async function checkArticleAccess() {
+            // Set the required tier for *THIS* specific article.
+            // This article is "Deli's Guide to the Ethereal Cloud Makeup Look", which is a VIP article.
+            const requiredTier = 'vip'; // Set to 'vip' as requested by the user.
+
+            const articleContentWrapper = document.getElementById('article-content-wrapper');
+            const articleLockOverlay = document.getElementById('article-lock-overlay');
+            const lockMessageElement = document.getElementById('lock-message');
+            const lockSubtextElement = document.getElementById('lock-subtext');
+            const lockCtaButton = document.getElementById('lock-cta-button');
+            const loginFromArticleBtn = document.getElementById('login-from-article-btn');
+
+
+            if (!articleContentWrapper || !articleLockOverlay || !lockMessageElement || !lockSubtextElement || !lockCtaButton || !loginFromArticleBtn) {
+                console.error("Required elements for access control not found.");
+                return;
+            }
+
+            const user = auth.currentUser;
+            let currentTier = 'free';
+
+            if (user) {
+                currentTier = await getUserSubscriptionTier(user.uid);
+            } else {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    try {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } catch (error) {
+                        console.warn("Custom token sign-in failed on article page. Proceeding as unauthenticated.", error);
+                    }
+                }
+            }
+            
+            const actualUser = auth.currentUser;
+            if (actualUser && currentTier === 'free') { 
+                 currentTier = await getUserSubscriptionTier(actualUser.uid);
+            }
+
+
+            if (hasAccess(currentTier, requiredTier)) {
+                // User has access: show content, hide lock
+                articleContentWrapper.classList.remove('blurred');
+                articleLockOverlay.classList.remove('active');
+                articleLockOverlay.style.display = 'none'; // Ensure it's hidden
+            } else {
+                // User does NOT have access: blur content, show lock
+                articleContentWrapper.classList.add('blurred');
+                articleLockOverlay.classList.add('active');
+                articleLockOverlay.style.display = 'flex'; // Ensure it's visible
+
+                lockCtaButton.style.display = 'block'; // Show CTA button by default
+                loginFromArticleBtn.style.display = 'block'; // Show login button by default
+
+                if (!user) { // User is not logged in
+                    lockMessageElement.textContent = "Content Locked";
+                    lockSubtextElement.textContent = "Please log in or upgrade your membership to view this exclusive content.";
+                    lockCtaButton.textContent = "View Plans & Unlock";
+                } else if (requiredTier === 'vip' && currentTier === 'basic') {
+                    // User is Basic, but VIP content is required
+                    lockMessageElement.textContent = "VIP Content Locked";
+                    lockSubtextElement.textContent = "This article is for VIP members only. Upgrade your plan to unlock it!";
+                    lockCtaButton.textContent = "Upgrade to VIP";
+                    loginFromArticleBtn.style.display = 'none'; // Hide login button if already logged in (as Basic)
+                } else if (requiredTier === 'basic' && currentTier === 'free') {
+                    // User is Free, but Basic content is required
+                    lockMessageElement.textContent = "Basic Content Locked";
+                    lockSubtextElement.textContent = "This article is for Basic or VIP members. Upgrade your plan to unlock it!";
+                    lockCtaButton.textContent = "Upgrade to Basic";
+                } else {
+                    // Fallback for other scenarios, though main cases are covered
+                    lockMessageElement.textContent = "Content Locked";
+                    lockSubtextElement.textContent = "Access denied. Please check your membership status.";
+                    lockCtaButton.textContent = "View Plans";
+                }
+            }
+        }
+
+        // Listen for auth state changes to re-check access
+        onAuthStateChanged(auth, async (user) => {
+            // When auth state changes, re-evaluate access
+            await checkArticleAccess();
+            // Also handle showing/hiding login modal if triggered from link
+            if (user) {
+                document.getElementById('loginModal').style.display = 'none';
+            }
+        });
+
+        // Event listeners for login modal (on article page)
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('login-from-article-btn').addEventListener('click', () => {
+                document.getElementById('loginModal').style.display = 'flex';
+            });
+            document.getElementById('login-button').addEventListener("click", handleLoginFromArticle); // Added event listener for login button
+            document.getElementById('login-cancel-btn').addEventListener('click', () => {
+                document.getElementById('loginModal').style.display = 'none';
+            });
+            document.getElementById('message-ok-btn').addEventListener('click', () => {
+                document.getElementById('messageModal').style.display = 'none';
+            });
+
+            // Initial check when page loads
+            checkArticleAccess();
+        });
+    </script>
+</body>
+</html>
