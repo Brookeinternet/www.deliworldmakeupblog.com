@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh-Faced Tinted Moisturizer Routine | VIP Early Access</title> <!-- Article Specific Title -->
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Firebase SDKs (using v10.12.0) -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            line-height: 1.6;
+            color: #334155;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .gradient-bg { background: linear-gradient(to right, #fecaca, #fbcfe8); }
+        .btn-primary {
+            background-color: #ec4899;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary:hover { background-color: #db2777; }
+
+        /* Styles for the lock overlay */
+        .article-container {
+            position: relative; /* Needed for absolute positioning of overlay */
+            overflow: hidden; /* Hide overflow from blur */
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        .article-content-wrapper {
+            transition: filter 0.3s ease-out, opacity 0.3s ease-out;
+        }
+        .article-lock-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.95); /* More opaque white overlay */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            text-align: center;
+            padding: 20px;
+            border-radius: 1rem;
+            pointer-events: none; /* Allows interaction by default, will be changed by JS */
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s ease-out;
+        }
+        .article-content-wrapper.blurred {
+            filter: blur(8px); /* Stronger blur when locked */
+            pointer-events: none;
+            user-select: none;
+            opacity: 0.3; /* More dim when locked */
+        }
+        .article-lock-overlay.active {
+            opacity: 1;
+            pointer-events: auto; /* Enable interaction when active */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="gradient-bg py-6 shadow-md">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 md:mb-0">Deli's Blog</h1>
+            <nav>
+                <ul class="flex space-x-6 text-gray-800 text-lg">
+                    <li><a href="../index.html" class="hover:underline">Home</a></li> <!-- Adjust path if needed -->
+                    <li><a href="../#blog-posts-list-section" class="hover:underline">All Blog Posts</a></li> <!-- Link back to blog list on main page -->
+                    <li><a href="../contact.html" class="hover:underline">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <div class="article-container">
+            <div id="article-content-wrapper">
+                <!-- START ARTICLE CONTENT FOR "Fresh-Faced Tinted Moisturizer Routine" -->
+                <a href="../#blog-posts-list-section" class="text-pink-500 hover:underline mb-6 inline-block">&larr; Back to Blog Posts</a>
+                <h1 class="text-3xl font-extrabold text-gray-800 mb-4 leading-tight">Fresh-Faced Tinted Moisturizer Routine</h1>
+                <p class="text-lg text-gray-600 mb-8">
+                    Achieve a healthy, dewy look with just a hint of coverage! This easy routine is perfect for summer and is free for all readers starting July 8th.<br>
+                    <span class="font-semibold text-pink-700">VIPs get it first!</span>
+                </p>
+
+                <!-- Added videos for makeup removal -->
+                <div class="mb-8 text-center">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Before We Start: Foundation Removal</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <video src="https://i.imgur.com/MszyGDC.mp4" autoplay loop playsinline controls class="w-full h-auto rounded-lg shadow-md"></video>
+                        <video src="https://i.imgur.com/sHs1yUM.mp4" autoplay loop playsinline controls class="w-full h-auto rounded-lg shadow-md"></video>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-4">Always start with a clean canvas! Here's how to effectively remove old makeup before applying your new look.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                    <!-- Step 1 -->
+                    <section class="flex space-x-4 items-start">
+                        <img src="https://i.imgur.com/EnFSbpS.png" alt="Prep" class="w-40 h-40 object-cover rounded-lg shadow">
+                        <div>
+                            <h2 class="font-bold text-xl text-gray-800 mb-1">1. Prep Your Skin</h2>
+                            <p class="text-gray-600 text-base">
+                                Start with a gentle cleanser and follow up with your favorite lightweight moisturizer. For extra radiance, apply a hydrating primer to give your skin a plump, smooth base.
+                            </p>
+                        </div>
+                    </section>
+                    <!-- Step 2 -->
+                    <section class="flex space-x-4 items-start">
+                        <img src="https://i.imgur.com/T6n3pzD.png" alt="Tinted Moisturizer" class="w-40 h-40 object-cover rounded-lg shadow">
+                        <div>
+                            <h2 class="font-bold text-xl text-gray-800 mb-1">2. Apply Tinted Moisturizer</h2>
+                            <p class="text-gray-600 text-base">
+                                Using clean fingers or a damp sponge, blend a tinted moisturizer evenly across your face. Focus on areas that need a touch of coverage while letting your natural skin shine through.
+                            </p>
+                        </div>
+                    </section>
+                    <!-- Step 3 -->
+                    <section class="flex space-x-4 items-start">
+                        <img src="https://i.imgur.com/ILwFaNc.png" alt="Conceal & Perfect" class="w-40 h-40 object-cover rounded-lg shadow">
+                        <div>
+                            <h2 class="font-bold text-xl text-gray-800 mb-1">3. Conceal & Perfect</h2>
+                            <p class="text-gray-600 text-base">
+                                Dab a lightweight concealer under your eyes and on any blemishes. Gently tap to blend for a flawless yet natural finish.
+                            </p>
+                        </div>
+                    </section>
+                    <!-- Step 4 -->
+                    <section class="flex space-x-4 items-start">
+                        <img src="https://i.imgur.com/19ck6MH.png" alt="Add Glow" class="w-40 h-40 object-cover rounded-lg shadow">
+                        <div>
+                            <h2 class="font-bold text-xl text-gray-800 mb-1">4. Add a Touch of Glow</h2>
+                            <p class="text-gray-600 text-base">
+                                Sweep a cream blush onto the apples of your cheeks and blend upward. For extra dewiness, dab a little liquid highlighter on the high points of your face.
+                            </p>
+                        </div>
+                    </section>
+                    <!-- Step 5 -->
+                    <section class="flex space-x-4 items-start">
+                        <img src="https://i.imgur.com/oDjyvvU.png" alt="Set" class="w-40 h-40 object-cover rounded-lg shadow">
+                        <div>
+                            <h2 class="font-bold text-xl text-gray-800 mb-1">5. Set (Optional)</h2>
+                            <p class="text-gray-600 text-base">
+                                If you have oily skin or want longer wear, lightly press translucent powder on the T-zone. Otherwise, let your natural radiance shine!
+                            </p>
+                        </div>
+                    </section>
+                    <!-- Step 6 -->
+                    <section class="flex space-x-4 items-start">
+                        <img src="https://i.imgur.com/oDjyvvU.png" alt="Final Touches" class="w-40 h-40 object-cover rounded-lg shadow"> <!-- Using the same image for Step 6 as Step 5 for now -->
+                        <div>
+                            <h2 class="font-bold text-xl text-gray-800 mb-1">6. Final Touches</h2>
+                            <p class="text-gray-600 text-base">
+                                Finish with a swipe of tinted lip balm and brush up your brows for a polished, fresh-faced look that’s perfect for any summer day.
+                            </p>
+                        </div>
+                    </section>
+                </div>
+                
+                <div class="mt-10 flex justify-between items-center">
+                    <a href="../#blog-posts-list-section" class="text-blue-500 hover:underline font-medium flex items-center">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back to All Articles
+                    </a>
+                    <span class="text-sm text-gray-400">VIP Early Access – Available to all July 8th</span>
+                </div>
+                <!-- END ARTICLE CONTENT -->
+            </div>
+
+            <!-- The Lock Overlay -->
+            <div id="article-lock-overlay" class="article-lock-overlay">
+                <svg class="w-16 h-16 mb-4 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m0 0v2m-6-2a6 6 0 1112 0v2a2 2 0 01-2 2H8a2 2 0 01-2-2v-2z" />
+                </svg>
+                <p id="lock-message" class="text-xl font-semibold text-gray-800 mb-4">Content Locked</p>
+                <p id="lock-subtext" class="text-lg text-gray-600 mb-6 text-center">
+                    Please log in or upgrade your membership to view this exclusive content.
+                </p>
+                <a id="lock-cta-button" href="../#premium-plans-section" class="btn-primary">View Plans & Unlock</a>
+                <button id="login-from-article-btn" class="text-pink-500 hover:underline mt-4">Already a member? Log In</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Login Modal (duplicate from main app, necessary for standalone page) -->
+    <div id="loginModal" class="modal-overlay hidden">
+      <div class="modal-content w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-4 text-center">Log In</h2>
+        <input type="email" id="loginEmail" placeholder="Email" class="w-full mb-4 p-2 border rounded" />
+        <input type="password" id="loginPassword" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
+        <button id="login-button" class="btn-primary w-full">Log In</button>
+        <button class="modal-close-btn bg-gray-300 text-gray-800 hover:bg-gray-400" id="login-cancel-btn">Cancel</button>
+      </div>
+    </div>
+
+    <!-- Custom Message Modal (duplicate from main app, necessary for standalone page) -->
+    <div id="messageModal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <p id="messageText" class="text-lg text-gray-700 mb-4"></p>
+        <button class="modal-close-btn" id="message-ok-btn">OK</button>
+      </div>
+    </div>
+
+
+    <script type="module">
+        // Firebase initialization (duplicate from main app, necessary for standalone page)
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import {
+            getAuth,
+            signInWithEmailAndPassword,
+            onAuthStateChanged,
+            signInAnonymously,
+            signInWithCustomToken
+        } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBDeFd1HMO3rQfJu5JzqKXkzq-Oz68dQDk",
+            authDomain: "deli-sworld-subscription.firebaseapp.com",
+            projectId: "deli-sworld-subscription",
+            storageBucket: "deli-sworld-subscription.firebasestorage.app",
+            messagingSenderId: "678490444860",
+            appId: "1:678490444860:web:3294be895f8033e7d01f39",
+            measurementId: "G-4T8CL2174E"
+        };
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Function to display custom messages (replaces alert())
+        function showMessage(message) {
+            document.getElementById("messageText").textContent = message;
+            document.getElementById("messageModal").style.display = "flex";
+        }
+
+        // Function to handle user login from article page
+        async function handleLoginFromArticle() {
+            const email = document.getElementById("loginEmail").value;
+            const password = document.getElementById("loginPassword").value;
+
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                showMessage("Logged in successfully!");
+                document.getElementById("loginModal").style.display = "none"; // Hide modal
+                // Access check will run automatically via onAuthStateChanged
+            } catch (error) {
+                showMessage("Login failed: " + error.message);
+                console.error("Login error:", error);
+            }
+        }
+
+        // Function to fetch user's subscription status from Firestore
+        async function getUserSubscriptionTier(uid) {
+            if (!uid) return 'free';
+
+            try {
+                const userDocRef = doc(db, `artifacts/${appId}/users/${uid}`);
+                const userDocSnap = await getDoc(userDocRef);
+
+                if (userDocSnap.exists()) {
+                    const userData = userDocSnap.data();
+                    return userData.subscriptionTier || 'free';
+                }
+                return 'free';
+            } catch (error) {
+                console.error("Error fetching user subscription tier:", error);
+                return 'free';
+            }
+        }
+
+        /**
+         * Checks if the current user has access to the article based on their tier.
+         * @param {string} currentUserTier - The current user's subscription tier ('free', 'basic', 'vip').
+         * @param {string} requiredTier - The tier required for this specific article ('free', 'basic', 'vip').
+         * @returns {boolean} True if the user has access, false otherwise.
+         */
+        function hasAccess(currentUserTier, requiredTier) {
+            if (requiredTier === 'free') {
+                return true; // Free articles are always accessible
+            }
+            if (requiredTier === 'basic') {
+                return currentUserTier === 'basic' || currentUserTier === 'vip';
+            }
+            if (requiredTier === 'vip') {
+                return currentUserTier === 'vip';
+            }
+            return false; // Fallback
+        }
+
+        // Main function to control article visibility
+        async function checkArticleAccess() {
+            // Define the public release date for this article
+            const publicReleaseDate = new Date('2025-07-08T00:00:00Z'); // July 8, 2025, 00:00:00 UTC
+            const currentDate = new Date();
+
+            let requiredTier;
+            if (currentDate < publicReleaseDate) {
+                requiredTier = 'vip'; // Before July 8th, only VIPs have access
+            } else {
+                requiredTier = 'free'; // On or after July 8th, it's free for all
+            }
+
+            const articleContentWrapper = document.getElementById('article-content-wrapper');
+            const articleLockOverlay = document.getElementById('article-lock-overlay');
+            const lockMessageElement = document.getElementById('lock-message');
+            const lockSubtextElement = document.getElementById('lock-subtext');
+            const lockCtaButton = document.getElementById('lock-cta-button');
+            const loginFromArticleBtn = document.getElementById('login-from-article-btn');
+
+
+            if (!articleContentWrapper || !articleLockOverlay || !lockMessageElement || !lockSubtextElement || !lockCtaButton || !loginFromArticleBtn) {
+                console.error("Required elements for access control not found.");
+                return;
+            }
+
+            const user = auth.currentUser;
+            let currentTier = 'free';
+
+            if (user) {
+                currentTier = await getUserSubscriptionTier(user.uid);
+            } else {
+                // If no user, default to free.
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    try {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } catch (error) {
+                        console.warn("Custom token sign-in failed on article page. Proceeding as unauthenticated.", error);
+                    }
+                }
+            }
+            
+            const actualUser = auth.currentUser;
+            if (actualUser && currentTier === 'free') { 
+                 currentTier = await getUserSubscriptionTier(actualUser.uid);
+            }
+
+
+            if (hasAccess(currentTier, requiredTier)) {
+                // User has access: show content, hide lock
+                articleContentWrapper.classList.remove('blurred');
+                articleLockOverlay.classList.remove('active');
+                articleLockOverlay.style.display = 'none'; // Ensure it's hidden
+            } else {
+                // User does NOT have access: blur content, show lock
+                articleContentWrapper.classList.add('blurred');
+                articleLockOverlay.classList.add('active');
+                articleLockOverlay.style.display = 'flex'; // Ensure it's visible
+
+                lockCtaButton.style.display = 'block'; // Show CTA button by default
+                loginFromArticleBtn.style.display = 'block'; // Show login button by default
+
+                if (!user) { // User is not logged in
+                    lockMessageElement.textContent = "Content Locked";
+                    lockSubtextElement.textContent = "Please log in or upgrade your membership to view this exclusive content.";
+                    lockCtaButton.textContent = "View Plans & Unlock";
+                } else if (requiredTier === 'vip' && currentTier === 'basic') {
+                    // User is Basic, but VIP content is required
+                    lockMessageElement.textContent = "VIP Content Locked";
+                    lockSubtextElement.textContent = "This article is for VIP members only. Upgrade your plan to unlock it!";
+                    lockCtaButton.textContent = "Upgrade to VIP";
+                    loginFromArticleBtn.style.display = 'none'; // Hide login button if already logged in (as Basic)
+                } else if (requiredTier === 'basic' && currentTier === 'free') {
+                    // User is Free, but Basic content is required
+                    lockMessageElement.textContent = "Basic Content Locked";
+                    lockSubtextElement.textContent = "This article is for Basic or VIP members. Upgrade your plan to unlock it!";
+                    lockCtaButton.textContent = "Upgrade to Basic";
+                } else {
+                    // Fallback for other scenarios, though main cases are covered
+                    lockMessageElement.textContent = "Content Locked";
+                    lockSubtextElement.textContent = "Access denied. Please check your membership status.";
+                    lockCtaButton.textContent = "View Plans";
+                }
+            }
+        }
+
+        // Listen for auth state changes to re-check access
+        onAuthStateChanged(auth, async (user) => {
+            // When auth state changes, re-evaluate access
+            await checkArticleAccess();
+            // Also handle showing/hiding login modal if triggered from link
+            if (user) {
+                document.getElementById('loginModal').style.display = 'none';
+            }
+        });
+
+        // Event listeners for login modal (on article page)
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('login-from-article-btn').addEventListener('click', () => {
+                document.getElementById('loginModal').style.display = 'flex';
+            });
+            document.getElementById('login-button').addEventListener("click", handleLoginFromArticle); // Added event listener for login button
+            document.getElementById('login-cancel-btn').addEventListener('click', () => {
+                document.getElementById('loginModal').style.display = 'none';
+            });
+            document.getElementById('message-ok-btn').addEventListener('click', () => {
+                document.getElementById('messageModal').style.display = 'none';
+            });
+
+            // Initial check when page loads
+            checkArticleAccess();
+        });
+    </script>
+</body>
+</html>
