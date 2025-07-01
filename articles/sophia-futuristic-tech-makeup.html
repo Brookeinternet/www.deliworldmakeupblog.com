@@ -1,10 +1,9 @@
-   <!--  /articles/sophia-futuristic-tech-makeup.html"Sophia's Futuristic Tech-Infused Makeup (Premium Content!) --> here 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title Sophia Futuristic Tech Makeup Look</title> <!-- 
+    <title>Sophia's Futuristic Tech-Infused Makeup | VIP Exclusive</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
@@ -73,46 +72,111 @@
             opacity: 1;
             pointer-events: auto; /* Enable interaction when active */
         }
+        /* Modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .modal-close-btn {
+            @apply mt-4 px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition duration-200;
+        }
     </style>
 </head>
 <body>
 
-   
-<h3 class="text-4xl font-bold text-gray-800 mb-6 text-center">Sophia's Futuristic Tech-Infused Makeup <span class="text-yellow-500 text-lg">(Premium Content!)</span></h3>
-  <div class="article-content max-w-3xl mx-auto text-gray-700 vip-content" style="display:none;">
-    <img src="https://i.imgur.com/vFf6BXE.jpeg" alt="Sophia Futuristic Tech Makeup Look" class="w-full h-auto object-cover rounded-lg mb-6">
-    <p class="mb-6">
-      Welcome to a new era of beauty, where innovation meets artistry! Sophia here, ready to guide you through creating a groundbreaking "Futuristic Tech-Infused Makeup Look." This style blends sharp, precise lines with luminous, almost digital finishes, giving you an avant-garde edge that's perfect for standing out in any crowd. Get ready to embrace the future of glam!
-    </p>
-    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 1: The High-Definition Base</h4>
-    <p class="mb-4">
-      Achieving a futuristic look begins with a flawless, almost airbrushed canvas. Opt for a long-wearing, full-coverage foundation that provides a smooth, uniform finish. Apply it with a dampened beauty sponge or a dense buffing brush for seamless blending. Conceal any imperfections with precision, ensuring no redness or dark circles peek through. Set your base with a finely milled translucent powder, focusing on your T-zone, for a pristine, almost porcelain-like effect.
-    </p>
-    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 2: Sculpted Contours & Cybernetic Glow</h4>
-    <p class="mb-4">
-      Instead of soft contours, think sharp and defined. Use a cool-toned contour shade to chisel out your cheekbones, jawline, and nose. Blend thoroughly but keep the lines precise. The real magic comes with the highlighter. Choose an iridescent, multi-chrome, or holographic highlighter. Apply it generously to the high points of your cheekbones, brow bone, and Cupid's bow. This creates a captivating, almost alien glow that shifts with every movement.
-    </p>
-    <img src="https://i.imgur.com/DHXbTWX.jpeg" alt="Cybernetic Glow and Contour" class="w-full h-auto object-cover rounded-lg mb-6">
-    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 3: The Graphic Eye Blueprint</h4>
-    <p class="mb-4">
-      The eyes are the focal point of this tech-infused look. Using a crisp, highly pigmented liquid eyeliner (black or white works beautifully, but metallics or neon shades can add extra flair), draw a precise graphic liner. Experiment with floating creases, double wings, or sharp angular shapes. Precision is paramount here; clean lines define the futuristic aesthetic.
-    </p>
-    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 4: Luminous Lids & Digital Details</h4>
-    <p class="mb-4">
-      On the eyelids, opt for metallic cream shadows, iridescent loose pigments, or finely milled pressed glitters. Choose shades that reflect light dramatically, such as chrome silver, electric blue, or shifting purples. Apply these with a flat brush or your fingertip for maximum impact. For an added tech detail, consider applying small, self-adhesive cosmetic gems or tiny metallic decals in strategic patterns, like alongside your liner or beneath your brow bone.
-    </p>
-    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 5: Minimalist Lips, Maximum Impact</h4>
-    <p class="mb-4">
-      To balance the complexity of the eyes and highlight, keep the lips relatively simple but impactful. A nude liquid lipstick with a metallic finish, a clear gloss with iridescent glitter, or a sheer lip balm with a holographic topper will complement the look without competing. The aim is a plump, futuristic pout that catches light subtly.
-    </p>
-    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 6: Hair & Accessories Integration</h4>
-    <p class="mb-4">
-      To truly embody the futuristic vibe, consider integrating your hair and accessories. Slicked-back hairstyles, futuristic hair clips, or even subtle holographic hair glitter can tie the whole look together. Pair with minimalist, geometric jewelry or clothing with metallic accents to complete your transformation.
-    </p>
-    <p class="text-lg text-gray-700 mt-8 text-center font-semibold">
-      This look is all about precision, light reflection, and a daring embrace of the unconventional. Have fun pushing the boundaries of beauty!
-    </p>
+    <header class="gradient-bg py-6 shadow-md">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 md:mb-0">Deli's Blog</h1>
+            <nav>
+                <ul class="flex space-x-6 text-gray-800 text-lg">
+                    <li><a href="../index.html" class="hover:underline">Home</a></li> <!-- Adjust path if needed -->
+                    <li><a href="../#blog-posts-list-section" class="hover:underline">All Blog Posts</a></li> <!-- Link back to blog list on main page -->
+                    <li><a href="../contact.html" class="hover:underline">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <main class="container mx-auto px-4 py-12">
+        <div class="article-container">
+            <div id="article-content-wrapper">
+                <!-- START ARTICLE CONTENT FOR "Sophia's Futuristic Tech-Infused Makeup" -->
+                <a href="../#blog-posts-list-section" class="text-pink-500 hover:underline mb-6 inline-block">&larr; Back to Blog Posts</a>
+                <h1 class="text-3xl font-bold text-purple-700 mb-6 text-center">Sophia's Futuristic Tech-Infused Makeup: Holographic Hues & Cybernetic Contours</h1>
+                <p class="text-lg text-gray-700 mb-8">
+                    Welcome, beauty enthusiasts, to a glimpse into the future of glam! I'm Sophia, your AI beauty guide, and today we're diving into a look that's as cutting-edge as it is captivating: "Holographic Hues & Cybernetic Contours." This VIP-exclusive tutorial is designed to push the boundaries of traditional makeup, blending iridescent finishes with razor-sharp precision for a truly revolutionary aesthetic.
+                </p>
+
+                <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 1: The Digital Canvas</h4>
+                <img src="https://i.imgur.com/g0t604K.png" alt="Sophia Futuristic Makeup Step 1" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    Begin with a flawlessly smooth, almost airbrushed base. Opt for a long-wearing, matte or soft-focus foundation to create a pristine canvas. Conceal any imperfections with precision, ensuring a seamless, high-definition finish. Set your base with a finely milled translucent powder, focusing on areas prone to shine, to achieve a velvety, non-reflective surface that allows holographic elements to truly pop.
+                </p>
+
+                <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 2: Holographic Eye Dimension</h4>
+                <img src="https://i.imgur.com/2Xy5B7P.png" alt="Sophia Futuristic Makeup Step 2" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    For the eyes, apply a cream or liquid eyeshadow base in a neutral, light tone. Then, using a flat brush, press a vibrant holographic or duo-chrome pigment onto the center of your eyelids. Blend the edges softly with a fluffy brush, allowing the color to shift and glimmer with every movement. Focus on shades that transition between cool tones like blue, purple, and green for that authentic futuristic vibe.
+                </p>
+
+                <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 3: Cybernetic Contour & Highlight</h4>
+                <img src="https://i.imgur.com/uRk0s7F.png" alt="Sophia Futuristic Makeup Step 3" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    Sculpt your face with sharp, defined contours using a cool-toned contour shade. Focus on creating angular lines along your cheekbones, jawline, and temples for a chiseled, almost robotic effect. Next, apply an intense iridescent or metallic highlighter to the highest points of your cheekbones, the bridge of your nose, and your cupid's bow. The goal is a reflective, almost liquid metal sheen that catches the light from every angle.
+                </p>
+
+                <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 4: Precision Liner & Brow Tech</h4>
+                <img src="https://i.imgur.com/00f1h0r.png" alt="Sophia Futuristic Makeup Step 4" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    Draw a razor-sharp graphic liner using a black or deep metallic liquid eyeliner. Experiment with geometric shapes, floating creases, or a dramatic winged liner that extends outwards. For brows, opt for a sleek, laminated look or use a clear brow gel to brush hairs upwards for a futuristic, almost spiky effect. You can even add a touch of iridescent brow gel for extra shimmer.
+                </p>
+
+                <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 5: Glitch-Effect Lips</h4>
+                <img src="https://i.imgur.com/x0q2H4L.png" alt="Sophia Futuristic Makeup Step 5" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    Finish the look with lips that complement the futuristic theme. Apply a metallic liquid lipstick in a silver, gunmetal, or deep berry shade. For an added "glitch" effect, dab a small amount of holographic glitter or a contrasting iridescent pigment to the center of your lips. This creates a multi-dimensional, almost digital appearance.
+                </p>
+
+                <p class="text-lg text-gray-700 mt-8 text-center font-semibold">
+                    You've successfully transformed into a vision of the future! Share your cybernetic creations in the Deli's World VIP Community and inspire others to embrace the next generation of beauty.
+                </p>
+                <div class="text-center mt-12">
+                    <button class="btn-primary" onclick="window.location.href='../#premium-plans-section'">Become a VIP Member!</button>
+                </div>
+
+                <!-- VIP Advanced Tips -->
+                <h3 class="text-3xl font-bold text-gray-800 mb-6 mt-10 text-center">Advanced Tips for VIP Members!</h3>
+                <ul class="list-disc list-inside mb-6 text-gray-700">
+                    <li class="mb-2"><strong>Subtly Sculpted Brows:</strong> Try a laminated brow effect or a brow gel with a metallic sheen for a futuristic frame. Or brush brows up and set with strong gel for an alien effect.</li>
+                    <li class="mb-2"><strong>"Wet Look" Finish:</strong> For an ultra-modern effect, dab clear face gloss or non-sticky facial oil on high points of your face for intense reflection (be sparing!).</li>
+                    <li class="mb-2"><strong>Negative Space Liner:</strong> Define shapes by leaving parts of the lid bare—try sharp cut-creases or floating lines for an editorial vibe.</li>
+                    <li class="mb-2"><strong>Iridescent Inner Corner Duo-Chrome:</strong> Use a duo-chrome pigment at the inner eye for mesmerizing color shifts.</li>
+                    <li class="mb-2"><strong>Body Highlights:</strong> Extend your holographic glow to collarbones, shoulders, and décolletage for a head-to-toe shimmer.</li>
+                    <li class="mb-2"><strong>Precision Gemstone Placement:</strong> Try micro-gems as "digital stitches"—a tiny line of gems along the lower lash or at the edge of a graphic wing.</li>
+                </ul>
+                <p class="text-lg text-gray-700 mt-8 text-center font-semibold">Mastering these advanced techniques will ensure your futuristic makeup is truly out of this world! Keep experimenting, gorgeous!</p>
+                <div class="text-center mt-12">
+                    <button class="btn-primary" onclick="window.location.href='../#premium-plans-section'">Become a VIP Member!</button>
+                </div>
+                <!-- END ARTICLE CONTENT -->
+            </div>
 
             <!-- The Lock Overlay -->
             <div id="article-lock-overlay" class="article-lock-overlay">
@@ -238,9 +302,9 @@
 
         // Main function to control article visibility
         async function checkArticleAccess() {
-            // IMPORTANT: Set the required tier for *THIS* specific article.
-            // Replace 'free' with 'basic' or 'vip' as appropriate for this HTML file.
-            const requiredTier = 'vip'; // <<< UPDATED TO VIP FOR DEMONSTRATION OF VIP LOCK
+            // Set the required tier for *THIS* specific article.
+            // This article is "Sophia's Futuristic Tech-Infused Makeup", which is a VIP article.
+            const requiredTier = 'vip'; 
 
             const articleContentWrapper = document.getElementById('article-content-wrapper');
             const articleLockOverlay = document.getElementById('article-lock-overlay');
@@ -261,22 +325,15 @@
             if (user) {
                 currentTier = await getUserSubscriptionTier(user.uid);
             } else {
-                // If no user and no custom token from Canvas environment, default to free and don't try anonymous sign-in here
-                // This prevents the auth/admin-restricted-operation error if anonymous auth is not enabled.
                 if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
                     try {
                         await signInWithCustomToken(auth, __initial_auth_token);
-                        // onAuthStateChanged will be triggered upon successful sign-in
                     } catch (error) {
                         console.warn("Custom token sign-in failed on article page. Proceeding as unauthenticated.", error);
                     }
                 }
-                // If no user or custom token, currentTier remains 'free'
             }
             
-            // Re-fetch tier after potential custom token sign-in if initial check was 'free'
-            // This is crucial because custom token sign-in is async and onAuthStateChanged might not have fired yet
-            // when checkArticleAccess is called initially on DOMContentLoaded.
             const actualUser = auth.currentUser;
             if (actualUser && currentTier === 'free') { 
                  currentTier = await getUserSubscriptionTier(actualUser.uid);
@@ -301,22 +358,27 @@
                     lockMessageElement.textContent = "Content Locked";
                     lockSubtextElement.textContent = "Please log in or upgrade your membership to view this exclusive content.";
                     lockCtaButton.textContent = "View Plans & Unlock";
-                } else if (requiredTier === 'vip' && currentTier === 'basic') {
-                    // User is Basic, but VIP content is required
-                    lockMessageElement.textContent = "VIP Content Locked";
-                    lockSubtextElement.textContent = "This article is for VIP members only. Upgrade your plan to unlock it!";
-                    lockCtaButton.textContent = "Upgrade to VIP";
-                    loginFromArticleBtn.style.display = 'none'; // Hide login button if already logged in (as Basic)
+                    lockCtaButton.href = "../#premium-plans-section"; // Link to plans section
                 } else if (requiredTier === 'basic' && currentTier === 'free') {
                     // User is Free, but Basic content is required
                     lockMessageElement.textContent = "Basic Content Locked";
                     lockSubtextElement.textContent = "This article is for Basic or VIP members. Upgrade your plan to unlock it!";
                     lockCtaButton.textContent = "Upgrade to Basic";
+                    lockCtaButton.href = "../#premium-plans-section";
+                    loginFromArticleBtn.style.display = 'block'; // Ensure login button is visible for free users
+                } else if (requiredTier === 'vip' && currentTier === 'basic') {
+                    // User is Basic, but VIP content is required
+                    lockMessageElement.textContent = "VIP Content Locked";
+                    lockSubtextElement.textContent = "This article is for VIP members only. Upgrade your plan to unlock it!";
+                    lockCtaButton.textContent = "Upgrade to VIP";
+                    lockCtaButton.href = "../#premium-plans-section";
+                    loginFromArticleBtn.style.display = 'none'; // Hide login if already Basic
                 } else {
                     // Fallback for other scenarios, though main cases are covered
                     lockMessageElement.textContent = "Content Locked";
                     lockSubtextElement.textContent = "Access denied. Please check your membership status.";
                     lockCtaButton.textContent = "View Plans";
+                    lockCtaButton.href = "../#premium-plans-section";
                 }
             }
         }
@@ -336,7 +398,7 @@
             document.getElementById('login-from-article-btn').addEventListener('click', () => {
                 document.getElementById('loginModal').style.display = 'flex';
             });
-            document.getElementById('login-button').addEventListener('click', handleLoginFromArticle);
+            document.getElementById('login-button').addEventListener("click", handleLoginFromArticle); // Added event listener for login button
             document.getElementById('login-cancel-btn').addEventListener('click', () => {
                 document.getElementById('loginModal').style.display = 'none';
             });
