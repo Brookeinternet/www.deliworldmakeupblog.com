@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galactic Liner: VIP Exclusive!</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Firebase SDKs (using v10.12.0) -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light background for the page */
+        }
+        /* Custom CSS for the blur effect */
+        .blur-content {
+            filter: blur(8px); /* Apply blur effect */
+            pointer-events: none; /* Prevent interaction with blurred content */
+            user-select: none; /* Prevent text selection */
+        }
+        /* Overlay styles */
+        .vip-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.95); /* More opaque white overlay */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10; /* Ensure overlay is on top */
+            text-align: center;
+            flex-direction: column;
+            padding: 20px;
+            border-radius: 1rem;
+            pointer-events: none; /* Allows interaction by default, will be changed by JS */
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s ease-out;
+        }
+        .vip-overlay.active {
+            opacity: 1;
+            pointer-events: auto; /* Enable interaction when active */
+        }
+        .vip-overlay-content {
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white background for content */
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            max-width: 90%;
+            width: 500px;
+        }
+        /* Primary Button Styling */
+        .btn-primary {
+            @apply bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:from-purple-700 hover:to-pink-700 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-300;
+        }
+        /* Modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .modal-close-btn {
+            @apply mt-4 px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition duration-200;
+        }
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #ec4899;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 8px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="relative w-full max-w-4xl bg-white rounded-xl shadow-lg p-8 md:p-12">
+        <!-- Article Content - Initially blurred -->
+        <section id="galactic-liner-article" class="relative">
+            <h3 class="text-4xl font-bold text-gray-800 mb-6 text-center">Galactic Liner: Bold Graphic Eyeliner Looks (VIP Exclusive!)</h3>
+            <div class="article-content max-w-3xl mx-auto text-gray-700">
+                <p class="mb-6">
+                    Make your eyes the center of the universe with these bold, futuristic graphic liner looks! Perfect for parties, festivals, or a creative night out, these techniques use metallics, neons, and geometric shapes for serious impact.
+                </p>
+                <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 1: Prime & Prep</h4>
+                <img src="https://i.imgur.com/tyW54US.png" alt="Galactic Liner Prep" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    Start with a clean eyelid and apply a matte primer or a light dusting of translucent powder for the sharpest lines and best color payoff.
+                </p>
+                <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 2: Choose Your Liner</h4>
+                <img src="https://i.imgur.com/gteC2Mt.png" alt="Galactic Liner Choose Liner" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    Use a highly pigmented liquid liner (neon, metallic, white, or classic black), or try a gel or pencil for softer, smudgier effects. For multicolored looks, pick a few shades that pop!
+                </p>
+                <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 3: Graphic Shapes</h4>
+                <img src="https://i.imgur.com/tyDUaGv.png" alt="Galactic Liner Shapes" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    Try floating creases, double wings, negative space, or starbursts. For crisp edges, use tape or a stencil. Don’t be afraid to get creative—symmetry is cool, but asymmetry can be super striking too!
+                </p>
+                <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 4: Add Cosmic Accents</h4>
+                <img src="https://i.imgur.com/5WEB9Jx.png" alt="Galactic Liner Accents" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    Elevate your look with tiny dots, stars, or holographic gems placed along or above your liner. Pair with shimmery eyeshadow or leave the lids bare for extra drama.
+                </p>
+                <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 5: Finishing Touches</h4>
+                <p class="text-gray-700 mb-6">
+                    Add mascara and wispy lashes if desired. Keep lips and cheeks minimal to let your liner shine!
+                </p>
+                <!-- Existing image after Step 5 -->
+                <img src="https://i.imgur.com/lQj4oC5.png" alt="Galactic Liner Inspiration" class="w-full h-auto object-cover rounded-lg my-6">
+                <p class="text-lg text-gray-700 mt-8 text-center font-semibold">
+                    You’re ready to conquer the galaxy—one graphic liner at a time. Show off your creations in the Deli’s World VIP Community!
+                </p>
+
+                <!-- Link to AI-Powered Liner Tools Page -->
+                <div class="text-center mt-12 mb-8">
+                    <a href="gemini-liner-tools.html" class="btn-primary inline-flex items-center">
+                        Explore AI-Powered Liner Tools Coming Soon ✨
+                    </a>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <!-- This button is hidden when the article is locked and becomes visible after unlock -->
+                    <button id="vip-button-after-unlock" class="btn-primary hidden">Become a VIP Member!</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIP Overlay -->
+        <div id="vip-overlay" class="vip-overlay">
+            <div class="vip-overlay-content">
+                <svg class="w-16 h-16 mb-4 text-pink-500 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m0 0v2m-6-2a6 6 0 1112 0v2a2 2 0 01-2 2H8a2 2 0 01-2-2v-2z" />
+                </svg>
+                <h2 id="lock-message" class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+                    Content Locked
+                </h2>
+                <p id="lock-subtext" class="text-lg text-gray-700 mb-8">
+                    This article is reserved for our VIP members. Unlock full access to premium beauty insights and tutorials!
+                </p>
+                <a id="lock-cta-button" href="#" class="btn-primary">View Plans & Unlock</a>
+                <button id="login-from-article-btn" class="text-pink-500 hover:underline mt-4">Already a member? Log In</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal-overlay hidden">
+      <div class="modal-content w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-4 text-center">Log In</h2>
+        <input type="email" id="loginEmail" placeholder="Email" class="w-full mb-4 p-2 border rounded" />
+        <input type="password" id="loginPassword" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
+        <button id="login-button" class="btn-primary w-full">Log In</button>
+        <button class="modal-close-btn bg-gray-300 text-gray-800 hover:bg-gray-400" id="login-cancel-btn">Cancel</button>
+      </div>
+    </div>
+
+    <!-- Custom Message Modal -->
+    <div id="messageModal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <p id="messageText" class="text-lg text-gray-700 mb-4"></p>
+        <button class="modal-close-btn" id="message-ok-btn">OK</button>
+      </div>
+    </div>
+
+    <script type="module">
+        // Firebase initialization
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import {
+            getAuth,
+            signInWithEmailAndPassword,
+            onAuthStateChanged,
+            signInAnonymously,
+            signInWithCustomToken
+        } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        // Firebase configuration (replace with your actual Firebase config)
+        const firebaseConfig = {
+            apiKey: "AIzaSyBDeFd1HMO3rQfJu5JzqKXkzq-Oz68dQDk",
+            authDomain: "deli-sworld-subscription.firebaseapp.com",
+            projectId: "deli-sworld-subscription",
+            storageBucket: "deli-sworld-subscription.firebasestorage.app",
+            messagingSenderId: "678490444860",
+            appId: "1:678490444860:web:3294be895f8033e7d01f39",
+            measurementId: "G-4T8CL2174E"
+        };
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Function to display custom messages (replaces alert())
+        function showMessage(message) {
+            document.getElementById("messageText").textContent = message;
+            document.getElementById("messageModal").style.display = "flex";
+        }
+
+        // Function to handle user login from article page
+        async function handleLoginFromArticle() {
+            const email = document.getElementById("loginEmail").value;
+            const password = document.getElementById("loginPassword").value;
+
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                showMessage("Logged in successfully!");
+                document.getElementById("loginModal").style.display = "none"; // Hide modal
+                // Access check will run automatically via onAuthStateChanged
+            } catch (error) {
+                showMessage("Login failed: " + error.message);
+                console.error("Login error:", error);
+            }
+        }
+
+        // Function to fetch user's subscription status from Firestore
+        async function getUserSubscriptionTier(uid) {
+            if (!uid) return 'free';
+
+            try {
+                const userDocRef = doc(db, `artifacts/${appId}/users/${uid}`);
+                const userDocSnap = await getDoc(userDocRef);
+
+                if (userDocSnap.exists()) {
+                    const userData = userDocSnap.data();
+                    return userData.subscriptionTier || 'free';
+                }
+                return 'free';
+            } catch (error) {
+                console.error("Error fetching user subscription tier:", error);
+                return 'free';
+            }
+        }
+
+        /**
+         * Checks if the current user has access to the article based on their tier.
+         * @param {string} currentUserTier - The current user's subscription tier ('free', 'basic', 'vip').
+         * @param {string} requiredTier - The tier required for this specific article ('free', 'basic', 'vip').
+         * @returns {boolean} True if the user has access, false otherwise.
+         */
+        function hasAccess(currentUserTier, requiredTier) {
+            // For review purposes, always grant access by setting requiredTier to 'free'
+            return true; 
+        }
+
+        // Main function to control article visibility
+        async function checkArticleAccess() {
+            // Set the required tier for *THIS* specific article.
+            // Temporarily setting to 'free' for review purposes.
+            const requiredTier = 'free'; 
+
+            const articleContent = document.getElementById('galactic-liner-article');
+            const vipOverlay = document.getElementById('vip-overlay');
+            const lockMessageElement = document.getElementById('lock-message');
+            const lockSubtextElement = document.getElementById('lock-subtext');
+            const lockCtaButton = document.getElementById('lock-cta-button');
+            const loginFromArticleBtn = document.getElementById('login-from-article-btn');
+            const vipButtonAfterUnlock = document.getElementById('vip-button-after-unlock');
+
+
+            if (!articleContent || !vipOverlay || !lockMessageElement || !lockSubtextElement || !lockCtaButton || !loginFromArticleBtn || !vipButtonAfterUnlock) {
+                console.error("Required elements for access control not found.");
+                return;
+            }
+
+            const user = auth.currentUser;
+            let currentTier = 'free';
+
+            if (user) {
+                currentTier = await getUserSubscriptionTier(user.uid);
+            } else {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    try {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } catch (error) {
+                        console.warn("Custom token sign-in failed on article page. Proceeding as unauthenticated.", error);
+                    }
+                }
+            }
+            
+            const actualUser = auth.currentUser;
+            if (actualUser && currentTier === 'free') { 
+                 currentTier = await getUserSubscriptionTier(actualUser.uid);
+            }
+
+
+            if (hasAccess(currentTier, requiredTier)) {
+                // User has access: show content, hide lock
+                articleContent.classList.remove('blur-content');
+                vipOverlay.classList.remove('active');
+                vipOverlay.style.display = 'none'; // Ensure it's hidden
+                vipButtonAfterUnlock.classList.remove('hidden'); // Show the original button
+            } else {
+                // User does NOT have access: blur content, show lock
+                articleContent.classList.add('blur-content');
+                vipOverlay.classList.add('active');
+                vipOverlay.style.display = 'flex'; // Ensure it's visible
+
+                lockCtaButton.style.display = 'block'; // Show CTA button by default
+                loginFromArticleBtn.style.display = 'block'; // Show login button by default
+
+                if (!user) { // User is not logged in
+                    lockMessageElement.textContent = "Content Locked";
+                    lockSubtextElement.textContent = "Please log in or upgrade your membership to view this exclusive content.";
+                    lockCtaButton.textContent = "View Plans & Unlock";
+                    lockCtaButton.href = "../#premium-plans-section"; // Link to plans section
+                } else if (requiredTier === 'basic' && currentTier === 'free') {
+                    // This scenario shouldn't happen for this VIP article, but included for completeness
+                    lockMessageElement.textContent = "Basic Content Locked";
+                    lockSubtextElement.textContent = "This article is for Basic or VIP members. Upgrade your plan to unlock it!";
+                    lockCtaButton.textContent = "Upgrade to Basic";
+                    lockCtaButton.href = "../#premium-plans-section";
+                    loginFromArticleBtn.style.display = 'block'; // Ensure login button is visible for free users
+                } else if (requiredTier === 'vip' && currentTier === 'basic') {
+                    // User is Basic, but VIP content is required
+                    lockMessageElement.textContent = "VIP Content Locked";
+                    lockSubtextElement.textContent = "This article is for VIP members only. Upgrade your plan to unlock it!";
+                    lockCtaButton.textContent = "Upgrade to VIP";
+                    lockCtaButton.href = "../#premium-plans-section";
+                    loginFromArticleBtn.style.display = 'none'; // Hide login if already Basic
+                } else {
+                    // Fallback for other scenarios, though main cases are covered
+                    lockMessageElement.textContent = "Content Locked";
+                    lockSubtextElement.textContent = "Access denied. Please check your membership status.";
+                    lockCtaButton.textContent = "View Plans";
+                    lockCtaButton.href = "../#premium-plans-section";
+                }
+            }
+        }
+
+        // Listen for auth state changes to re-check access
+        onAuthStateChanged(auth, async (user) => {
+            // When auth state changes, re-evaluate access
+            await checkArticleAccess();
+            // Also handle showing/hiding login modal if triggered from link
+            if (user) {
+                document.getElementById('loginModal').style.display = 'none';
+            }
+        });
+
+        // Event listeners for login modal (on article page)
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('login-from-article-btn').addEventListener('click', () => {
+                document.getElementById('loginModal').style.display = 'flex';
+            });
+            document.getElementById('login-button').addEventListener("click", handleLoginFromArticle); // Added event listener for login button
+            document.getElementById('login-cancel-btn').addEventListener('click', () => {
+                document.getElementById('loginModal').style.display = 'none';
+            });
+            document.getElementById('message-ok-btn').addEventListener('click', () => {
+                document.getElementById('messageModal').style.display = 'none';
+            });
+
+            // Initial check when page loads
+            checkArticleAccess();
+        });
+    </script>
+</body>
+</html>
