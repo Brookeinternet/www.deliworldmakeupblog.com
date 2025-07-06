@@ -1,1 +1,15 @@
-
+{
+  "rewrites": [
+    { "source": "/articles/galactic-liner", "destination": "/articles/galactic-liner.html" },
+    { "source": "/articles/sophia-futuristic-tech-makeup", "destination": "/articles/sophia-futuristic-tech-makeup.html" },
+    { "source": "/articles/mermaid-glow", "destination": "/articles/mermaid-glow.html" },
+    { "source": "/articles/food-plan-article", "destination": "/articles/food-plan-article.html" },
+    { "source": "/articles/kids-plan-article", "destination": "/articles/kids-plan-article.html"},
+    { "source": "/articles/top-5-brands-article", "destination": "/articles/top-5-brands-article.html"},
+    { "source": "/gemini-liner-tools", "destination": "/gemini-liner-tools.html" }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "buildCommand": "",
+  "outputDirectory": "."
+}
