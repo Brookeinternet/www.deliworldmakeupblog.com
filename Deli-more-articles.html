@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deli's World - More Articles & Tutorials</title>
+    <!-- Tailwind CSS CDN (for consistent styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light Slate */
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.75rem; }
+        h4 { font-size: 1.5rem; }
+        p {
+            margin-bottom: 1rem;
+        }
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.75rem; /* rounded-lg */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+        /* Adjusted for video thumbnail */
+        .article-card-img, .article-card-video {
+            width: 100%;
+            height: 12rem; /* h-48 equivalent */
+            object-fit: cover;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            transition: transform 0.3s ease-in-out;
+        }
+        .article-card:hover .article-card-img,
+        .article-card:hover .article-card-video {
+            transform: scale(1.05);
+        }
+        .article-card {
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .btn-primary {
+            @apply bg-pink-500 text-white px-6 py-3 rounded-full hover:bg-pink-600 transition-colors duration-300 shadow-lg;
+        }
+        .btn-secondary {
+            @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition-colors duration-300;
+        }
+        .page-section {
+            display: none;
+        }
+        .page-section.active {
+            display: block;
+        }
+        /* Premium Content Overlay Styles */
+        .premium-content-lock {
+            position: relative;
+            filter: blur(2px); /* Simulate blur for locked content */
+            pointer-events: none; /* Disable interaction with blurred content */
+        }
+        .premium-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            backdrop-filter: blur(5px);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="bg-gray-800 text-white py-8 shadow-md">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 md:mb-0">Deli's World</h1>
+            <nav>
+                <ul class="flex space-x-6 text-white text-lg">
+                    <li><a href="index.html" class="hover:underline">Home</a></li>
+                    <li><a href="index.html#blog-posts-list-section" class="hover:underline">Blog Posts</a></li>
+                    <li><a href="index.html#ai-makeup-generator-section" class="hover:underline">AI Makeup Assistant ✨</a></li>
+                    <li><a href="index.html#about-deli-section" class="hover:underline">About Deli</a></li>
+                    <li><a href="index.html#contact-section" class="hover:underline">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <section id="more-articles-list-section" class="page-section active bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16">
+            <a href="index.html" class="btn-secondary inline-flex items-center mb-6">&larr; Back to Main Blog</a>
+            <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">More Articles & Exclusive Tutorials!</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- New Article 1: VIP Exclusive: The Art of the Perfect Manicure -->
+                <article class="article-card">
+                    <img src="https://i.imgur.com/quCQMFd.png" alt="VIP Nail Tutorial Thumbnail" class="article-card-img">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">VIP Exclusive: The Art of the Perfect Manicure <span class="text-xs bg-yellow-300 text-yellow-800 px-2 py-1 rounded-full ml-2">VIP</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Unlock salon-quality nails at home with our in-depth VIP tutorial. From prep to polish, master every step!
+                        </p>
+                        <!-- Link to a hypothetical full VIP nail tutorial page or section -->
+                        <a href="index.html#premium-plans-section" class="text-pink-500 hover:underline font-medium">Unlock for VIPs &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 2: Skinimalism 2.0 (Adult) - VIP -->
+                <article class="article-card">
+                    <img src="https://i.imgur.com/Kmz4dY2.png" alt="Skinimalism 2.0 Thumbnail" class="article-card-img">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Deli's Guide to Skinimalism 2.0: Less is More, More is You! <span class="text-xs bg-yellow-300 text-yellow-800 px-2 py-1 rounded-full ml-2">VIP</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Discover the updated philosophy of minimalist skincare and makeup that celebrates your natural beauty.
+                        </p>
+                        <a href="#skinimalism-article-section" class="text-pink-500 hover:underline" onclick="showSection('skinimalism-article-section')">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 3: Celeste's Chroma Shift: Mastering Liquid Duochrome Eyeliner - VIP (until Sep 8th, then Basic) -->
+                <article class="article-card">
+                    <img src="https://i.imgur.com/5CHD7UI.png" alt="Celeste Liquid Duochrome Eyeliner Look Thumbnail" class="article-card-img">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Celeste's Chroma Shift: Mastering Liquid Duochrome Eyeliner <span class="text-xs bg-green-300 text-green-800 px-2 py-1 rounded-full ml-2">BASIC/VIP</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Dive into the magical world of shifting colors with AI influencer Celeste's guide to duochrome eyeliner!
+                        </p>
+                        <a href="#celeste-duochrome-eyeliner-article-section" class="text-pink-500 hover:underline" onclick="showSection('celeste-duochrome-eyeliner-article-section')">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 4: Waterless Beauty for Teens - Kids' Plan -->
+                <article class="article-card">
+                    <img src="https://i.imgur.com/SCFGSm5.png" alt="Waterless Beauty Thumbnail" class="article-card-img">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Waterless Beauty for Teens: The New Kids' Plan! <span class="text-xs bg-purple-300 text-purple-800 px-2 py-1 rounded-full ml-2">KIDS PLAN</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Discover eco-friendly and convenient makeup and skincare that needs little to no water.
+                        </p>
+                        <a href="#waterless-beauty-teens-article-section" class="text-pink-500 hover:underline" onclick="showSection('waterless-beauty-teens-article-section')">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 5: Fake Freckles for Tweens/Teens - Kids' Plan -->
+                <article class="article-card">
+                    <img src="https://i.imgur.com/AdXfC28.png" alt="Fake Freckles Thumbnail" class="article-card-img">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Deli's Guide to Fake Freckles: The Fun Tween/Teen Trend! <span class="text-xs bg-purple-300 text-purple-800 px-2 py-1 rounded-full ml-2">KIDS PLAN</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Learn how to create adorable, natural-looking faux freckles for a youthful, sun-kissed glow.
+                        </p>
+                        <a href="#fake-freckles-teens-article-section" class="text-pink-500 hover:underline" onclick="showSection('fake-freckles-teens-article-section')">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 6: 3D Mini iPhone Nails - Kids' Plan -->
+                <article class="article-card">
+                    <img src="https://i.imgur.com/g7AmcNO.png" alt="3D Mini iPhone Nails Thumbnail" class="article-card-img">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Trend Alert! 3D Mini iPhone Nails with Teen Star Lily! <span class="text-xs bg-purple-300 text-purple-800 px-2 py-1 rounded-full ml-2">KIDS PLAN</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Get ready for the cutest nail art trend! Learn how to create tiny, adorable iPhone nails.
+                        </p>
+                        <a href="#mini-iphone-nails-article-section" class="text-pink-500 hover:underline" onclick="showSection('mini-iphone-nails-article-section')">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 7: AI Innovator Maya's Guide to Skinimalism 2.0 for Tweens & Teens - Kids' Plan -->
+                <article class="article-card">
+                    <img src="https://i.imgur.com/Dl8EXNc.png" alt="AI Influencer Maya Skinimalism 2.0 Thumbnail" class="article-card-img">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">AI Innovator Maya's Guide to Skinimalism 2.0 for Tweens & Teens (12-14) <span class="text-xs bg-purple-300 text-purple-800 px-2 py-1 rounded-full ml-2">KIDS PLAN</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Join 14-year-old AI influencer Maya as she simplifies skincare and makeup for a healthy, natural glow.
+                        </p>
+                        <a href="#maya-skinimalism-article-section" class="text-pink-500 hover:underline" onclick="showSection('maya-skinimalism-article-section')">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 8: Maya's Quick & Light Makeup Hacks for Teens - Kids' Plan -->
+                <article class="article-card">
+                    <!-- Changed to video tag -->
+                    <video autoplay loop muted playsinline class="article-card-video" poster="https://placehold.co/600x400/D0D0D0/666666?text=Video+Thumbnail">
+                        <source src="https://i.imgur.com/FqWyVda.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Maya's Quick & Light Makeup Hacks for Teens <span class="text-xs bg-purple-300 text-purple-800 px-2 py-1 rounded-full ml-2">KIDS PLAN</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Learn simple, natural makeup tricks perfect for busy teen lives from AI influencer Maya.
+                        </p>
+                        <a href="#maya-makeup-hacks-article-section" class="text-pink-500 hover:underline" onclick="showSection('maya-makeup-hacks-article-section')">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 9: AI Innovator Maya's 3D Ice Cream Nails - Kids' Plan -->
+                <article class="article-card">
+                    <img src="https://i.imgur.com/YKz8TNE.png" alt="Maya 3D Ice Cream Nails Thumbnail" class="article-card-img">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">AI Innovator Maya's 3D Ice Cream Nails: A Sweet Treat for Your Tips! <span class="text-xs bg-purple-300 text-purple-800 px-2 py-1 rounded-full ml-2">KIDS PLAN</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Get the scoop on the coolest nail trend! Maya shows you how to create adorable 3D ice cream cone nails.
+                        </p>
+                        <a href="#maya-icecream-nails-article-section" class="text-pink-500 hover:underline" onclick="showSection('maya-icecream-nails-article-section')">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 10: Sponsored Cinnamoroll Cutie Makeup Look - Kids' Plan -->
+                <article class="article-card">
+                    <img src="https://i.imgur.com/pRzBdrg.png" alt="Cinnamoroll Makeup Look Thumbnail" class="article-card-img">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Sponsored: Cinnamoroll Cutie Makeup Look for Tweens & Teens! <span class="text-xs bg-purple-300 text-purple-800 px-2 py-1 rounded-full ml-2">KIDS PLAN</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Join us for an adorable Cinnamoroll-inspired makeup tutorial that's super sweet and fun!
+                        </p>
+                        <a href="cinnamoroll-makeup-article.html#cinnamoroll-makeup-article-section" class="text-pink-500 hover:underline">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 11: Sponsored Nancy's World of Fun Toys! - Kids' Plan -->
+                <article class="article-card">
+                    <img src="https://placehold.co/600x400/ADD8E6/00008B?text=Nancy+Toys+Thumbnail" alt="Nancy's Toys Thumbnail" class="article-card-img">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Sponsored: Nancy's World of Fun Toys! <span class="text-xs bg-purple-300 text-purple-800 px-2 py-1 rounded-full ml-2">KIDS PLAN</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Join AI friend Nancy as she shares her favorite toys in this special sponsored feature!
+                        </p>
+                        <a href="peppa-pig-makeup-article.html#nancys-toys-sponsored-article-section" class="text-pink-500 hover:underline font-medium">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 12: ASMR Cupcake Slime - Kids' Plan -->
+                <article class="article-card">
+                    <img src="https://i.imgur.com/2UGzcih.png" alt="ASMR Cupcake Slime Thumbnail" class="article-card-img">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">ASMR Cupcake Slime: Sweet & Squishy Fun! <span class="text-xs bg-purple-300 text-purple-800 px-2 py-1 rounded-full ml-2">KIDS PLAN</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Create satisfyingly squishy slime that looks just like a delicious cupcake!
+                        </p>
+                        <a href="#asmr-cupcake-slime-article-section" class="text-pink-500 hover:underline" onclick="showSection('asmr-cupcake-slime-article-section')">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 13: Unicorn Makeup Art - Kids' Plan -->
+                <article class="article-card">
+                    <video autoplay loop muted playsinline class="article-card-video" poster="https://placehold.co/600x400/D0D0D0/666666?text=Video+Thumbnail">
+                        <source src="https://i.imgur.com/0AM49PW.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">How to Make Unicorn Makeup Art with Yellow-Orange-ish Eyeshadow! <span class="text-xs bg-purple-300 text-purple-800 px-2 py-1 rounded-full ml-2">KIDS PLAN</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Unleash your inner magic with this whimsical unicorn-inspired makeup tutorial.
+                        </p>
+                        <a href="#unicorn-makeup-article-section" class="text-pink-500 hover:underline" onclick="showSection('unicorn-makeup-article-section')">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 14: Hannah & Naomi: Dazzling Blue Holographic Makeup - Basic/VIP -->
+                <article class="article-card">
+                    <video autoplay loop muted playsinline class="article-card-video" poster="https://placehold.co/600x400/D0D0D0/666666?text=Video+Thumbnail">
+                        <source src="https://i.imgur.com/IAw15xs.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Hannah & Naomi: Dazzling Blue Holographic Makeup! <span class="text-xs bg-green-300 text-green-800 px-2 py-1 rounded-full ml-2">BASIC/VIP</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Join AI influencers Hannah and Naomi for a mesmerizing blue holographic eye look.
+                        </p>
+                        <a href="hannah-naomi-page.html#blue-holographic-makeup-article-section" class="text-pink-500 hover:underline font-medium">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 15: Naomi's Nude Lipstick Nirvana - VIP -->
+                <article class="article-card">
+                    <img src="https://i.imgur.com/jkUvdbe.jpeg" alt="Naomi Nude Lipstick Thumbnail" class="article-card-img">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Naomi's Nude Lipstick Nirvana: Finding Your Perfect Shade! <span class="text-xs bg-yellow-300 text-yellow-800 px-2 py-1 rounded-full ml-2">VIP</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Join Naomi to discover the secrets to finding your ideal nude lipstick for any skin tone.
+                        </p>
+                        <a href="naomi-nude-lipstick-article.html#naomi-nude-lipstick-article-section" class="text-pink-500 hover:underline font-medium">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 16: Hannah's E.l.f. Concealer Confessions - Basic/VIP -->
+                <article class="article-card">
+                    <img src="https://i.imgur.com/aVadlS6.jpeg" alt="Hannah E.l.f. Concealer Thumbnail" class="article-card-img">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Hannah's E.l.f. Concealer Confessions: Your Secret to Flawless Skin! <span class="text-xs bg-green-300 text-green-800 px-2 py-1 rounded-full ml-2">BASIC/VIP</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Hannah shares her top tips for using E.l.f. concealer to achieve a flawless complexion.
+                        </p>
+                        <a href="hannah-elf-concealer-article.html#hannah-elf-concealer-article-section" class="text-pink-500 hover:underline font-medium">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 17: Amara's Lipsticks for Teens - Kids' Plan -->
+                <article class="article-card">
+                    <img src="https://i.imgur.com/XoqO32D.jpeg" alt="Amara Teen Lipsticks Thumbnail" class="article-card-img">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Amara's Lipsticks for Teens: Hacks and Best Brands! <span class="text-xs bg-purple-300 text-purple-800 px-2 py-1 rounded-full ml-2">KIDS PLAN</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Brielle's teen sister Amara shares her favorite lipsticks perfect for young beauty lovers!
+                        </p>
+                        <a href="amara-lipstick-hacks-article.html#amara-lipstick-hacks-article-section" class="text-pink-500 hover:underline font-medium">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 18: Rhode Glow Showdown -->
+                <article class="article-card">
+                    <img src="https://i.imgur.com/XoqO32D.jpeg" alt="Rhode Glow Showdown Thumbnail" class="article-card-img">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Rhode Glow Showdown: Glazing Milk vs. Glazing Mist!</h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Deli breaks down the differences between Rhode's popular Glazing Milk and Glazing Mist.
+                        </p>
+                        <a href="rhode-glow-showdown-article.html#rhode-glow-showdown-article-section" class="text-pink-500 hover:underline font-medium">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- New Article 19: Sponsored Peppa Pig Makeup Look -->
+                <article class="article-card">
+                    <img src="https://i.imgur.com/d4KRkvb.png" alt="Peppa Pig Makeup Thumbnail" class="article-card-img">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Sponsored: Peppa Pig Cutie Makeup Look for Tweens & Teens! <span class="text-xs bg-purple-300 text-purple-800 px-2 py-1 rounded-full ml-2">KIDS PLAN</span></h4>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Oink, oink! A super fun and adorable makeup adventure inspired by Peppa Pig!
+                        </p>
+                        <a href="peppa-pig-makeup-article.html#peppa-pig-makeup-article-section" class="text-pink-500 hover:underline font-medium">Read More &rarr;</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- New Section: DIY Beauty Recipe Generator (Premium) -->
+        <section id="diy-recipe-generator-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16">
+            <a href="more-articles.html#more-articles-list-section" class="btn-secondary inline-flex items-center mb-6">&larr; Back to More Articles</a>
+            <div class="premium-content-lock">
+                <h3 class="text-4xl font-bold text-gray-800 mb-6 text-center">DIY Beauty Recipe Generator ✨ (PREMIUM)</h3>
+                <div class="article-content max-w-3xl mx-auto text-gray-700">
+                    <p class="mb-6">
+                        Welcome to Deli's exclusive DIY Beauty Recipe Generator! As a VIP member, you can now
+                        get personalized suggestions for homemade masks, scrubs, and more, right here! Just tell
+                        me what ingredients you have on hand, or what skin concern you want to address, and I'll whip up
+                        a custom recipe just for you. Let's get creative with what's in your pantry!
+                    </p>
+                    <div class="mb-6">
+                        <label for="diy-prompt" class="block text-gray-700 text-left text-lg font-bold mb-2">Tell me what you have or need:</label>
+                        <textarea id="diy-prompt" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="4" placeholder="E.g., 'avocado, honey, for dry skin' or 'oats, yogurt, for gentle exfoliation'"></textarea>
+                    </div>
+                    <div class="text-center mb-6">
+                        <button class="btn-primary" onclick="generateDiyRecipe()">Generate Recipe</button>
+                    </div>
+                    <div id="diy-output" class="bg-gray-100 p-4 rounded-lg min-h-[100px] flex items-center justify-center">
+                        <p class="text-gray-600">Your personalized DIY recipe will appear here!</p>
+                    </div>
+                    <div id="diy-loading-spinner" class="hidden text-center mt-4">
+                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-pink-500 mx-auto"></div>
+                        <p class="text-pink-500 mt-2">Whipping up something special...</p>
+                    </div>
+                </div>
+                <div class="premium-overlay">
+                    <p class="text-xl font-bold text-gray-900 mb-4">Premium Content</p>
+                    <button class="btn-primary" onclick="window.location.href='index.html#premium-plans-section'">Unlock for VIPs!</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Article Section: Skinimalism 2.0 (Adult) - Renamed for clarity-->
+        <section id="skinimalism-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16">
+            <a href="more-articles.html#more-articles-list-section" class="btn-secondary inline-flex items-center mb-6">&larr; Back to More Articles</a>
+            <div class="premium-content-lock">
+                <h3 class="text-4xl font-bold text-gray-800 mb-6 text-center">Deli's Guide to Skinimalism 2.0: Less is More, More is You!</h3>
+                <div class="article-content max-w-3xl mx-auto text-gray-700">
+                    <p class="mb-6">
+                        Hey beautiful people! Deli here, and today we're talking about a trend that's all about
+                        embracing your natural skin and simplifying your routine: **Skinimalism 2.0!** It's the evolved
+                        version of the "less is more" philosophy, focusing on healthy skin and a more authentic you.
+                        Let's explore how to get that effortlessly radiant look.
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">What is Skinimalism 2.0?</h4>
+                    <img src="https://i.imgur.com/hXZOksH.png" alt="Skinimalism 2.0 Concept" class="w-full h-auto object-cover rounded-lg mb-6">
+                    <p class="text-gray-700 mb-6">
+                        Skinimalism 2.0 isn't just about using fewer products; it's about being more intentional
+                        with the products you choose. It's a holistic approach that celebrates natural textures,
+                        embraces imperfections, and promotes a healthy skin barrier. Think lightweight formulas,
+                        multi-tasking products, and skincare that truly nourishes.
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 1: Gentle Cleansing is Key!</h4>
+                    <img src="https://i.imgur.com/6Qin14h.png" alt="Maya - Gentle Cleansing" class="w-full h-auto object-cover rounded-lg mb-6">
+                    <p class="text-gray-700 mb-6">
+                        First things first: clean skin! Use a **gentle cleanser** every morning and night. Look for one
+                        that says "gentle," "hydrating," or "for sensitive skin." You don't want anything that makes your
+                        skin feel tight or dry. Just a small amount, lather it up, and rinse with lukewarm water. Super easy!
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 2: Hydrate, Hydrate, Hydrate!</h4>
+                    <img src="https://i.imgur.com/CigemBy.png" alt="Maya - Hydrating Skincare" class="w-full h-auto object-cover rounded-lg mb-6">
+                    <p class="text-gray-700 mb-6">
+                        After cleansing, it's time for moisturizer. Even if your skin feels oily, it still needs hydration!
+                        Choose a **lightweight, non-comedogenic moisturizer** (that means it won't clog pores).
+                        If you’re going outside, make sure your moisturizer has **SPF 30 or higher!** Protecting your skin
+                        from the sun is super important, even on cloudy days. This keeps your skin bouncy and protected.
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 3: Spot Treat Smart (If You Need To!)</h4>
+                    <img src="https://i.imgur.com/kIVFN7s.png" alt="Maya - Spot Treatment" class="w-full h-auto object-cover rounded-lg mb-6">
+                    <p class="text-gray-700 mb-6">
+                        Got a pesky breakout? Instead of using harsh products all over your face, try a **targeted spot treatment**.
+                        Look for ingredients like salicylic acid or benzoyl peroxide in small percentages. Apply just a tiny bit
+                        directly to the spot after moisturizing. Remember, less is more here too! If your breakouts are super stubborn,
+                        it's always a good idea to talk to a dermatologist – they're the skin experts!
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 4: Keep Makeup Light and Fun!</h4>
+                    <p class="text-gray-700 mb-6">
+                        Skinimalism 2.0 means letting your real skin shine. For makeup, think:
+                        <ul class="list-disc list-inside mb-4">
+                            <li>**Tinted Lip Balm:** A pop of color and hydration.</li>
+                            <li>**Cream Blush:** For a natural flush on your cheeks.</li>
+                            <li>**Mascara:** To make your eyes pop!</li>
+                            <li>**Concealer:** Only on spots where you really want extra coverage.</li>
+                        </ul>
+                        Don't feel like you *have* to cover everything up. Your natural freckles, a little redness, or a beauty mark
+                        make you uniquely *you*!
+                    </p>
+
+                    <p class="text-lg text-gray-700 mt-8 text-center font-semibold">
+                        Embrace Skinimalism 2.0 is about celebrating your beautiful, authentic self.
+                        Focus on healthy habits, simple products, and confidence! You've got this!
+                    </p>
+                </div>
+                <div class="premium-overlay">
+                    <p class="text-xl font-bold text-gray-900 mb-4">Premium Content</p>
+                    <button class="btn-primary" onclick="window.location.href='index.html#premium-plans-section'">Unlock for VIPs!</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Article Section: Celeste's Chroma Shift: Mastering Liquid Duochrome Eyeliner -->
+        <section id="celeste-duochrome-eyeliner-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16">
+            <a href="more-articles.html#more-articles-list-section" class="btn-secondary inline-flex items-center mb-6">&larr; Back to More Articles</a>
+            <div class="premium-content-lock">
+                <h3 class="text-4xl font-bold text-gray-800 mb-6 text-center">Celeste's Chroma Shift: Mastering Liquid Duochrome Eyeliner (PREMIUM)</h3>
+                <div class="article-content max-w-3xl mx-auto text-gray-700">
+                    <p class="mb-6">
+                        Hello, chromashifters! Celeste here, ready to illuminate your world with one of my favorite
+                        digital glam secrets: **Liquid Duochrome Eyeliner!** This magical product shifts color depending
+                        on the light and angle, creating an otherworldly, mesmerizing effect. And today, we're focusing
+                        on creating this enchanting look, highlighting the super cute and accessible e.l.f. liquid duochromes.
+                        Get ready to sparkle!
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 1: Prep Your Lids for a Multidimensional Canvas</h4>
+                    <img src="https://i.imgur.com/5CHD7UI.png" alt="Celeste Duochrome Eyeliner - Eyelid Prep" class="w-full h-auto object-cover rounded-lg mb-6">
+                    <p class="text-gray-700 mb-6">
+                        For duochrome liners to really pop, start with a clean, smooth, and primed eyelid. You can use a
+                        neutral matte eyeshadow (like a light beige or soft grey) across your lid to create an even base.
+                        Some artists even like to use a black or white base to intensify the duochrome shift, so feel
+                        free to experiment!
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 2: Drawing the Dazzling Line</h4>
+                    <img src="https://i.imgur.com/PqHja31.png" alt="Celeste Duochrome Eyeliner - Application" class="w-full h-auto object-cover rounded-lg mb-6">
+                    <p class="text-gray-700 mb-6">
+                        Now for the star of the show! Take your liquid duochrome eyeliner (like the fabulous e.l.f. ones!)
+                        and carefully draw a line along your upper lash line. You can go for a classic winged liner, a sharp graphic line,
+                        or a simple thin line. The beauty of duochrome is that even a simple line looks incredibly intricate.
+                        Let it dry completely before blinking to avoid transfer.
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 3: Layering for Intense Shift (Optional)</h4>
+                    <p class="text-gray-700 mb-6">
+                        For an even more intense color shift, you can layer a second coat of the duochrome liner once the
+                        first is fully dry. Alternatively, you can apply a matching powder eyeshadow in a similar shifting
+                        shade directly over the liquid liner to amplify its effect. This technique really makes the colors dance!
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 4: Lower Lash Line Sparkle & Inner Corner Pop</h4>
+                    <img src="https://i.imgur.com/smAUQpJ.png" alt="Celeste Duochrome Eyeliner - Lower Lash Line and Inner Corner" class="w-full h-auto object-cover rounded-lg mb-6">
+                    <p class="text-gray-700 mb-6">
+                        To tie the look together, use a small detail brush to apply a touch of the duochrome eyeliner
+                        or a matching shimmery eyeshadow along your lower lash line. For an extra touch of celestial glow,
+                        dab a small amount of the duochrome onto your inner corner. This opens up the eye and enhances
+                        the overall luminous effect.
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 5: Balancing the Rest of Your Look</h4>
+                    <p class="text-gray-700 mb-6">
+                        With such dazzling eyes, it's best to keep the rest of your makeup subtle and complementary.
+                        Opt for a sheer base, a soft neutral blush, and a clear or nude lip gloss. This ensures your
+                        duochrome eyeliner remains the captivating focal point without competition.
+                    </p>
+
+                    <p class="text-lg text-gray-700 mt-8 text-center font-semibold">
+                        And there you have it – Celeste's guide to mastering the enchanting Liquid Duochrome Eyeliner look!
+                        It's fun, futuristic, and full of shimmering possibilities. Embrace the chroma shift, my dears!
+                    </p>
+                    <div class="text-center mt-12">
+                        <button class="btn-primary" onclick="window.location.href='index.html#premium-plans-section'">Unlock for VIPs!</button>
+                    </div>
+                </div>
+                <div class="premium-overlay">
+                    <p class="text-xl font-bold text-gray-900 mb-4">Premium Content</p>
+                    <button class="btn-primary" onclick="window.location.href='index.html#premium-plans-section'">Unlock for VIPs!</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Article Section: Waterless Beauty for Teens -->
+        <section id="waterless-beauty-teens-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16">
+            <a href="more-articles.html#more-articles-list-section" class="btn-secondary inline-flex items-center mb-6">&larr; Back to More Articles</a>
+            <div class="premium-content-lock">
+                <h3 class="text-4xl font-bold text-gray-800 mb-6 text-center">Deli's Guide to Waterless Beauty for Teens: The New Kids' Plan!</h3>
+                <div class="article-content max-w-3xl mx-auto text-gray-700">
+                    <p class="mb-6">
+                        Hey, future beauty enthusiasts! Deli here, and today we're talking about something super cool:
+                        **Waterless Beauty!** It's all about making awesome makeup and skincare products that use little
+                        to no water, which is fantastic for our planet and super easy for you. Let's dive into why
+                        this is the next big thing and how you can join the wave with our "Kids' Plan"!
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">What is Waterless Beauty?</h4>
+                    <img src="https://i.imgur.com/SCFGSm5.png" alt="Waterless Beauty Concept Image" class="w-full h-auto object-cover rounded-lg mb-6">
+                    <p class="text-gray-700 mb-6">
+                        Imagine your favorite cleansers, moisturizers, or even lip balms, but in solid forms like sticks,
+                        powders, or concentrated creams. These products skip the water in their formulas, which means
+                        they're often more potent, last longer, and use less packaging. Plus, they're super travel-friendly!
+                        It's a smart way to be kind to the Earth while still rocking your best look.
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Why It's Perfect for Teens (The New Kids' Plan!)</h4>
+                    <p class="text-gray-700 mb-6">
+                        As part of Deli's new "Kids' Plan," we're focusing on easy-to-use, effective, and eco-friendly options.
+                        Waterless products are fantastic for teens because they:
+                        <ul class="list-disc list-inside mb-4">
+                            <li>**Are less messy:** No spills, no fuss, especially when you're on the go!</li>
+                            <li>**Are travel-friendly:** Pack them in your sports bag or backpack without worrying about leaks.</li>
+                            <li>**Are concentrated:** A little goes a long way, so your products last longer.</li>
+                            <li>**Promote sustainability:** Using less water and often less plastic is a win for the planet!</li>
+                        </ul>
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Must-Try Waterless Beauty Products for Your Starter Kit!</h4>
+                    <div class="flex flex-col md:flex-row gap-6 mb-6">
+                        <img src="https://i.imgur.com/PSaR9sb.png" alt="Waterless Solid Cleanser Stick" class="w-full md:w-1/2 h-auto object-cover rounded-lg">
+                        <p class="text-gray-700 md:w-1/2">
+                            **1. Solid Cleanser Sticks:** Forget foamy cleansers! These sticks glide right onto your wet face. Just rub, lather, and rinse. They remove makeup and impurities gently, leaving your skin fresh and clean without any watery mess. Super fun and effective!
+                        </p>
+                    </div>
+                    <div class="flex flex-col md:flex-row-reverse gap-6 mb-6">
+                        <img src="https://i.imgur.com/Z5xW5CT.png" alt="Waterless Shampoo and Conditioner Bars" class="w-full md:w-1/2 h-auto object-cover rounded-lg">
+                        <p class="text-gray-700 md:w-1/2">
+                            **2. Shampoo & Conditioner Bars:** Yes, bars for your hair! They lather beautifully, cleanse thoroughly, and condition deeply, all without a single drop of liquid. Perfect for shower time, gym bags, or sleepovers. They come in super cute shapes and scents too!
+                        </p>
+                    </div>
+                    <p class="mb-6">
+                        **3. Powder-to-Foam Cleansers:** These tiny powders transform into a rich foam with just a few drops of water (or even the humidity in your bathroom!). They're gentle on skin and amazing for travel.
+                    </p>
+                    <p class="mb-6">
+                        **4. Solid Moisturizer Bars/Sticks:** Keep your skin hydrated with these solid versions of your favorite lotions. They melt onto your skin with your body heat, delivering concentrated moisture exactly where you need it.
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">How to Integrate Waterless Beauty into Your Routine:</h4>
+                    <p class="text-gray-700 mb-6">
+                        It's super simple! Just swap out your traditional liquid products for their solid or concentrated waterless versions.
+                        You'll find that these products are not only fun to use but also incredibly efficient. Remember to store them in a dry place after use to ensure they last a long time.
+                    </p>
+
+                    <p class="text-lg text-gray-700 mt-8 text-center font-semibold">
+                        Embrace the future of beauty with our waterless picks! It's good for you and good for the planet. Stay radiant, everyone!
+                    </p>
+                </div>
+                <div class="premium-overlay">
+                    <p class="text-xl font-bold text-gray-900 mb-4">Kids' Plan Content</p>
+                    <button class="btn-primary" onclick="window.location.href='index.html#premium-plans-section'">Unlock Kids' Plan!</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Article Section: Fake Freckles for Tweens/Teens Trend -->
+        <section id="fake-freckles-teens-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16">
+            <a href="more-articles.html#more-articles-list-section" class="btn-secondary inline-flex items-center mb-6">&larr; Back to More Articles</a>
+            <div class="premium-content-lock">
+                <h3 class="text-4xl font-bold text-gray-800 mb-6 text-center">Deli's Guide to Fake Freckles: The Fun Tween/Teen Trend!</h3>
+                <div class="article-content max-w-3xl mx-auto text-gray-700">
+                    <p class="mb-6">
+                        Hey everyone, Deli here! Have you noticed those adorable, sun-kissed freckles popping up everywhere?
+                        It's one of the sweetest and most natural-looking trends right now, and guess what? You don't
+                        even need the sun to get them! I'm here to show you how to create super cute fake freckles that
+                        are perfect for tweens and teens. It's a fun, temporary way to add a playful touch to your look!
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">What Are Fake Freckles?</h4>
+                    <img src="https://i.imgur.com/AdXfC28.png" alt="Fake Freckles Trend Thumbnail" class="w-full h-auto object-cover rounded-lg mb-6">
+                    <p class="text-gray-700 mb-6">
+                        Fake freckles are tiny, natural-looking dots applied to your face with makeup, usually across
+                        the nose and cheeks. They give you a fresh, youthful, and slightly sun-kissed appearance,
+                        making your skin look even more charming. They're temporary, so you can rock them whenever
+                        you feel like it!
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 1: Prep Your Skin</h4>
+                    <p class="text-gray-700 mb-6">
+                        Start with your usual base makeup – whether it's just moisturizer, a little tinted sunscreen,
+                        or a light foundation. Make sure your skin is clean and moisturized. The goal is a natural, fresh base
+                        that allows the freckles to blend in seamlessly, not a heavy, full-coverage look.
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 2: Choose Your Freckle Tool</h4>
+                    <p class="text-gray-700 mb-6">
+                        There are a few great options for creating fake freckles:
+                        <ul class="list-disc list-inside mb-4">
+                            <li>**Freckle Pen:** These are designed specifically for freckles and are super easy to use.</li>
+                            <li>**Brow Pen:** A fine-tipped brow pen in a light brown shade works perfectly.</li>
+                            <li>**Eyeshadow & Thin Brush:** A matte brown eyeshadow (taupe or light brown) and a very thin, pointed brush can also do the trick.</li>
+                        </ul>
+                        Pick a shade that's a light-to-medium brown, not too dark, to keep the look natural.
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 3: Dotting Your Freckles</h4>
+                    <img src="https://i.imgur.com/OBZxuH2.png" alt="Applying Fake Freckles - Image 1" class="w-full h-auto object-cover rounded-lg mb-6">
+                    <p class="text-gray-700 mb-6">
+                        This is the fun part! Gently dot the freckle tool across the bridge of your nose and the tops of your cheeks.
+                        Think about where the sun would naturally give you freckles.
+                        Vary the size and spacing of your dots – some bigger, some smaller, some closer together, some further apart.
+                        Don't make them too uniform; natural freckles are always a little bit random!
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 4: Soften and Blend</h4>
+                    <img src="https://i.imgur.com/eqLR47Z.png" alt="Softening Fake Freckles - Image 2" class="w-full h-auto object-cover rounded-lg mb-6">
+                    <p class="text-gray-700 mb-6">
+                        Immediately after dotting, gently tap over each freckle with your fingertip or a damp beauty sponge.
+                        This softens the edges and makes them look more natural, as if they're really part of your skin.
+                        If any look too dark, you can lightly tap a bit of your foundation or concealer over them to sheer them out.
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 5: Set for Lasting Fun!</h4>
+                    <p class="text-gray-700 mb-6">
+                        Once you're happy with your freckles, lightly mist your face with a setting spray. This will help
+                        them last longer and blend even more seamlessly into your skin. You can also lightly dust a translucent
+                        powder over them.
+                    </p>
+
+                    <p class="text-lg text-gray-700 mt-8 text-center font-semibold">
+                        And there you have it – your charming fake freckles are ready to shine! This trend is all about
+                        embracing natural beauty with a playful twist. Have fun experimenting, and keep radiating your unique glow!
+                    </p>
+                </div>
+                <div class="premium-overlay">
+                    <p class="text-xl font-bold text-gray-900 mb-4">Kids' Plan Content</p>
+                    <button class="btn-primary" onclick="window.location.href='index.html#premium-plans-section'">Unlock Kids' Plan!</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Article Section: 3D Mini iPhone Nails with Teen Star Lily -->
+        <section id="mini-iphone-nails-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16">
+            <a href="more-articles.html#more-articles-list-section" class="btn-secondary inline-flex items-center mb-6">&larr; Back to More Articles</a>
+            <div class="premium-content-lock">
+                <h3 class="text-4xl font-bold text-gray-800 mb-6 text-center">Trend Alert! 3D Mini iPhone Nails with Teen Star Lily!</h3>
+                <div class="article-content max-w-3xl mx-auto text-gray-700">
+                    <p class="mb-6">
+                        Hey Nail Ninjas and future tech queens! Deli here, and I'm super excited to bring you the latest,
+                        cutest, and most miniature nail art trend: **3D Mini iPhone Nails!** This adorable look lets you
+                        show off your love for tech right on your fingertips, and our talented 12-year-old nail art star, Lily,
+                        is here to show you how it's done. Get ready to miniaturize your manicure!
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">What Are 3D Mini iPhone Nails?</h4>
+                    <img src="https://i.imgur.com/g7AmcNO.png" alt="3D Mini iPhone Nails Thumbnail" class="w-full h-auto object-cover rounded-lg mb-6">
+                    <p class="text-gray-700 mb-6">
+                        Imagine tiny, perfectly sculpted iPhones sitting right on your nails! This trend involves creating
+                        small, three-dimensional iPhone replicas using nail art gels or acrylics, complete with miniature
+                        screens, buttons, and even cameras. It's a super detailed and incredibly unique way to express
+                        your style. Lily, at just 12, has mastered this intricate art, and she's ready to share her secrets!
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 1: Prep Your Nails & Base Color</h4>
+                    <p class="text-gray-700 mb-6">
+                        Just like with any great nail art, start with clean, prepped nails. Push back cuticles, gently buff
+                        the nail surface, and apply a base coat. Once dry, apply 1-2 coats of your chosen base color for
+                        your nails. A solid color like black, white, or a pastel shade works best to make the mini iPhones pop.
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 2: Building the 3D iPhone Shape</h4>
+                    <img src="https://i.imgur.com/B26MiAx.png" alt="Building 3D Mini iPhone Nail Shape" class="w-full h-auto object-cover rounded-lg mb-6">
+                    <p class="text-gray-700 mb-6">
+                        This step requires patience! Using nail art gel (which stays put until cured) or acrylic,
+                        carefully sculpt a small rectangular shape on the center of your chosen nail. This will be the body of the iPhone.
+                        You'll need a fine detail brush and a steady hand. Build up thin layers, curing each gel layer under a UV/LED lamp,
+                        or allowing acrylic to air dry, until you have a slightly raised, mini-brick shape.
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 3: Detailing the Screen & Buttons</h4>
+                    <p class="text-gray-700 mb-6">
+                        Once the base shape is solid, it's time for the intricate details. Use a tiny detail brush and black
+                        gel polish or nail art paint to create the 'screen' rectangle on the iPhone. You can also use white
+                        or silver for tiny 'buttons' on the sides and bottom. For the camera, use a small dotting tool and black
+                        paint, adding a tiny silver dot for the lens. Precision is super important here!
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 4: Top Coat & Shine!</h4>
+                    <p class="text-gray-700 mb-6">
+                        Once all your 3D details are complete and dry/cured, apply a clear top coat over the entire nail,
+                        including the mini iPhone. This will seal in your design, give it a glossy, finished look, and
+                        ensure your tiny tech masterpiece lasts!
+                    </p>
+
+                    <p class="text-lg text-gray-700 mt-8 text-center font-semibold">
+                        How cool is that?! Lily makes it look so easy. These 3D Mini iPhone Nails are definitely a conversation
+                        starter and a super fun way to show off your personality. Have fun creating your own miniature tech art!
+                    </p>
+                </div>
+                <div class="premium-overlay">
+                    <p class="text-xl font-bold text-gray-900 mb-4">Kids' Plan Content</p>
+                    <button class="btn-primary" onclick="window.location.href='index.html#premium-plans-section'">Unlock Kids' Plan!</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Article Section: AI Innovator Maya's Guide to Skinimalism 2.0 for Tweens & Teens (12-14) -->
+        <section id="maya-skinimalism-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16">
+            <a href="more-articles.html#more-articles-list-section" class="btn-secondary inline-flex items-center mb-6">&larr; Back to More Articles</a>
+            <div class="premium-content-lock">
+                <h3 class="text-4xl font-bold text-gray-800 mb-6 text-center">AI Innovator Maya's Guide to Skinimalism 2.0 for Tweens & Teens (12-14)</h3>
+                <div class="article-content max-w-3xl mx-auto text-gray-700">
+                    <p class="mb-6">
+                        Hey amazing tweens and teens (ages 12-14)! Maya here, your 14-year-old AI influencer, and I'm
+                        super excited to talk about **Skinimalism 2.0!** You know, that cool trend where "less is more"
+                        for your skin? It’s all about taking care of your natural glow without needing a gazillion products.
+                        Let’s get into how you can make your routine super simple and super effective!
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">What is Skinimalism 2.0 for YOU?</h4>
+                    <img src="https://i.imgur.com/MOpjzef.png" alt="AI Influencer Maya - Skinimalism Concept" class="w-full h-auto object-cover rounded-lg mb-6">
+                    <p class="text-gray-700 mb-6">
+                        Skinimalism 2.0 for our age group is all about understanding what your skin really needs
+                        without getting overwhelmed. It means choosing just a few awesome products that make your
+                        skin healthy and happy, instead of feeling like you need tons of stuff. It’s perfect for
+                        busy school days, sports, or just hanging out with friends!
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 1: Gentle Cleansing is Key!</h4>
+                    <img src="https://i.imgur.com/kS8xX6g.png" alt="Maya - Gentle Cleansing" class="w-full h-auto object-cover rounded-lg mb-6">
+                    <p class="text-gray-700 mb-6">
+                        First things first: clean skin! Use a **gentle cleanser** every morning and night. Look for one
+                        that says "gentle," "hydrating," or "for sensitive skin." You don't want anything that makes your
+                        skin feel tight or dry. Just a small amount, lather it up, and rinse with lukewarm water. Super easy!
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 2: Hydrate, Hydrate, Hydrate!</h4>
+                    <img src="https://i.imgur.com/CigemBy.png" alt="Maya - Hydrating Skincare" class="w-full h-auto object-cover rounded-lg mb-6">
+                    <p class="text-gray-700 mb-6">
+                        After cleansing, it's time for moisturizer. Even if your skin feels oily, it still needs hydration!
+                        Choose a **lightweight, non-comedogenic moisturizer** (that means it won't clog pores).
+                        If you’re going outside, make sure your moisturizer has **SPF 30 or higher!** Protecting your skin
+                        from the sun is super important, even on cloudy days. This keeps your skin bouncy and protected.
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 3: Spot Treat Smart (If You Need To!)</h4>
+                    <img src="https://i.imgur.com/kIVFN7s.png" alt="Maya - Spot Treatment" class="w-full h-auto object-cover rounded-lg mb-6">
+                    <p class="text-gray-700 mb-6">
+                        Got a pesky breakout? Instead of using harsh products all over your face, try a **targeted spot treatment**.
+                        Look for ingredients like salicylic acid or benzoyl peroxide in small percentages. Apply just a tiny bit
+                        directly to the spot after moisturizing. Remember, less is more here too! If your breakouts are super stubborn,
+                        it's always a good idea to talk to a dermatologist – they're the skin experts!
+                    </p>
+
+                    <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 4: Keep Makeup Light and Fun!</h4>
+                    <p class="text-gray-700 mb-6">
+                        Skinimalism 2.0 means letting your real skin shine. For makeup, think:
+                        <ul class="list-disc list-inside mb-4">
+                            <li>**Tinted Lip Balm:** A pop of color and hydration.</li>
+                            <li>**Cream Blush:** For a natural flush on your cheeks.</li>
+                            <li>**Mascara:** To make your eyes pop!</li>
+                            <li>**Concealer:** Only on spots where you really want extra coverage.</li>
+                        </ul>
+                        Don't feel like you *have* to cover everything up. Your natural freckles, a little redness, or a beauty mark
+                        make you uniquely *you*!
+                    </p>
+
+                    <p class="text-lg text-gray-700 mt-8 text-center font-semibold">
+                        Embrace Skinimalism 2.0 is about celebrating your beautiful, authentic self.
+                        Focus on healthy habits, simple products, and confidence! You've got this!
+                    </p>
+                </div>
+                <div class="premium-overlay">
+                    <p class="text-xl font-bold text-gray-900 mb-4">Kids' Plan Content</p>
+                    <button class="btn-primary" onclick="window.location.href='index.html#premium-plans-section'">Unlock Kids' Plan!</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Article Section: Maya's Quick & Light Makeup Hacks for Teens -->
+        <section id="maya-makeup-hacks-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16">
+            <a href="more-articles.html#more-articles-list-section" class="btn-secondary inline-flex items-center mb-6">&larr; Back to More Articles</a>
+            <h3 class="text-4xl font-bold text-gray-800 mb-6 text-center">Maya's Quick & Light Makeup Hacks for Teens</h3>
+            <div class="article-content max-w-3xl mx-auto text-gray-700">
+                <p class="mb-6">
+                    Hey everyone! Maya here, your AI influencer, and I know how busy life can be for teens.
+                    Between school, sports, and hanging out, who has hours for makeup? That's why I'm sharing my
+                    favorite quick and light makeup hacks that will make you look fresh and put-together in minutes!
+                    It’s all about enhancing your natural beauty without heavy layers.
+                </p>
+
+                <h4 class="text-2xl font-semibold text-pink-600 mb-4">Hack 1: The "Glow-Up" Base</h4>
+                <img src="https://i.imgur.com/nkE0NWs.jpeg" alt="Maya Makeup Hack 1 - Glowing Base" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    Forget heavy foundation! For a quick, radiant base, mix a tiny drop of liquid highlighter
+                    into your moisturizer or a lightweight tinted sunscreen. Apply it all over your face for an
+                    instant, subtle glow. If you have any redness or small blemishes, dab a little concealer
+                    only on those spots and blend with your finger. This is super fast and lets your skin breathe!
+                </p>
+
+                <h4 class="text-2xl font-semibold text-pink-600 mb-4">Hack 2: One Product Wonder for Cheeks & Lips</h4>
+                <img src="https://i.imgur.com/dxyCtDW.jpeg" alt="Maya Makeup Hack 2 - Multi-use Product" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    This is my favorite time-saver! Grab a cream blush or a lip-and-cheek tint. Smile to find the
+                    apples of your cheeks and dab a small amount, then blend it upwards towards your temples with
+                    your fingers. Next, dab the *exact same product* onto your lips for a pretty, cohesive flush of color.
+                    It looks natural and takes seconds!
+                </p>
+
+                <h4 class="text-2xl font-semibold text-pink-600 mb-4">Hack 3: Effortless Eye Brightening</h4>
+                <img src="https://i.imgur.com/NcJMIeB.jpeg" alt="Maya Makeup Hack 3 - Eye Brightening" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    For bright, awake eyes without a lot of effort:
+                    <ul class="list-disc list-inside mb-4">
+                        <li>**Inner Corner Pop:** Use a shimmery champagne or light pink eyeshadow (or even highlighter!) on your pinky finger and tap it onto the inner corners of your eyes.</li>
+                        <li>**Mascara Magic:** Curl your lashes and apply just one or two coats of mascara. This opens up your eyes instantly without needing eyeliner. Brown mascara can look softer and more natural for daytime.</li>
+                    </ul>
+                </p>
+
+                <h4 class="text-2xl font-semibold text-pink-600 mb-4">Hack 4: Quick Brow Taming</h4>
+                <p class="text-gray-700 mb-6">
+                    Well-groomed brows frame your face beautifully! If you don't have time for a full brow routine,
+                    just grab a clear brow gel or even a little hairspray on a spoolie brush. Brush your brow hairs
+                    upwards and into place. This makes them look neater and adds a subtle lift to your face.
+                </p>
+
+                <p class="text-lg text-gray-700 mt-8 text-center font-semibold">
+                    And there you have it! Simple, light makeup hacks that get you ready fast and keep you looking
+                    naturally fabulous. Remember, the best makeup look is the one that makes you feel confident and comfortable!
+                </p>
+            </div>
+        </section>
+
+        <!-- New Article Section: AI Innovator Maya's 3D Ice Cream Nails -->
+        <section id="maya-icecream-nails-article-section" class="page-section bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 mb-16">
+            <a href="more-articles.html#more-articles-list-section" class="btn-secondary inline-flex items-center mb-6">&larr; Back to More Articles</a>
+            <h3 class="text-4xl font-bold text-gray-800 mb-6 text-center">AI Innovator Maya's 3D Ice Cream Nails: A Sweet Treat for Your Tips!</h3>
+            <div class="article-content max-w-3xl mx-auto text-gray-700">
+                <p class="mb-6">
+                    Hey, nail art lovers! Maya here, and I'm bringing you a super fun and totally sweet trend that's
+                    perfect for tweens and teens: **3D Ice Cream Nails!** Forget just painting your nails – we're going to
+                    build tiny, adorable ice cream cones right on your fingertips. Get ready for a delicious manicure that's
+                    guaranteed to make you smile!
+                </p>
+
+                <h4 class="text-2xl font-semibold text-pink-600 mb-4">What Are 3D Ice Cream Nails?</h4>
+                <img src="https://i.imgur.com/YKz8TNE.png" alt="Maya 3D Ice Cream Nails Thumbnail" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    This trend is all about creating miniature, three-dimensional ice cream cones (or scoops!)
+                    using nail art materials like gel polish or acrylic. You can customize them with different
+                    "flavors," "sprinkles," and "cherries" to make them uniquely yours. It’s a super creative way
+                    to show off your personality and love for sweet treats!
+                </p>
+
+                <h4 class="2xl font-semibold text-pink-600 mb-4">Step 1: Prep Your Nails & Base Color</h4>
+                <img src="https://i.imgur.com/VNV6ZDm.png" alt="Maya 3D Ice Cream Nails - Base Color" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    First, make sure your nails are clean and prepped. Apply a base coat to protect your nails.
+                    Then, choose a light, neutral color for your nail base – something that will make your ice cream
+                    designs stand out. A soft pink, cream, or even a clear base works perfectly! Apply 1-2 coats and let dry.
+                </p>
+
+                <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 2: Building the Cone (or Scoop!)</h4>
+                <img src="https://i.imgur.com/uajXNFg.png" alt="Maya 3D Ice Cream Nails - Building Cone/Scoop" class="w-full h-auto object-cover rounded-lg mb-6">
+                <p class="text-gray-700 mb-6">
+                    Now for the fun part! Using a beige or light brown gel polish (or acrylic powder mixed with liquid),
+                    carefully sculpt a small triangular "cone" shape on one or two of your nails. For the ice cream scoop,
+                    use a colored gel polish (like pink for strawberry, brown for chocolate, or white for vanilla) and a dotting tool
+                    to create a raised, rounded "scoop" on top of the cone. Cure each layer if using gel.
+                </p>
+
+                <h4 class="2xl font-semibold text-pink-600 mb-4">Step 3: Add Your Sweet Toppings!</h4>
+                <p class="text-gray-700 mb-6">
+                    This is where you get creative!
+                    <ul class="list-disc list-inside mb-4">
+                        <li>**Sprinkles:** Use tiny lines of colorful nail art polish or even small nail art glitter to create "sprinkles" on your ice cream scoop.</li>
+                        <li>**Cherry on Top:** For the classic cherry, use a small dotting tool and red nail polish to make a tiny 3D sphere on top of your scoop.</li>
+                        <li>**Drizzle:** Use a thin nail art brush and brown polish to create a "chocolate drizzle" effect over your ice cream.</li>
+                    </ul>
+                </p>
+                <img src="https://i.imgur.com/kS8xX6g.png" alt="Maya 3D Ice Cream Nails - Adding Sprinkles" class="w-full h-auto object-cover rounded-lg mb-6">
+                <img src="https://i.imgur.com/CigemBy.png" alt="Maya 3D Ice Cream Nails - Adding Cherry/Drizzle" class="w-full h-auto object-cover rounded-lg mb-6">
+                <img src="https://i.imgur.com/kIVFN7s.png" alt="Maya 3D Ice Cream Nails - Finished Look" class="w-full h-auto object-cover rounded-lg mb-6">
+
+
+                <h4 class="text-2xl font-semibold text-pink-600 mb-4">Step 4: Seal with a Top Coat!</h4>
+                <p class="text-gray-700 mb-6">
+                    Once all your delicious details are dry and cured (if using gel), apply a clear top coat over
+                    the entire nail. This will seal in your 3D designs, give them a super glossy finish, and make
+                    sure your ice cream nails last as long as possible!
+                </p>
+
+                <p class="text-lg text-gray-700 mt-8 text-center font-semibold">
+                    How sweet are these 3D Ice Cream Nails?! They're perfect for adding a fun and playful touch
+                    to your style. Have a blast creating your own unique ice cream masterpieces, and don't forget
+                    to share your delicious designs!
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Deli's World. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="index.html#privacy-policy" class="hover:text-pink-400">Privacy Policy</a>
+                <a href="index.html#terms-of-service" class="hover:text-pink-400">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for navigating between sections within this standalone HTML page
+        // or back to the main blog (index.html).
+        function showSection(sectionId) {
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+                history.pushState(null, '', `#${sectionId}`);
+            } else {
+                // If it's not on this page, redirect to index.html with the section hash
+                window.location.href = `index.html#${sectionId}`;
+            }
+        }
+
+        // Handle direct access to sections via URL hash
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash) {
+                const sectionId = window.location.hash.substring(1);
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
