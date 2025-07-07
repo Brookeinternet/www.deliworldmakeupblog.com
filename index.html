@@ -385,6 +385,121 @@
 
 
     
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe to Kids Plan</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Firebase SDKs (using v10.12.0) -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-functions.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+    <!-- Stripe.js for potential future use (though direct redirect is handled by function) -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            line-height: 1.6;
+            color: #334155;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+        .container-wrapper {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: #ec4899;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary:hover { background-color: #db2777; }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .modal-close-btn {
+            @apply mt-4 px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition duration-200;
+        }
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #ec4899;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 8px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-wrapper">
+        <h1 class="text-4xl font-bold text-gray-800 mb-6">Subscribe to Kids Plan</h1>
+        <p class="text-lg text-gray-700 mb-8">
+            Unlock exclusive activities and content for tweens and teens with our Premium Kids Plan!
+        </p>
+        <button id="subscribe-button" class="btn-primary">
+            Subscribe Now for $12.99/month
+            <span id="loading-spinner" class="loading-spinner hidden"></span>
+        </button>
+        <p class="text-sm text-gray-500 mt-4">
+            You must be logged in to subscribe.
+        </p>
+        <button id="login-button-page" class="text-pink-500 hover:underline mt-2">Already a member? Log In</button>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal-overlay hidden">
+      <div class="modal-content w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-4 text-center">Log In</h2>
+        <input type="email" id="loginEmail" placeholder="Email" class="w-full mb-4 p-2 border rounded" />
+        <input type="password" id="loginPassword" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
+        <button id="login-modal-button" class="btn-primary w-full">Log In</button>
+        <button class="modal-close-btn bg-gray-300 text-gray-800 hover:bg-gray-400" id="login-cancel-btn">Cancel</button>
+      </div>
+    </div>
 
     <script type="module">
         // Firebase initialization
@@ -414,110 +529,104 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
         const functions = getFunctions(app);
-       
-      // Initialize Stripe with the provided public key
-    const stripe = Stripe("pk_live_51RXVHEDUGtG6RSaQSRA3mNRjmKDpm3uaS5yqLGQaioQAF4h46xtK8iZAicPPSazyONwHec6nYXpc7QsXRM4KEedu00taF9cnOX");
-
 
         // Get a reference to the callable function
         const createKidsPlanCheckoutSession = httpsCallable(functions, 'createKidsPlanCheckoutSession');
 
         // --- UI Elements ---
-        const subscribeButton = document.getElementById('subscribe-button');
-        const loginButtonPage = document.getElementById('login-button-page');
-        const loadingSpinner = document.getElementById('loading-spinner');
-        const loginModal = document.getElementById('loginModal');
-        const loginEmailInput = document.getElementById('loginEmail');
-        const loginPasswordInput = document.getElementById('loginPassword');
-        const loginModalButton = document.getElementById('login-modal-button');
-        const loginCancelButton = document.getElementById('login-cancel-btn');
-        const messageModal = document.getElementById('messageModal');
-        const messageText = document.getElementById('messageText');
-        const messageOkButton = document.getElementById('message-ok-btn');
+        let subscribeButton;
+        let loginButtonPage;
+        let loadingSpinner;
+        let loginModal;
+        let loginEmailInput;
+        let loginPasswordInput;
+        let loginModalButton;
+        let loginCancelButton;
 
-        // --- Functions ---
-        function showMessage(message) {
-            messageText.textContent = message;
-            messageModal.style.display = "flex";
+        // Function to initialize UI elements after DOM is loaded
+        function initializeUIElements() {
+            subscribeButton = document.getElementById('subscribe-button');
+            loginButtonPage = document.getElementById('login-button-page');
+            loadingSpinner = document.getElementById('loading-spinner');
+            loginModal = document.getElementById('loginModal');
+            loginEmailInput = document.getElementById('loginEmail');
+            loginPasswordInput = document.getElementById('loginPassword');
+            loginModalButton = document.getElementById('login-modal-button');
+            loginCancelButton = document.getElementById('login-cancel-btn');
+
+            // Attach event listeners after elements are guaranteed to exist
+            if (subscribeButton) subscribeButton.addEventListener('click', subscribeToKidsPlan);
+            if (loginButtonPage) loginButtonPage.addEventListener('click', () => { loginModal.style.display = 'flex'; });
+            if (loginModalButton) loginModalButton.addEventListener('click', handleLogin);
+            if (loginCancelButton) loginCancelButton.addEventListener('click', () => { loginModal.style.display = 'none'; });
         }
+
 
         async function handleLogin() {
             const email = loginEmailInput.value;
             const password = loginPasswordInput.value;
 
             if (!email || !password) {
-                showMessage("Please enter both email and password.");
+                console.log("Please enter both email and password.");
                 return;
             }
 
             try {
                 await signInWithEmailAndPassword(auth, email, password);
-                showMessage("Logged in successfully!");
+                console.log("Logged in successfully!");
                 loginModal.style.display = "none";
             } catch (error) {
-                showMessage("Login failed: " + error.message);
-                console.error("Login error:", error);
+                console.error("Login failed: " + error.message);
             }
         }
 
         async function subscribeToKidsPlan() {
             const user = auth.currentUser;
             if (!user) {
-                showMessage("You must be logged in to subscribe. Please log in first.");
-                loginModal.style.display = 'flex'; // Show login modal if not logged in
+                console.log("You must be logged in to subscribe. Please log in first.");
+                loginModal.style.display = 'flex';
                 return;
             }
 
-            loadingSpinner.classList.remove('hidden'); // Show spinner
-            subscribeButton.disabled = true; // Disable button during loading
+            loadingSpinner.classList.remove('hidden');
+            subscribeButton.disabled = true;
 
             try {
                 const result = await createKidsPlanCheckoutSession();
                 const { url } = result.data;
 
                 if (url) {
-                    window.location.href = url; // Redirect to Stripe Checkout
+                    window.location.href = url;
                 } else {
-                    showMessage("Failed to get Stripe checkout URL.");
+                    console.error("Failed to get Stripe checkout URL.");
                 }
             } catch (error) {
                 console.error("Error subscribing to Kids Plan:", error);
-                showMessage("Failed to start subscription process: " + error.message);
             } finally {
-                loadingSpinner.classList.add('hidden'); // Hide spinner
-                subscribeButton.disabled = false; // Re-enable button
+                loadingSpinner.classList.add('hidden');
+                subscribeButton.disabled = false;
             }
         }
 
-        // --- Event Listeners ---
-        subscribeButton.addEventListener('click', subscribeToKidsPlan);
-
-        loginButtonPage.addEventListener('click', () => {
-            loginModal.style.display = 'flex';
-        });
-
-        loginModalButton.addEventListener('click', handleLogin);
-
-        loginCancelButton.addEventListener('click', () => {
-            loginModal.style.display = 'none';
-        });
-
-        messageOkButton.addEventListener('click', () => {
-            messageModal.style.display = 'none';
-        });
-
         // Handle initial auth state
         onAuthStateChanged(auth, (user) => {
-            if (user) {
-                loginButtonPage.textContent = `Logged in as ${user.email || 'User'}`;
-                loginButtonPage.disabled = true; // Disable login button if already logged in
-            } else {
-                loginButtonPage.textContent = "Already a member? Log In";
-                loginButtonPage.disabled = false;
+            if (loginButtonPage) { // Ensure loginButtonPage exists before updating
+                if (user) {
+                    loginButtonPage.textContent = `Logged in as ${user.email || 'User'}`;
+                    loginButtonPage.disabled = true;
+                } else {
+                    loginButtonPage.textContent = "Already a member? Log In";
+                    loginButtonPage.disabled = false;
+                }
             }
         });
+
+        // Initialize UI elements and attach listeners once the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', initializeUIElements);
     </script>
 </body>
+</html>
+
 
 
   
