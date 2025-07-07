@@ -35,8 +35,8 @@ exports.createKidsPlanCheckoutSession = functions.https.onCall(async (data, cont
                     },
                 ],
                 customer_email: userEmail,
-                success_url: `${functions.config().app.base_url}/success.html?session_id={CHECKOUT_SESSION_ID}`,
-                cancel_url: `${functions.config().app.base_url}/cancel.html`,
+                success_url: `${functions.config().app.base_url}https://www.deliworldmakeupandbeautyblog.com/success.html?session_id={CHECKOUT_SESSION_ID}`,
+                cancel_url: `${functions.config().app.base_url}https://www.deliworldmakeupandbeautyblog.com/cancel.html`,
                 metadata: {
                     firebaseUid: userId,
                 },
