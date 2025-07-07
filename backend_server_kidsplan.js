@@ -1,77 +1,59 @@
-// functions/index.js (or a separate file imported into index.js)
+// functions/index.js
 
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-admin.initializeApp(); // Initialize Firebase Admin SDK
+const cors = require('cors')({ origin: true }); // Import and initialize CORS
+admin.initializeApp();
 
-// Load Stripe secret key from Firebase Functions environment configuration
-// Make sure you run: firebase functions:config:set stripe.secret="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'"
 const stripe = require('stripe')(functions.config().stripe.secret);
+const KIDS_PLAN_PRICE_ID = 'price_1RgCZbDUGtG6RSaQYEbgcCxR';
 
-// Define the Stripe Price ID for the Kids Plan (Premium Tier)
-// This should match the Price ID you created in your Stripe Dashboard for this plan.
-const KIDS_PLAN_PRICE_ID = 'price_1RgCZbDUGtG6RSaQYEbgcCxR'; // Replace with your actual Price ID
-
-/**
- * Callable Cloud Function to create a Stripe Checkout Session for the Kids Plan.
- * This function is called from the client-side.
- *
- * @param {Object} data - Data passed from the client (e.g., plan details, quantity).
- * @param {Object} context - Firebase Cloud Functions context, including auth info.
- * @returns {Object} A JSON object containing the Stripe Checkout Session URL.
- */
 exports.createKidsPlanCheckoutSession = functions.https.onCall(async (data, context) => {
-    // 1. Authenticate the user
-    if (!context.auth) {
-        throw new functions.https.HttpsError(
-            'unauthenticated',
-            'Authentication required to create a checkout session.'
-        );
-    }
+    // Wrap the entire function logic in the CORS middleware
+    return cors(data.req, data.res, async () => { // Note: for https.onCall, data.req and data.res are not standard,
+                                                  // but the cors middleware is often used this way for consistency.
+                                                  // The actual CORS handling for https.onCall is usually automatic.
+                                                  // If this doesn't work, we might need to adjust the function type or Firebase project settings.
 
-    const userId = context.auth.uid; // Get the authenticated user's ID
-    const userEmail = context.auth.token.email; // Get the user's email from the auth token
+        if (!context.auth) {
+            throw new functions.https.HttpsError(
+                'unauthenticated',
+                'Authentication required to create a checkout session.'
+            );
+        }
 
-    try {
-        // 2. Create a Stripe Checkout Session
-        const session = await stripe.checkout.sessions.create({
-            mode: 'subscription', // Use 'subscription' mode for recurring payments
-            line_items: [
-                {
-                    price: KIDS_PLAN_PRICE_ID, // The Price ID for your Kids Plan
-                    quantity: 1,
+        const userId = context.auth.uid;
+        const userEmail = context.auth.token.email;
+
+        try {
+            const session = await stripe.checkout.sessions.create({
+                mode: 'subscription',
+                line_items: [
+                    {
+                        price: KIDS_PLAN_PRICE_ID,
+                        quantity: 1,
+                    },
+                ],
+                customer_email: userEmail,
+                success_url: `${functions.config().app.base_url}/success.html?session_id={CHECKOUT_SESSION_ID}`,
+                cancel_url: `${functions.config().app.base_url}/cancel.html`,
+                metadata: {
+                    firebaseUid: userId,
                 },
-            ],
-            // Customer creation or lookup:
-            // If you're using the Firebase Stripe Extension, it often handles customer creation/linking.
-            // If not, you might need to manually create or retrieve a Stripe customer here
-            // and link it to the Firebase userId.
-            // For simplicity, Stripe will create a new customer if one isn't provided,
-            // and the webhook will link it back.
-            customer_email: userEmail, // Pre-fill customer email for convenience
+            });
 
-            // URLs to redirect to after successful payment or cancellation
-            success_url:'https://www.deliworldmakeupandbeautyblog.com/success.html',
-     cancel_url: 'https://www.deliworldmakeupandbeautyblog.com/cancel.html',
-            // Optional: Add metadata to link the Stripe session back to your Firebase user
-            metadata: {
-                firebaseUid: userId,
-            },
-        });
+            return { sessionId: session.id, url: session.url };
 
-        // 3. Return the session URL to the client
-        return { sessionId: session.id, url: session.url };
-
-    } catch (error) {
-        console.error('Error creating Stripe Checkout Session:', error);
-        throw new functions.https.HttpsError(
-            'internal',
-            'Failed to create checkout session.',
-            error.message
-        );
-    }
+        } catch (error) {
+            console.error('Error creating Stripe Checkout Session:', error);
+            throw new functions.https.HttpsError(
+                'internal',
+                'Failed to create checkout session.',
+                error.message
+            );
+        }
+    });
 });
-
 
 // (Optional) Stripe Webhook Endpoint for Kids Plan
 app.post('/webhooks/stripe', express.raw({type: 'application/json'}), (request, response) => {
