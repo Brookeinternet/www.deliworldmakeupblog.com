@@ -89,7 +89,7 @@ app.post('/webhooks/stripe', express.raw({type: 'application/json'}), (request, 
   if ( event.type === 'checkout.session.completed' ) {
     const session = event.data.object;
     console.log('Kids Plan payment completed for:', session.customer_details ? session.customer_details.email : 'N/A', 'Client reference ID:', session.client_reference_id);
-    // --- IMPORTANT: Update your Firebase/database here to mark as VIP subscriber ---
+    // --- IMPORTANT: Update your Firebase/database here to mark as Kids subscriber ---
   } else {
     console.log(`Unhandled event type ${event.type}`);
   }
